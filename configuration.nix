@@ -81,6 +81,7 @@ in
     basedpyright
     bash-language-server
     nixd
+    nixos-anywhere
     rust-analyzer
 		protonvpn-gui
 		podman-compose

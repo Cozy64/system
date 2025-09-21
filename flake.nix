@@ -95,6 +95,7 @@
         ./old/disko-bios.nix
         ./old/grub.nix
         ./home-manager.nix
+        ./hardware-intel.nix
 
         ({ pkgs, ... }: {
           nixpkgs.config.packageOverrides = pkgs: {
