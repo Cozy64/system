@@ -144,11 +144,11 @@
 			PS1=$PS1 
 			fi
 				#alias boot="sudo nixos-rebuild boot"
-				alias boot="sudo nixos-rebuild boot --flake /home/cozy/#rust"
+				alias boot="sudo nixos-rebuild boot --flake /home/cozy/flakes#rust"
 				alias fhs="export PS1='\[$(tput setaf 1)\]\u@\h \W> \[$(tput sgr0)\]' export LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH:$LD_LIBRARY_PATH"
 				alias list="sudo nixos-rebuild list-generations"
 				alias hibernate="systemctl hibernate"
-				alias switch="sudo nixos-rebuild switch --flake /home/cozy/#rust"
+				alias switch="sudo nixos-rebuild switch --flake /home/cozy/flakes#rust"
 				alias update="nix flake update"
 				alias metadata="nix flake metadata /home/cozy/flakes"
 				alias garbage="sudo nix-collect-garbage -d"
