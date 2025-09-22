@@ -5,7 +5,6 @@
 { pkgs,lib,   ... }:
 {
 
-  zramSwap.enable = true;
   hardware = {
 		amdgpu = {
 			opencl.enable = true;

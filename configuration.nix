@@ -439,6 +439,7 @@ in
     ];
   };
 
+  zramSwap.enable = true;
 
   services = {
 
