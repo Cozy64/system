@@ -35,7 +35,7 @@
       specialArgs = { inherit oldPkgs inputs; };
       modules = [
         home-manager.nixosModules.default
-        ./minimal-intel.nix
+        ./intel.nix
         ./systemd.nix
         ./home-manager.nix
 

@@ -71,6 +71,7 @@ in
   #    runScript = "godot4";
   #  })
 		#nodePackages_latest.ts-no    
+    monero-gui
     monero-cli
     p2pool
     xmrig
@@ -80,6 +81,7 @@ in
     basedpyright
     bash-language-server
     nixd
+    nixos-anywhere
     rust-analyzer
 		protonvpn-gui
 		podman-compose
@@ -87,6 +89,7 @@ in
 		gtk3
 		auto-cpufreq
     ags
+		radeontop
 		wl-clicker
 		patchelf
 		bc
@@ -106,27 +109,37 @@ in
 		pywal
 		matugen
 		pcmanfm
+		waybar
 		#new-bottles
 		pavucontrol
 		sbctl
 		#wpsoffice
 		powertop
 		wf-recorder
+    hyprpaper
 		selectdefaultapplication
 		tradingview
+		github-desktop
 		gitkraken
 		php
+		#mysql-workbench
 		go
+		#zed-editor
+		google-chrome
 		pnpm
 		wvkbd
 		rot8
 		fd
 		postman
 		yarn
+		brightnessctl
 		swaybg
+		#podman-desktop
 		adwaita-icon-theme
+		batsignal
 		lf
 		networkmanagerapplet
+		#onedrivegui
 		shared-mime-info
 		grimblast
 		rofi
@@ -156,7 +169,7 @@ in
 		imv
 		#feh
 		#sxiv
-		nvtopPackages.intel
+		nvtopPackages.amd
 		btop
 		helvum
 		#aseprite
@@ -297,6 +310,112 @@ in
       #docker.enable = true;
 	};
 
+  i18n.inputMethod = {
+	enable = true;
+	type = "fcitx5";
+    fcitx5 = {
+			#plasma6Support = true;
+    	waylandFrontend = true;
+    	addons = with pkgs; [
+      fcitx5-chinese-addons
+    	];
+	};
+  };
+  fonts = {
+    fontDir.enable = true;
+
+    #fontconfig.defaultFonts = {
+    #  emoji = [ "Noto Color Emoji" ];
+    #  monospace = [ "Source Han Mono" ];
+    #  sansSerif = [ "Noto Sans CJK SC" ];
+    #  serif = [ "Source Han Serif" ];
+    #};
+    packages = with pkgs; [
+			nerd-fonts._0xproto
+			nerd-fonts._3270
+			nerd-fonts.agave
+			nerd-fonts.anonymice
+			nerd-fonts.arimo
+			nerd-fonts.aurulent-sans-mono
+			nerd-fonts.bigblue-terminal
+			nerd-fonts.bitstream-vera-sans-mono
+			nerd-fonts.blex-mono
+			nerd-fonts.caskaydia-cove
+			nerd-fonts.caskaydia-mono
+			nerd-fonts.code-new-roman
+			nerd-fonts.comic-shanns-mono
+			nerd-fonts.commit-mono
+			nerd-fonts.cousine
+			nerd-fonts.d2coding
+			nerd-fonts.daddy-time-mono
+			nerd-fonts.departure-mono
+			nerd-fonts.dejavu-sans-mono
+			nerd-fonts.droid-sans-mono
+			nerd-fonts.envy-code-r
+			nerd-fonts.fantasque-sans-mono
+			nerd-fonts.fira-code
+			nerd-fonts.fira-mono
+			nerd-fonts.geist-mono
+			nerd-fonts.go-mono
+			nerd-fonts.gohufont
+			nerd-fonts.hack
+			nerd-fonts.hasklug
+			nerd-fonts.heavy-data
+			nerd-fonts.hurmit
+			nerd-fonts.im-writing
+			nerd-fonts.inconsolata
+			nerd-fonts.inconsolata-go
+			nerd-fonts.inconsolata-lgc
+			nerd-fonts.intone-mono
+			nerd-fonts.iosevka
+			nerd-fonts.iosevka-term
+			nerd-fonts.iosevka-term-slab
+			nerd-fonts.jetbrains-mono
+			nerd-fonts.lekton
+			nerd-fonts.liberation
+			nerd-fonts.lilex
+			nerd-fonts.martian-mono
+			nerd-fonts.meslo-lg
+			nerd-fonts.monaspace
+			nerd-fonts.monofur
+			nerd-fonts.monoid
+			nerd-fonts.mononoki
+			nerd-fonts."m+"
+			nerd-fonts.noto
+			nerd-fonts.open-dyslexic
+			nerd-fonts.overpass
+			nerd-fonts.profont
+			nerd-fonts.proggy-clean-tt
+			nerd-fonts.recursive-mono
+			nerd-fonts.roboto-mono
+			nerd-fonts.shure-tech-mono
+			nerd-fonts.sauce-code-pro
+			nerd-fonts.space-mono
+			nerd-fonts.symbols-only
+			nerd-fonts.terminess-ttf
+			nerd-fonts.tinos
+			nerd-fonts.ubuntu
+			nerd-fonts.ubuntu-mono
+			nerd-fonts.ubuntu-sans
+			nerd-fonts.victor-mono
+			nerd-fonts.zed-mono
+			font-awesome
+      noto-fonts
+      noto-fonts-extra
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+      noto-fonts-emoji
+      noto-fonts-color-emoji
+			noto-fonts-monochrome-emoji
+			noto-fonts-emoji-blob-bin
+      source-code-pro
+      source-han-mono
+      source-han-sans
+      source-han-serif
+      wqy_zenhei
+			corefonts
+    ];
+  };
 
 
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -349,10 +468,6 @@ in
   };
 
   zramSwap.enable = true;
-    swapDevices = [{
-    device = "/swapfile";
-    size = 4 * 1024; # 16GB
-  }];
 	#powerManagement = {
 	#	enable = true;
 	#	#powertop.enable = true;
@@ -360,11 +475,18 @@ in
 	#};
 
   hardware = {
+		amdgpu = {
+			opencl.enable = true;
+			initrd.enable = true;
+		};
     enableAllFirmware = true;
     enableAllHardware = true;
 		cpu = {
-      intel.updateMicrocode = true;
 			x86.msr.enable = true;
+			amd = {
+				updateMicrocode = true;
+				ryzen-smu.enable = true;
+      };
 		};
     bluetooth= {
       enable = true;
@@ -397,6 +519,7 @@ in
 		gnome.gnome-keyring.enable = true;
 		#dbus.implementation = "broker";
     envfs.enable = true;
+    flatpak.enable = true;
     #onedrive.enable = true;
 		tlp = {
 			enable = true;
@@ -498,10 +621,40 @@ in
 				#AllowUsers = null; # Allows all users by default. Can be [ "user1" "user2" ]
 				#UseDns = true;
 				#X11Forwarding = false;
-				PermitRootLogin = "prohibit-password";
+				PermitRootLogin = "yes";
 			};
 
 		};
+		#dbus.packages = [
+		#];
+		#monero = {
+		#	enable = true;
+		#	extraConfig = "prune-blockchain=1";
+			#mining = {
+			#	enable = true;
+			#	address = "453XXk7sAze4NfeaubG7LyDWdwB6fJeWNQ2BXyo11vwTedSQkPqdpuECyJ9TyydybYiFJsdASfRkQSLqU36Xk6Vq1RmharA";
+			#};
+			
+		#};
+
+		#udev.packages = with pkgs; [
+		#	swayosd
+		#];
+    displayManager = {
+		#sddm = {
+		#	 enable = true;
+		#	 theme="catppuccin-mocha";
+			 
+		#	 package = pkgs.kdePackages.sddm;
+		#	 wayland.enable = true;
+		#	 wayland.compositor = "kwin";
+			 #enableHidpi = false;
+		#};
+		 ly = {
+       enable = true;
+     };
+		};
+
     upower = {
       enable = true;
       percentageLow = 20;
@@ -548,7 +701,9 @@ in
 	#		};
 	#	};
 	#};
+	file-roller.enable = true;
 	dconf.enable = true;
+	gamescope.enable = true;
 	#ssh.startAgent = true;
 		foot = {
 			enable = true;
@@ -662,6 +817,16 @@ in
       enable = true;
 			#package = 
     };
+	hyprland = {
+		enable = true;
+		#withUWSM = true;
+		#systemd.setPath.enable = true;
+		#package = stable.hyprland;
+		#portalPackage = stable.xdg-desktop-portal-hyprland;
+	};
+	#waybar = {
+	#	enable = true;
+	#};
 
     
   };
@@ -685,6 +850,7 @@ in
     extraGroups = [ "podman" "wheel" "adbusers" "kvm" "wireshark" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [];
   };
+
 
 
 }
