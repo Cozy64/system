@@ -299,8 +299,8 @@ in
     ];
   };
 
-  zramSwap.enable = true;
 
+  zramSwap.enable = true;
   services = {
 
 		
@@ -314,9 +314,6 @@ in
     envfs.enable = true;
     flatpak.enable = true;
     #onedrive.enable = true;
-		};
-
-
     upower = {
       enable = true;
       percentageLow = 20;

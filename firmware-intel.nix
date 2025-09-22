@@ -32,14 +32,6 @@
 			  STOP_CHARGE_THRESH_BAT1=90;
 			  PLATFORM_PROFILE_ON_AC="performance";
 			  PLATFORM_PROFILE_ON_BAT="quiet";
-			  RADEON_DPM_PERF_LEVEL_ON_AC="auto"; #this shit nerfs my suspend on high
-			  RADEON_DPM_PERF_LEVEL_ON_BAT="low";
-			  RADEON_DPM_STATE_ON_AC="performance"; 
-			  RADEON_DPM_STATE_ON_BAT="battery";
-			  RADEON_POWER_PROFILE_ON_AC="high";
-			  RADEON_POWER_PROFILE_ON_BAT="low";
-			  AMDGPU_ABM_LEVEL_ON_AC=0; 
-	 		  AMDGPU_ABM_LEVEL_ON_BAT=3; #setting to 3 makes my screen look ugly as fuck
 			  CPU_SCALING_GOVERNOR_ON_AC="performance";
 			  CPU_SCALING_GOVERNOR_ON_BAT="powersave";
 			  CPU_SCALING_MAX_FREQ_ON_BAT=1400000;
@@ -49,6 +41,23 @@
 			  CPU_DRIVER_OPMODE_ON_BAT="active";
 			  CPU_BOOST_ON_AC=1;
 			  CPU_BOOST_ON_BAT=0;
+
+        CPU_SCALING_MIN_FREQ_ON_AC=0;
+				CPU_SCALING_MAX_FREQ_ON_AC=9999999;
+				CPU_SCALING_MIN_FREQ_ON_BAT=0;
+				INTEL_GPU_MIN_FREQ_ON_AC=0;
+				INTEL_GPU_MIN_FREQ_ON_BAT=0;
+				INTEL_GPU_MAX_FREQ_ON_AC=0;
+				INTEL_GPU_MAX_FREQ_ON_BAT=0;
+				INTEL_GPU_BOOST_FREQ_ON_AC=0;
+				INTEL_GPU_BOOST_FREQ_ON_BAT=0;
+				CPU_HWP_DYN_BOOST_ON_AC=1; 
+				CPU_HWP_DYN_BOOST_ON_BAT=0; 
+				CPU_MIN_PERF_ON_AC=0; 
+				CPU_MAX_PERF_ON_AC=100; 
+				CPU_MIN_PERF_ON_BAT=0; 
+				CPU_MAX_PERF_ON_BAT=30; 
+
 			};
 		};
 
@@ -57,18 +66,11 @@
   };
 
   hardware = {
-		amdgpu = {
-			opencl.enable = true;
-			initrd.enable = true;
-		};
     enableAllFirmware = true;
     enableAllHardware = true;
 		cpu = {
+      intel.updateMicrocode = true;
 			x86.msr.enable = true;
-			amd = {
-				updateMicrocode = true;
-				ryzen-smu.enable = true;
-      };
 		};
     bluetooth= {
       enable = true;
@@ -93,5 +95,4 @@
 
 
 }
-
 
