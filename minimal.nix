@@ -275,7 +275,6 @@ in
     envfs.enable = true;
     #onedrive.enable = true;
 
-		};
     upower = {
       enable = true;
       percentageLow = 20;
