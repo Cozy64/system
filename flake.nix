@@ -73,9 +73,11 @@
         ./boot.nix
         ./firmware-intel.nix
         ./home-manager.nix
+        ./displaymanager.nix
         ./ssh.nix
         ./swapfile.nix
         ./pipewire.nix
+	./disk-miner.nix
 
 
         ({ pkgs, ... }: {
