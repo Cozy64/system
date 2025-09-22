@@ -37,7 +37,7 @@
         home-manager.nixosModules.default
         ./base.nix
         ./virtualisation.nix
-        ./systemd.nix
+        ./boot.nix
         ./home-manager.nix
         ./disk-amd.nix
         ./firmware-amd.nix
@@ -70,10 +70,11 @@
       modules = [
         home-manager.nixosModules.default
         ./base.nix
-        ./systemd.nix
+        ./boot.nix
         ./firmware-intel.nix
         ./home-manager.nix
         ./ssh.nix
+        ./swapfile.nix
 
 
         ({ pkgs, ... }: {
@@ -106,6 +107,7 @@
         ./firmware-intel.nix
         ./disk-intel.nix
         ./ssh.nix
+        ./swapfile.nix
 
         ({ pkgs, ... }: {
           nixpkgs.config.packageOverrides = pkgs: {
