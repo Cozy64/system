@@ -63,6 +63,7 @@
       modules = [
         home-manager.nixosModules.default
         ./configuration.nix
+        ./virtualisation.nix
         ./systemd.nix
         ./home-manager.nix
         ./hardware-amd.nix
