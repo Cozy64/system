@@ -39,7 +39,7 @@
         ./virtualisation.nix
         ./boot.nix
         ./home-manager.nix
-        ./disk-amd.nix
+        ./disk-rust.nix
         ./firmware-amd.nix
         ./ssh.nix
         ./language.nix
@@ -77,7 +77,7 @@
         ./ssh.nix
         ./swapfile.nix
         ./pipewire.nix
-	./disk-miner.nix
+	      ./disk-miner.nix
 
 
         ({ pkgs, ... }: {
@@ -107,7 +107,7 @@
         ./old/disko-bios.nix
         ./old/grub.nix
         ./firmware-intel.nix
-        ./disk-intel.nix
+        ./disk-oldminer.nix
         ./ssh.nix
         ./swapfile.nix
 
