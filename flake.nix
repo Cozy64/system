@@ -68,6 +68,7 @@
         ./home-manager.nix
         ./disk-amd.nix
         ./firmware-amd.nix
+        ./ssh.nix
 
         ({ pkgs, ... }: {
           nixpkgs.config.packageOverrides = pkgs: {
