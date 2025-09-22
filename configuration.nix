@@ -71,6 +71,7 @@ in
   #    runScript = "godot4";
   #  })
 		#nodePackages_latest.ts-no    
+    tmux
     monero-gui
     monero-cli
     p2pool
@@ -169,7 +170,7 @@ in
 		imv
 		#feh
 		#sxiv
-		nvtopPackages.amd
+		nvtopPackages.full
 		btop
 		helvum
 		#aseprite
@@ -468,12 +469,6 @@ in
   };
 
   zramSwap.enable = true;
-	#powerManagement = {
-	#	enable = true;
-	#	#powertop.enable = true;
-	#	cpuFreqGovernor = "powersave";
-	#};
-
   hardware = {
 		amdgpu = {
 			opencl.enable = true;

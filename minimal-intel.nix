@@ -5,19 +5,8 @@
 { pkgs,lib,   ... }:
 let
   	stable = import <nixos-stable> {config = { allowUnfree = true;};}; 
-		#sources = import /home/cozy/nix/sources.nix;
-		#lanzaboote = import sources.lanzaboote;
 in
 {
-	#nixpkgs.overlays = [
-	#	(final: prev: {
-	#		vlc = prev.vlc.override {
-	#			waylandSupport = true;
-	#		};
-	#	})
-#
-#	];
-
 
 
 
@@ -31,47 +20,13 @@ in
 	  #LD_LIBRARY_PATH = lib.mkForce"$NIX_LD_LIBRARY_PATH:$LD_LIBRARY_PATH";	
 		XDG_RUNTIME_DIR = "/run/user/$UID";
 		NIXOS_OZONE_WL="1";
-		#AMD_VULKAN_ICD = "RADV";
-		#PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig:${pkgs.hidapi}/lib/pkgconfig";
-		#XDG_SESSION_TYPE="wayland";
-		#XDG_CURRENT_DESKTOP="Hyprland";
-		#MOZ_ENABLE_WAYLAND="1";
-		#MOZ_WEBRENDERER="1";
-		#SDL_VIDEODRIVER="x11";
-		#GCM_CREDENTIAL_STORE="gpg";
-		#XMODIFIERS="@im=fcitx";
-		#SDL_IM_MODULE="fcitx";
-		#INPUT_METHOD="fcitx";
-		#GLFW_IM_MODULE="fcitx";
-		#XCURSOR_SIZE="24";
-		#HYPRCURSOR_SIZE="24";
-		#HYPRCURSOR_THEME="HyprBibataModernClassicSVG";
-		#QT_QPA_PLATFORM="wayland";
-		#QT_QPA_PLATFORMTHEME="kde";
-		#QT_STYLE_OVERRIDE="adwaita-dark";
-		#WINEESYNC="0";
-		#TMPDIR="/var/tmp";
-
 
     };
 
   systemPackages = with pkgs; [
 		
-		#tableplus
-   #(pkgs.buildFHSEnv {
-   #   name = "godot-fhs";
-   #   targetPkgs = pkgs: with pkgs; [
-	#			godot_4
-  #      stdenv.cc.cc  # Adds missing runtime libraries
-  #      #alsa-lib       # Fixes sound issues
-  #      #libGL         # OpenGL support
-  #      #libxkbcommon  # Fixes keyboard input
-  #    ];
-  #    #runScript = "${pkgs.godot_4}/bin/godot4";
-  #    runScript = "godot4";
-  #  })
-		#nodePackages_latest.ts-no    
     monero-cli
+    tmux
     p2pool
     xmrig
     dunst
@@ -92,12 +47,6 @@ in
 		bc
 		rocmPackages.rocminfo
 		git-credential-manager
-		kdePackages.kcalc
-		#kdePackages.dolphin
-		#kdePackages.qtsvg
-		#kdePackages.kio-fuse
-		#kdePackages.kio-extras
-		#conda
 		conda
 		ngrok
 		kdePackages.filelight
@@ -134,14 +83,9 @@ in
 		qbittorrent
 		nixd
 		nnn
-		discord
-		discord-canary
-		sqlitebrowser
-		wireshark
 		krita
 		gimp3-with-plugins
 		#bitwig-studio
-		musescore
 		mpv
 		yt-dlp
 		cava
