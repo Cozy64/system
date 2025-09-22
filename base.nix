@@ -134,26 +134,20 @@ in
 		wireshark
 		krita
 		gimp3-with-plugins
-		#bitwig-studio
 		musescore
 		mpv
 		yt-dlp
 		cava
 		fastfetch
-		#libreoffice-fresh
 		zoxide
 		wineWowPackages.waylandFull
-		#wineWowPackages.stagingFull
 		nmap
 		pulsemixer
 		telegram-desktop
 		imv
-		#feh
-		#sxiv
 		nvtopPackages.full
 		btop
 		helvum
-		#aseprite
 		gparted
 		bluetuith
 		vscode-fhs

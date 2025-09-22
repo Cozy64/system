@@ -53,7 +53,7 @@
           };
 
           environment.systemPackages = [
-            #oldPkgs.bitwig-studio
+            oldPkgs.bitwig-studio
           ];
 
   
@@ -72,6 +72,7 @@
         ./systemd.nix
         ./firmware-intel.nix
         ./home-manager.nix
+        ./ssh.nix
 
 
         ({ pkgs, ... }: {
@@ -103,6 +104,7 @@
         ./home-manager.nix
         ./firmware-intel.nix
         ./disk-intel.nix
+        ./ssh.nix
 
         ({ pkgs, ... }: {
           nixpkgs.config.packageOverrides = pkgs: {
