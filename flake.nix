@@ -75,6 +75,7 @@
         ./home-manager.nix
         ./ssh.nix
         ./swapfile.nix
+        ./pipewire.nix
 
 
         ({ pkgs, ... }: {
@@ -108,6 +109,7 @@
         ./disk-intel.nix
         ./ssh.nix
         ./swapfile.nix
+        ./pipewire.nix
 
         ({ pkgs, ... }: {
           nixpkgs.config.packageOverrides = pkgs: {
