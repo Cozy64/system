@@ -439,40 +439,6 @@ in
     ];
   };
 
-  zramSwap.enable = true;
-  hardware = {
-		amdgpu = {
-			opencl.enable = true;
-			initrd.enable = true;
-		};
-    enableAllFirmware = true;
-    enableAllHardware = true;
-		cpu = {
-			x86.msr.enable = true;
-			amd = {
-				updateMicrocode = true;
-				ryzen-smu.enable = true;
-      };
-		};
-    bluetooth= {
-      enable = true;
-			powerOnBoot = false;
-    };
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-      extraPackages = with pkgs; [
-      	#rocmPackages.clr.icd
-        #vaapiVdpau
-        #libvdpau-va-gl
-      ];
-			extraPackages32 = with pkgs.driversi686Linux; [
-      	#rocmPackages.clr.icd
-      	#libvdpau-va-gl
-
-			];
-    };
-   };
 
   services = {
 
@@ -538,47 +504,26 @@ in
 
 #intel exclusive below
 
-				CPU_SCALING_MIN_FREQ_ON_AC=0;
-				CPU_SCALING_MAX_FREQ_ON_AC=9999999;
-				CPU_SCALING_MIN_FREQ_ON_BAT=0;
-				INTEL_GPU_MIN_FREQ_ON_AC=0;
-				INTEL_GPU_MIN_FREQ_ON_BAT=0;
-				INTEL_GPU_MAX_FREQ_ON_AC=0;
-				INTEL_GPU_MAX_FREQ_ON_BAT=0;
-				INTEL_GPU_BOOST_FREQ_ON_AC=0;
-				INTEL_GPU_BOOST_FREQ_ON_BAT=0;
-				CPU_HWP_DYN_BOOST_ON_AC=1; 
-				CPU_HWP_DYN_BOOST_ON_BAT=0; 
-				CPU_MIN_PERF_ON_AC=0; 
-				CPU_MAX_PERF_ON_AC=100; 
-				CPU_MIN_PERF_ON_BAT=0; 
-				CPU_MAX_PERF_ON_BAT=30; 
+				#CPU_SCALING_MIN_FREQ_ON_AC=0;
+				#CPU_SCALING_MAX_FREQ_ON_AC=9999999;
+				#CPU_SCALING_MIN_FREQ_ON_BAT=0;
+				#INTEL_GPU_MIN_FREQ_ON_AC=0;
+				#INTEL_GPU_MIN_FREQ_ON_BAT=0;
+				#INTEL_GPU_MAX_FREQ_ON_AC=0;
+				#INTEL_GPU_MAX_FREQ_ON_BAT=0;
+				#INTEL_GPU_BOOST_FREQ_ON_AC=0;
+				#INTEL_GPU_BOOST_FREQ_ON_BAT=0;
+				#CPU_HWP_DYN_BOOST_ON_AC=1; 
+				#CPU_HWP_DYN_BOOST_ON_BAT=0; 
+				#CPU_MIN_PERF_ON_AC=0; 
+				#CPU_MAX_PERF_ON_AC=100; 
+				#CPU_MIN_PERF_ON_BAT=0; 
+				#CPU_MAX_PERF_ON_BAT=30; 
 
 
 			};
 		};
 
-		#auto-cpufreq = {
-		#	enable = true;
-		#	settings = {
-		#		battery = {
-		#			governor = "powersave";
-		#			platform_profile = "quiet";
-		#			energy_performance_preference ="power";
-		#			turbo = "never";
-		#			enable_thresholds =true;
-		#			start_threshold =80;
-		#			stop_threshold =90;
-#
-#				};
-#				charger = {
-#					governor = "performance";
-#					platform_profile = "performance";
-#					energy_performance_preference = "performance";
-#					turbo = "auto";
-#				};
-#			};
-#		};
 		openssh = {
 			enable = true;
 			ports = [ 6969 ];
@@ -591,21 +536,6 @@ in
 			};
 
 		};
-		#dbus.packages = [
-		#];
-		#monero = {
-		#	enable = true;
-		#	extraConfig = "prune-blockchain=1";
-			#mining = {
-			#	enable = true;
-			#	address = "453XXk7sAze4NfeaubG7LyDWdwB6fJeWNQ2BXyo11vwTedSQkPqdpuECyJ9TyydybYiFJsdASfRkQSLqU36Xk6Vq1RmharA";
-			#};
-			
-		#};
-
-		#udev.packages = with pkgs; [
-		#	swayosd
-		#];
     displayManager = {
 		#sddm = {
 		#	 enable = true;
@@ -798,11 +728,6 @@ in
   };
 
 
-	#qt = {
-	#	enable = true;
-	#	platformTheme = "gtk3";
-	#	style = "adwaita-dark";
-	#};
   
 
 

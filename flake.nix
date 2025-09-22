@@ -66,6 +66,7 @@
         ./virtualisation.nix
         ./systemd.nix
         ./home-manager.nix
+        ./disk-amd.nix
         ./hardware-amd.nix
 
         ({ pkgs, ... }: {
