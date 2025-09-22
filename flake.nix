@@ -69,6 +69,8 @@
         ./disk-amd.nix
         ./firmware-amd.nix
         ./ssh.nix
+        ./language.nix
+        ./displaymanager.nix
 
         ({ pkgs, ... }: {
           nixpkgs.config.packageOverrides = pkgs: {
