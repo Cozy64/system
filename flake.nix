@@ -1,5 +1,5 @@
 {
-  description = "Rust system with disko + home-manager";
+  description = "Flake Systems";
 
   inputs = {
     # Nixpkgs channels
@@ -35,7 +35,7 @@
       specialArgs = { inherit oldPkgs inputs; };
       modules = [
         home-manager.nixosModules.default
-        ./old/intel.nix
+        ./minimal-intel.nix
         ./systemd.nix
         ./home-manager.nix
 
@@ -91,7 +91,7 @@
       modules = [
         home-manager.nixosModules.default
         disko.nixosModules.disko
-        ./old/intel.nix
+        ./minimal-intel.nix
         ./old/disko-bios.nix
         ./old/grub.nix
         ./home-manager.nix
