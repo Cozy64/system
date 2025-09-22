@@ -44,6 +44,7 @@
         ./ssh.nix
         ./language.nix
         ./displaymanager.nix
+        ./printing.nix
 
         ({ pkgs, ... }: {
           nixpkgs.config.packageOverrides = pkgs: {
