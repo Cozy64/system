@@ -101,15 +101,13 @@
       modules = [
         home-manager.nixosModules.default
         disko.nixosModules.disko
-        ./base.nix
+        ./minimal.nix
         ./old/disko-bios.nix
         ./old/grub.nix
-        ./home-manager.nix
         ./firmware-intel.nix
         ./disk-intel.nix
         ./ssh.nix
         ./swapfile.nix
-        ./pipewire.nix
 
         ({ pkgs, ... }: {
           nixpkgs.config.packageOverrides = pkgs: {
