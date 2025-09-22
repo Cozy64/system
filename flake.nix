@@ -30,39 +30,12 @@
     oldPkgs = import oldnixpkgs { inherit system; config.allowUnfree = true; };
   in {
 
-    nixosConfigurations.miner = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = { inherit oldPkgs inputs; };
-      modules = [
-        home-manager.nixosModules.default
-        ./intel.nix
-        ./systemd.nix
-        ./home-manager.nix
-
-
-        ({ pkgs, ... }: {
-          nixpkgs.config.packageOverrides = pkgs: {
-            new-bottles = pkgs.bottles.overrideAttrs (oldAttrs: {
-              src = inputs.new-bottles;
-            });
-          };
-
-          environment.systemPackages = [
-            #oldPkgs.bitwig-studio
-          ];
-
-          networking.hostName = "miner";
-
-        })
-      ];
-    };
-
     nixosConfigurations.rust = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = { inherit oldPkgs inputs; };
       modules = [
         home-manager.nixosModules.default
-        ./configuration.nix
+        ./base.nix
         ./virtualisation.nix
         ./systemd.nix
         ./home-manager.nix
@@ -90,17 +63,46 @@
       ];
     };
 
+    nixosConfigurations.miner = nixpkgs.lib.nixosSystem {
+      inherit system;
+      specialArgs = { inherit oldPkgs inputs; };
+      modules = [
+        home-manager.nixosModules.default
+        ./base.nix
+        ./systemd.nix
+        ./firmware-intel.nix
+        ./home-manager.nix
+
+
+        ({ pkgs, ... }: {
+          nixpkgs.config.packageOverrides = pkgs: {
+            new-bottles = pkgs.bottles.overrideAttrs (oldAttrs: {
+              src = inputs.new-bottles;
+            });
+          };
+
+          environment.systemPackages = [
+            #oldPkgs.bitwig-studio
+          ];
+
+          networking.hostName = "miner";
+
+        })
+      ];
+    };
+
     nixosConfigurations.oldminer = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = { inherit oldPkgs inputs; };
       modules = [
         home-manager.nixosModules.default
         disko.nixosModules.disko
-        ./minimal-intel.nix
+        ./base.nix
         ./old/disko-bios.nix
         ./old/grub.nix
         ./home-manager.nix
-        ./hardware-intel.nix
+        ./firmware-intel.nix
+        ./disk-intel.nix
 
         ({ pkgs, ... }: {
           nixpkgs.config.packageOverrides = pkgs: {
