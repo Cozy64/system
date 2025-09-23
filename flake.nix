@@ -42,19 +42,19 @@
         home-manager.nixosModules.default
         inputs.lanzaboote.nixosModules.lanzaboote
         ./base.nix
-        ./virtualisation.nix
+        ./alias-slave.nix
         ./lanzaboote.nix
         ./home-manager.nix
         ./disk-slave.nix
         ./firmware-amd.nix
-        ./ssh.nix
-        ./language.nix
-        ./gui.nix
-        ./printing.nix
-        ./steam.nix
-        ./opentabletdriver.nix
-        ./rgb.nix
-        ./alias-slave.nix
+        ./modules/virtualisation.nix
+        ./modules/ssh.nix
+        ./modules/language.nix
+        ./modules/gui.nix
+        ./modules/printing.nix
+        ./modules/steam.nix
+        ./modules/opentabletdriver.nix
+        ./modules/rgb.nix
 
         ({ pkgs, ... }: {
           nixpkgs.config.packageOverrides = pkgs: {
@@ -80,16 +80,16 @@
       modules = [
         home-manager.nixosModules.default
         ./base.nix
-        ./virtualisation.nix
+        ./alias-rust.nix
         ./boot.nix
         ./home-manager.nix
         ./disk-rust.nix
         ./firmware-amd.nix
-        ./ssh.nix
-        ./language.nix
-        ./gui.nix
-        ./printing.nix
-        ./alias-rust.nix
+        ./modules/virtualisation.nix
+        ./modules/ssh.nix
+        ./modules/language.nix
+        ./modules/gui.nix
+        ./modules/printing.nix
 
         ({ pkgs, ... }: {
           nixpkgs.config.packageOverrides = pkgs: {
@@ -118,10 +118,10 @@
         ./boot-miner.nix
         ./firmware-intel.nix
         ./home-minimal.nix
-        ./ssh.nix
-        ./swapfile.nix
 	      ./disk-miner.nix
         ./alias-miner.nix
+        ./modules/swapfile.nix
+        ./modules/ssh.nix
 
 
         ({ pkgs, ... }: {
@@ -141,36 +141,6 @@
       ];
     };
 
-    nixosConfigurations.oldminer = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = { inherit oldPkgs inputs; };
-      modules = [
-        home-manager.nixosModules.default
-        disko.nixosModules.disko
-        ./minimal.nix
-        ./old/disko-bios.nix
-        ./old/grub.nix
-        ./firmware-intel.nix
-        ./disk-oldminer.nix
-        ./ssh.nix
-        ./swapfile.nix
-
-        ({ pkgs, ... }: {
-          nixpkgs.config.packageOverrides = pkgs: {
-            new-bottles = pkgs.bottles.overrideAttrs (oldAttrs: {
-              src = inputs.new-bottles;
-            });
-          };
-
-          environment.systemPackages = [
-            #oldPkgs.bitwig-studio
-          ];
-
-          networking.hostName = "oldminer";
-
-        })
-      ];
-    };
 
 
   };
