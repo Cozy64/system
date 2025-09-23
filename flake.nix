@@ -54,7 +54,7 @@
         ./steam.nix
         ./opentabletdriver.nix
         ./rgb.nix
-        ./alias.nix
+        ./alias-slave.nix
 
         ({ pkgs, ... }: {
           nixpkgs.config.packageOverrides = pkgs: {
@@ -89,6 +89,7 @@
         ./language.nix
         ./displaymanager.nix
         ./printing.nix
+        ./alias-rust.nix
 
         ({ pkgs, ... }: {
           nixpkgs.config.packageOverrides = pkgs: {
