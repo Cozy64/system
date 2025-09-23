@@ -115,7 +115,7 @@
       modules = [
         home-manager.nixosModules.default
         ./minimal.nix
-        ./boot.nix
+        ./boot-miner.nix
         ./firmware-intel.nix
         ./ssh.nix
         ./swapfile.nix
