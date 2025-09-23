@@ -13,6 +13,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Disko (for declarative partitioning / nixos-anywhere)
     disko.url = "github:nix-community/disko";
 
@@ -35,9 +40,10 @@
       specialArgs = { inherit oldPkgs inputs; };
       modules = [
         home-manager.nixosModules.default
+        inputs.lanzaboote.nixosModules.lanzaboote
         ./base.nix
         ./virtualisation.nix
-        ./boot.nix
+        ./lanzaboote.nix
         ./home-manager.nix
         ./disk-slave.nix
         ./firmware-amd.nix

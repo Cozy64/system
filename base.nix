@@ -50,6 +50,7 @@ in
   systemPackages = with pkgs; [
     tmux
     android-studio
+    msr-tools
     monero-gui
     monero-cli
     p2pool
