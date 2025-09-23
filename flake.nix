@@ -54,6 +54,7 @@
         ./steam.nix
         ./opentabletdriver.nix
         ./rgb.nix
+        ./alias.nix
 
         ({ pkgs, ... }: {
           nixpkgs.config.packageOverrides = pkgs: {
