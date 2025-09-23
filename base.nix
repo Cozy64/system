@@ -9,14 +9,6 @@ let
 		#lanzaboote = import sources.lanzaboote;
 in
 {
-	#nixpkgs.overlays = [
-	#	(final: prev: {
-	#		vlc = prev.vlc.override {
-	#			waylandSupport = true;
-	#		};
-	#	})
-#
-#	];
 
 
 
@@ -57,6 +49,7 @@ in
 
   systemPackages = with pkgs; [
     tmux
+    android-studio
     monero-gui
     monero-cli
     p2pool
@@ -96,6 +89,9 @@ in
 		sbctl
 		#wpsoffice
 		powertop
+    itch
+    godot_4
+    jetbrains.idea-community-bin
 		wf-recorder
     hyprpaper
 		selectdefaultapplication
@@ -103,6 +99,8 @@ in
 		github-desktop
 		gitkraken
 		php
+    blender-hip
+    prismlauncher
 		#mysql-workbench
 		go
 		#zed-editor
@@ -145,6 +143,10 @@ in
 		pulsemixer
 		telegram-desktop
 		imv
+    conda
+    obs-studio
+    onlyoffice-bin
+    teams-for-linux
 		nvtopPackages.full
 		btop
 		helvum
@@ -467,9 +469,6 @@ in
 		#package = stable.hyprland;
 		#portalPackage = stable.xdg-desktop-portal-hyprland;
 	};
-	#waybar = {
-	#	enable = true;
-	#};
 
     
   };

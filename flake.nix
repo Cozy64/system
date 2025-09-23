@@ -30,6 +30,42 @@
     oldPkgs = import oldnixpkgs { inherit system; config.allowUnfree = true; };
   in {
 
+    nixosConfigurations.slave = nixpkgs.lib.nixosSystem {
+      inherit system;
+      specialArgs = { inherit oldPkgs inputs; };
+      modules = [
+        home-manager.nixosModules.default
+        ./base.nix
+        ./virtualisation.nix
+        ./boot.nix
+        ./home-manager.nix
+        ./disk-slave.nix
+        ./firmware-amd.nix
+        ./ssh.nix
+        ./language.nix
+        ./displaymanager.nix
+        ./printing.nix
+        ./steam.nix
+        ./opentabletdriver.nix
+
+        ({ pkgs, ... }: {
+          nixpkgs.config.packageOverrides = pkgs: {
+            new-bottles = pkgs.bottles.overrideAttrs (oldAttrs: {
+              src = inputs.new-bottles;
+            });
+          };
+
+          environment.systemPackages = [
+            oldPkgs.bitwig-studio
+          ];
+
+  
+          networking.hostName = "slave";
+
+        })
+      ];
+    };
+
     nixosConfigurations.rust = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = { inherit oldPkgs inputs; };
