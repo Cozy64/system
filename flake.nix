@@ -123,6 +123,7 @@
         ./swapfile.nix
         ./pipewire.nix
 	      ./disk-miner.nix
+        ./alias-miner.nix
 
 
         ({ pkgs, ... }: {
