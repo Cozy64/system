@@ -117,7 +117,6 @@
         ./minimal.nix
         ./boot.nix
         ./firmware-intel.nix
-        ./home-manager.nix
         ./ssh.nix
         ./swapfile.nix
 	      ./disk-miner.nix
