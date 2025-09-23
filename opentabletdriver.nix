@@ -1,7 +1,7 @@
 {pkgs, ...}:
 {
 
-  programs = {
+  hardware = {
 
     opentabletdriver = {
 			enable = true;
