@@ -49,7 +49,7 @@
         ./firmware-amd.nix
         ./ssh.nix
         ./language.nix
-        ./displaymanager.nix
+        ./gui.nix
         ./printing.nix
         ./steam.nix
         ./opentabletdriver.nix
@@ -87,7 +87,7 @@
         ./firmware-amd.nix
         ./ssh.nix
         ./language.nix
-        ./displaymanager.nix
+        ./gui.nix
         ./printing.nix
         ./alias-rust.nix
 
@@ -114,14 +114,12 @@
       specialArgs = { inherit oldPkgs inputs; };
       modules = [
         home-manager.nixosModules.default
-        ./base.nix
+        ./minimal.nix
         ./boot.nix
         ./firmware-intel.nix
         ./home-manager.nix
-        ./displaymanager.nix
         ./ssh.nix
         ./swapfile.nix
-        ./pipewire.nix
 	      ./disk-miner.nix
         ./alias-miner.nix
 
