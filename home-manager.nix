@@ -7,8 +7,8 @@
 			hyprpaper = {
 				enable = true;
 				settings = {
-					preload = ["/home/cozy/wallpapers/newyorkblackwhite.jpg"];
-					wallpaper = [", /home/cozy/wallpapers/newyorkblackwhite.jpg"];
+					preload = ["/home/cozy/system/wallpapers/newyorkblackwhite.jpg"];
+					wallpaper = [", /home/cozy/system/wallpapers/newyorkblackwhite.jpg"];
 					
 				};
       };
