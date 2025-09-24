@@ -1,4 +1,4 @@
 {pkgs,...}:
 {
-  services.supergfx.enable = true;
+  services.supergfxd.enable = true;
 }

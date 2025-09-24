@@ -54,8 +54,9 @@
         ./modules/printing.nix
         ./modules/steam.nix
         ./modules/opentabletdriver.nix
-        #./modules/rgb.nix
-        ./modules/asusd.nix
+        ./modules/rgb.nix
+        ./modules/supergfxd.nix
+        #./modules/asusd.nix
 
         ({ pkgs, ... }: {
           nixpkgs.config.packageOverrides = pkgs: {
