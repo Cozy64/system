@@ -10,7 +10,8 @@
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" "usb_storage" "uas" "sd_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelParams = ["fbcon=font:VGA8x16" "default_hugepagesz=2M" "hugepagesz=1G" "hugepages=3"];
+  #boot.kernelParams = ["fbcon=font:VGA8x16" "default_hugepagesz=2M" "hugepagesz=1G" "hugepages=3"];
+  boot.kernelParams = ["fbcon=font:VGA8x16"] ;
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 	#boot.resumeDevice = "/dev/disk/by-uuid/c26a149b-94bf-4585-90da-e3ac33f628ee";
