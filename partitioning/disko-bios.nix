@@ -10,15 +10,6 @@
             size = "10M";
             type = "EF02"; # BIOS Boot partition
           };
-          esp = {
-            size = "1G";
-            type = "EF00"; # EFI System Partition
-            content = {
-              type = "filesystem";
-              format = "vfat";
-              mountpoint = "/boot";
-            };
-          };
           root = {
             size = "100%"; # use rest of disk except ESP
             content = {

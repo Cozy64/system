@@ -3,16 +3,10 @@
 # and in the NixOS manual (accessible by running `nixos-help`).
 
 { pkgs,lib,   ... }:
-let
-in
 {
-
-
-
 
   environment = {
 		variables = {
-		BEMENU_OPTS="-b -p '>' --fn 16 --bdr '#FFFFFF' --ab '#000000' --af '#666666' --nb '#000000' --nf '#666666' --tb '#000000' --tf '#FFFFFF' --fb '#000000' --ff '#FFFFFF' --hb '#000000' --hf '#FFFFFF'";
 		ANDROID_HOME="/home/cozy/Android/Sdk";
 		PATH="/home/cozy/.cargo/bin:/home/cozy/.local/bin:/home/cozy/.deno/bin:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$PATH";
     GSETTINGS_SCHEMA_DIR="${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}/glib-2.0/schemas";
@@ -26,137 +20,55 @@ in
 		
     monero-cli
     tmux
-    p2pool
-    xmrig
-    vscode-langservers-extracted
-    typescript-language-server
-    basedpyright
-    bash-language-server
-    nixd
-    rust-analyzer
-		protonvpn-gui
-		podman-compose
-		sbt-with-scala-native
-		gtk3
-		auto-cpufreq
-    ags
-		wl-clicker
 		patchelf
 		bc
 		rocmPackages.rocminfo
-		git-credential-manager
-		conda
-		ngrok
-		kdePackages.filelight
     solana-cli
-		swww
-		pywal
-		matugen
-		pcmanfm
-		#new-bottles
-		pavucontrol
-		sbctl
-		#wpsoffice
 		powertop
-		wf-recorder
-		selectdefaultapplication
-		tradingview
-		gitkraken
 		php
 		go
 		pnpm
 		wvkbd
 		rot8
 		fd
-		postman
-		yarn
-		swaybg
-		adwaita-icon-theme
 		lf
-		networkmanagerapplet
-		shared-mime-info
 		rofi
 		rofimoji
 		nixd
 		nnn
-		krita
-		gimp3-with-plugins
-		#bitwig-studio
-		mpv
 		yt-dlp
 		cava
 		fastfetch
-		#libreoffice-fresh
-		zoxide
-		wineWowPackages.waylandFull
-		#wineWowPackages.stagingFull
 		nmap
-		pulsemixer
 		imv
-		#feh
-		#sxiv
-		nvtopPackages.full
 		btop
-		helvum
-		#aseprite
-		gparted
-		bluetuith
-		vscode-fhs
 		niv
 		fzf
-		xorg.xeyes
-		wayland-utils
-		libnotify
 		lua
-		xorg.xev
-		xorg.xhost
 		ripgrep
 		rustup
-		appimage-run
 		iw
-		waypipe
 		unar
 		vulkan-tools
 		glxinfo
-		bluez-tools
 		p7zip
-		winetricks
 		mangohud
-		ffmpeg_6-full
 		nix-index
 		distrobox
 		killall
 		zip
 		unzip
-		#lmms
 		deno
 		wtype
 		wget
 		file
 		pamixer
-		nodejs_20
-		bemenu
-		bemoji
 		wl-clipboard
 		libwebp
-		imagemagickBig
 		ncdu
 		clinfo
 		gcc
     typescript
-		python312
-		#(python311.withPackages(ps: with ps; [torch torchvision setuptools srt openai-whisper]))
-		python313Packages.gpustat
-		#python313Packages.pyautogui
-		#python313Packages.pip
-		mangohud
-		#(catppuccin-sddm.override {
-		#	flavor = "mocha";
-		#	font  = "Noto Sans";
-		#	#fontSize = "20";
-		#	background = "${/home/cozy/wallpapers/energy.png}";
-		#	loginBackground = true;
-  	#})
   ];
 
     interactiveShellInit = ''
@@ -192,12 +104,6 @@ in
 	#];
 
   };
-	xdg.mime = {
-		enable = true;
-		defaultApplications = {
-			"inode/directory" = "pcmanfm.desktop";
-		};
-	};
 
   nixpkgs.config.allowUnfree = true; 
 	nixpkgs.config.allowUnsupportedSystem = true;
@@ -419,10 +325,6 @@ in
 
       };
 
-    java = {
-      enable = true;
-			#package = 
-    };
 
     
   };

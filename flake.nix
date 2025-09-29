@@ -116,6 +116,8 @@
       specialArgs = { inherit oldPkgs inputs; };
       modules = [
         home-manager.nixosModules.default
+        #disko.nixosModules.disko
+        #./hardware-configuration.nix
         ./minimal.nix
         ./boot-miner.nix
         ./firmware-intel.nix
