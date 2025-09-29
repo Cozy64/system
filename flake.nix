@@ -121,7 +121,6 @@
         ./minimal.nix
         ./boot-miner.nix
         ./firmware-intel.nix
-        ./home-minimal.nix
 	      ./disk-miner.nix
         ./alias-miner.nix
         ./modules/swapfile.nix
