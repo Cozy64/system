@@ -118,6 +118,7 @@
         home-manager.nixosModules.default
         #disko.nixosModules.disko
         #./hardware-configuration.nix
+        #./partitioning/disko-efi.nix
         ./minimal.nix
         ./boot-miner.nix
         ./firmware-intel.nix
