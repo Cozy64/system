@@ -18,6 +18,7 @@
 
   systemPackages = with pkgs; [
 		
+    dmidecode
     monero-cli
     tmux
 		patchelf

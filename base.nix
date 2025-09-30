@@ -48,6 +48,7 @@ in
     };
 
   systemPackages = with pkgs; [
+    dmidecode
     tmux
     android-studio
     msr-tools
