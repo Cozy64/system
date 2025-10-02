@@ -10,7 +10,7 @@
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" "usb_storage" "uas" "sd_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelParams = ["fbcon=font:VGA8x16" "default_hugepagesz=2M" "hugepagesz=1G" "hugepages=3"];
+  boot.kernelParams = ["fbcon=font:VGA8x16" "default_hugepagesz=2M" "hugepagesz=1G" "hugepages=4"];
   #boot.kernelParams = ["fbcon=font:VGA8x16"] ;
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
