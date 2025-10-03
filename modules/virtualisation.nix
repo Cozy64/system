@@ -1,5 +1,9 @@
 {pkgs, ...}:
 {
+  programs = {
+    virt-manager.enable = true;
+
+  };
   virtualisation = {
     #waydroid.enable = true;
 		kvmgt.enable = true;
