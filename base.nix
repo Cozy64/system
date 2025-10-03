@@ -48,6 +48,7 @@ in
     };
 
   systemPackages = with pkgs; [
+    anydesk
     dmidecode
     tmux
     android-studio
