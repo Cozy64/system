@@ -48,10 +48,7 @@ in
     };
 
   systemPackages = with pkgs; [
-    libuv
-    cmake
-    openssl
-    hwloc
+		pkg-config
     anydesk
     dmidecode
     tmux
@@ -412,7 +409,6 @@ in
 				#stdenv.cc.cc.lib
 				#stdenv.cc.cc
 				pkg-config
-				openjfx24
 				gcc
 				gnumake
 				glibc
