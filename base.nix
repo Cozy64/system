@@ -48,6 +48,10 @@ in
     };
 
   systemPackages = with pkgs; [
+    libuv
+    cmake
+    openssl
+    hwloc
     anydesk
     dmidecode
     tmux
