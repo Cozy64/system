@@ -48,6 +48,7 @@ in
     };
 
   systemPackages = with pkgs; [
+    hwloc
     anydesk
     dmidecode
     tmux
