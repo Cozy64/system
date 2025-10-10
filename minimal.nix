@@ -18,6 +18,7 @@
 
   systemPackages = with pkgs; [
 		
+    hwloc
     dmidecode
     monero-cli
     tmux
