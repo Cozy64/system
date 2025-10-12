@@ -22,10 +22,10 @@
     disko.url = "github:nix-community/disko";
 
     # Example external package source
-    new-bottles = {
-      url = "github:bottlesdevs/Bottles/main";
-      flake = false;
-    };
+    #new-bottles = {
+    #  url = "github:bottlesdevs/Bottles/main";
+    #  flake = false;
+    #};
   };
 
   outputs = { self, nixpkgs, stablenixpkgs, oldnixpkgs, home-manager, disko, ... }@inputs:
@@ -59,11 +59,6 @@
         #./modules/asusd.nix
 
         ({ pkgs, ... }: {
-          nixpkgs.config.packageOverrides = pkgs: {
-            new-bottles = pkgs.bottles.overrideAttrs (oldAttrs: {
-              src = inputs.new-bottles;
-            });
-          };
 
           environment.systemPackages = [
             oldPkgs.bitwig-studio
@@ -94,11 +89,6 @@
         ./modules/printing.nix
 
         ({ pkgs, ... }: {
-          nixpkgs.config.packageOverrides = pkgs: {
-            new-bottles = pkgs.bottles.overrideAttrs (oldAttrs: {
-              src = inputs.new-bottles;
-            });
-          };
 
           environment.systemPackages = [
             oldPkgs.bitwig-studio
@@ -129,11 +119,11 @@
 
 
         ({ pkgs, ... }: {
-          nixpkgs.config.packageOverrides = pkgs: {
-            new-bottles = pkgs.bottles.overrideAttrs (oldAttrs: {
-              src = inputs.new-bottles;
-            });
-          };
+         # nixpkgs.config.packageOverrides = pkgs: {
+         #   new-bottles = pkgs.bottles.overrideAttrs (oldAttrs: {
+         #     src = inputs.new-bottles;
+         #   });
+         # };
 
           environment.systemPackages = [
             #oldPkgs.bitwig-studio

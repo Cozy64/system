@@ -99,11 +99,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1758464306,
-        "narHash": "sha256-i56XRXqjwJRdVYmpzVUQ0ktqBBHqNzQHQMQvFRF/acQ=",
+        "lastModified": 1760130406,
+        "narHash": "sha256-GKMwBaFRw/C1p1VtjDz4DyhyzjKUWyi1K50bh8lgA2E=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "939e91e1cff1f99736c5b02529658218ed819a2a",
+        "rev": "d305eece827a3fe317a2d70138f53feccaf890a1",
         "type": "github"
       },
       "original": {
@@ -135,23 +135,6 @@
         "owner": "nix-community",
         "ref": "v0.4.2",
         "repo": "lanzaboote",
-        "type": "github"
-      }
-    },
-    "new-bottles": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1752975457,
-        "narHash": "sha256-XMU39b4HfDcB0Ixnr4nsIkS/A4mAsXMVpaGnlTipfbg=",
-        "owner": "bottlesdevs",
-        "repo": "Bottles",
-        "rev": "936cea4f0b5bdbed51d8107db72bc28bc8bd4c69",
-        "type": "github"
-      },
-      "original": {
-        "owner": "bottlesdevs",
-        "ref": "main",
-        "repo": "Bottles",
         "type": "github"
       }
     },
@@ -189,11 +172,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1758277210,
-        "narHash": "sha256-iCGWf/LTy+aY0zFu8q12lK8KuZp7yvdhStehhyX1v8w=",
+        "lastModified": 1760038930,
+        "narHash": "sha256-Oncbh0UmHjSlxO7ErQDM3KM0A5/Znfofj2BSzlHLeVw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "8eaee110344796db060382e15d3af0a9fc396e0e",
+        "rev": "0b4defa2584313f3b781240b29d61f6f9f7e0df3",
         "type": "github"
       },
       "original": {
@@ -251,7 +234,6 @@
         "disko": "disko",
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
-        "new-bottles": "new-bottles",
         "nixpkgs": "nixpkgs_2",
         "oldnixpkgs": "oldnixpkgs",
         "stablenixpkgs": "stablenixpkgs"

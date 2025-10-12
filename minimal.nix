@@ -274,7 +274,6 @@
 				#stdenv.cc.cc.lib
 				#stdenv.cc.cc
 				pkg-config
-				openjfx24
 				gcc
 				gnumake
 				glibc

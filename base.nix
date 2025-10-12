@@ -409,8 +409,8 @@ in
 				#stdenv.cc.cc.lib
 				#stdenv.cc.cc
 				pkg-config
-				openjfx24
 				gcc
+        cmake
 				gnumake
 				glibc
 				glib
