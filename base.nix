@@ -49,6 +49,7 @@ in
 
   systemPackages = with pkgs; [
     hwloc
+		pkg-config
     anydesk
     dmidecode
     tmux

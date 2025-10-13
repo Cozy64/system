@@ -35,6 +35,7 @@
     oldPkgs = import oldnixpkgs { inherit system; config.allowUnfree = true; };
   in {
 
+
     nixosConfigurations.slave = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = { inherit oldPkgs inputs; };
@@ -134,7 +135,6 @@
         })
       ];
     };
-
 
 
   };
