@@ -88,6 +88,7 @@
         ./modules/language.nix
         ./modules/gui.nix
         ./modules/printing.nix
+        ./modules/ly.nix
 
         ({ pkgs, ... }: {
 
