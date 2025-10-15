@@ -48,6 +48,7 @@ in
     };
 
   systemPackages = with pkgs; [
+    freerdp
     libuv
     hwloc 
     pkg-config
@@ -284,11 +285,25 @@ in
     #useXkbConfig = true; # use xkbOptions in tty.
   };
 
+  systemd.user.services.polkit-gnome-authentication-agent-1 = {
+  description = "polkit-gnome-authentication-agent-1";
+  wantedBy = [ "graphical-session.target" ];
+  wants = [ "graphical-session.target" ];
+  after = [ "graphical-session.target" ];
+  serviceConfig = {
+    Type = "simple";
+    ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+    Restart = "on-failure";
+    RestartSec = 1;
+    TimeoutStopSec = 10;
+  };
+};
+
 
 
 
   security = {
-		soteria.enable = true;
+		#soteria.enable = true;
     polkit.enable = true;
     rtkit.enable = true;
     pam.loginLimits = [
@@ -334,23 +349,12 @@ in
 
 
   programs = {
-  corectrl.enable = true;
 	seahorse.enable = true;
 	git = {
 		enable = true;
 		package = pkgs.gitFull;
 
 	};
-	#uwsm = {
-	#enable = true;
-	#	waylandCompositors = {
-	#		hyprland = {
-	#		prettyName = "Hyprland";
-	#		comment = "Hyprland compositor managed by UWSM";
-	#		binPath = "/run/current-system/sw/bin/Hyprland";
-	#		};
-	#	};
-	#};
 	file-roller.enable = true;
 	dconf.enable = true;
 		foot = {
@@ -482,7 +486,7 @@ in
   users.extraGroups.vboxusers.members = [ "cozy" ];
   users.users.cozy = {
     isNormalUser = true;
-    extraGroups = [ "podman" "wheel" "adbusers" "kvm" "wireshark" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "docker" "podman" "wheel" "adbusers" "kvm" "wireshark" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [];
   };
 

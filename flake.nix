@@ -3,6 +3,7 @@
 
   inputs = {
     # Nixpkgs channels
+    hyprland.url = "github:hyprwm/Hyprland";
     stablenixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     oldnixpkgs.url = "github:NixOS/nixpkgs/27272c21afa6e506f8700f751b6bdec0dc8924c8";

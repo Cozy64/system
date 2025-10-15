@@ -189,26 +189,25 @@
 
 
   programs = {
-  corectrl.enable = true;
   
-	git = {
-		enable = true;
-		package = pkgs.gitFull;
+    git = {
+      enable = true;
+      package = pkgs.gitFull;
 
-	};
-	#uwsm = {
-	#enable = true;
-	#	waylandCompositors = {
-	#		hyprland = {
-	#		prettyName = "Hyprland";
-	#		comment = "Hyprland compositor managed by UWSM";
-	#		binPath = "/run/current-system/sw/bin/Hyprland";
-	#		};
-	#	};
-	#};
-	dconf.enable = true;
-	#ssh.startAgent = true;
-    #openvpn3.enable = true;
+    };
+    #uwsm = {
+    #enable = true;
+    #	waylandCompositors = {
+    #		hyprland = {
+    #		prettyName = "Hyprland";
+    #		comment = "Hyprland compositor managed by UWSM";
+    #		binPath = "/run/current-system/sw/bin/Hyprland";
+    #		};
+    #	};
+    #};
+    dconf.enable = true;
+    #ssh.startAgent = true;
+      #openvpn3.enable = true;
     nix-ld = {
 			enable = true;
 			libraries = with pkgs; [
