@@ -18,7 +18,6 @@
 
   systemPackages = with pkgs; [
 		
-    hwloc
     dmidecode
     monero-cli
     tmux
@@ -34,8 +33,6 @@
 		rot8
 		fd
 		lf
-		rofi
-		rofimoji
 		nixd
 		nnn
 		yt-dlp
@@ -56,7 +53,6 @@
 		p7zip
 		mangohud
 		nix-index
-		distrobox
 		killall
 		zip
 		unzip
@@ -153,7 +149,6 @@
 
 
   security = {
-		soteria.enable = true;
     polkit.enable = true;
     rtkit.enable = true;
     pam.loginLimits = [
@@ -171,18 +166,7 @@
 
 
   services = {
-
-		
-		#desktopManager.plasma6.enable = true;
-		devmon.enable = true;
-		gvfs.enable = true;
-		udisks2.enable = true;
-		#blueman.enable = true;
-		gnome.gnome-keyring.enable = true;
-		#dbus.implementation = "broker";
     envfs.enable = true;
-    #onedrive.enable = true;
-
     upower = {
       enable = true;
       percentageLow = 20;
@@ -205,7 +189,8 @@
 
 
   programs = {
-	seahorse.enable = true;
+  corectrl.enable = true;
+  
 	git = {
 		enable = true;
 		package = pkgs.gitFull;
@@ -223,56 +208,15 @@
 	#};
 	dconf.enable = true;
 	#ssh.startAgent = true;
-		foot = {
-			enable = true;
-			settings = {
-			scrollback = {
-				lines=10000;
-			};
-				main = {
-					font = "monospace:size=12";
-
-				};
-				colors = {
-
-					alpha=0.9;
-					background="000000";
-					foreground="ffffff";
-					regular0="444444";
-					regular1="AA0000";
-					regular2="00AA00";
-					regular3="AAAA00";
-					regular4="0000AA";
-					regular5="AA00AA";
-					regular6="00AAAA";
-					regular7="AAAAAA";
-					bright0="000000";  
-					bright1="DD0000";  
-					bright2="00DD00";  
-					bright3="DDDD00";  
-					bright4="0000DD";  
-					bright5="DD00DD";  
-					bright6="00DDDD";  
-					bright7="DDDDDD";  
-					
-
-				};
-				key-bindings = {
-
-					scrollback-up-page="Mod1+Shift+k";
-					scrollback-up-line="Mod1+k";
-					scrollback-down-page="Mod1+Shift+j";
-					scrollback-down-line="Mod1+j";
-				};
-
-			};
-		};
     #openvpn3.enable = true;
     nix-ld = {
 			enable = true;
 			libraries = with pkgs; [
 				#stdenv.cc.cc.lib
 				#stdenv.cc.cc
+        hwloc
+        libuv
+        openssl
 				pkg-config
 				gcc
 				gnumake

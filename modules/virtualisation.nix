@@ -1,5 +1,9 @@
 {pkgs, ...}:
 {
+  environment.systemPackages = with pkgs; [
+    distrobox
+		podman-compose
+  ];
   programs = {
     virt-manager.enable = true;
 

@@ -48,8 +48,9 @@ in
     };
 
   systemPackages = with pkgs; [
-    hwloc
-		pkg-config
+    libuv
+    hwloc 
+    pkg-config
     anydesk
     dmidecode
     tmux
@@ -68,7 +69,6 @@ in
     nixos-anywhere
     rust-analyzer
 		protonvpn-gui
-		podman-compose
 		sbt-with-scala-native
 		gtk3
 		auto-cpufreq
@@ -118,12 +118,10 @@ in
 		yarn
 		brightnessctl
 		swaybg
-		#podman-desktop
 		adwaita-icon-theme
 		batsignal
 		lf
 		networkmanagerapplet
-		#onedrivegui
 		shared-mime-info
 		grimblast
 		rofi
@@ -180,7 +178,6 @@ in
 		mangohud
 		ffmpeg_6-full
 		nix-index
-		distrobox
 		killall
 		zip
 		unzip
@@ -337,6 +334,7 @@ in
 
 
   programs = {
+  corectrl.enable = true;
 	seahorse.enable = true;
 	git = {
 		enable = true;
@@ -409,6 +407,9 @@ in
 			libraries = with pkgs; [
 				#stdenv.cc.cc.lib
 				#stdenv.cc.cc
+        openssl
+        hwloc
+        libuv
 				pkg-config
 				gcc
         cmake

@@ -57,6 +57,7 @@
         ./modules/opentabletdriver.nix
         ./modules/rgb.nix
         ./modules/supergfxd.nix
+        ./modules/ly.nix
         #./modules/asusd.nix
 
         ({ pkgs, ... }: {
