@@ -53,13 +53,13 @@
       modules = [
         home-manager.nixosModules.default
         inputs.lanzaboote.nixosModules.lanzaboote
-        ./ags.nix
         ./base.nix
         ./alias-slave.nix
         ./lanzaboote.nix
         ./home-manager.nix
         ./disk-slave.nix
         ./firmware-amd.nix
+        ./modules/ags.nix
         ./modules/virtualisation.nix
         ./modules/ssh.nix
         ./modules/language.nix
