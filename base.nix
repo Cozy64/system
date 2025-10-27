@@ -48,7 +48,7 @@ in
     };
 
   systemPackages = with pkgs; [
-    freerdp
+    spotify
     libuv
     hwloc 
     pkg-config
@@ -486,7 +486,7 @@ in
   users.extraGroups.vboxusers.members = [ "cozy" ];
   users.users.cozy = {
     isNormalUser = true;
-    extraGroups = [ "docker" "podman" "wheel" "adbusers" "kvm" "wireshark" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "podman" "wheel" "adbusers" "kvm" "docker" "wireshark" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [];
   };
 

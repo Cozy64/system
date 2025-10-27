@@ -8,6 +8,12 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     oldnixpkgs.url = "github:NixOS/nixpkgs/27272c21afa6e506f8700f751b6bdec0dc8924c8";
 
+    winboat = {
+      url = "github:TibixDev/winboat";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+
     # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -18,6 +24,10 @@
       url = "github:nix-community/lanzaboote/v0.4.2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    astal.url = "github:aylur/astal";
+
+    ags.url = "github:aylur/ags";
 
     # Disko (for declarative partitioning / nixos-anywhere)
     disko.url = "github:nix-community/disko";
@@ -43,6 +53,7 @@
       modules = [
         home-manager.nixosModules.default
         inputs.lanzaboote.nixosModules.lanzaboote
+        ./ags.nix
         ./base.nix
         ./alias-slave.nix
         ./lanzaboote.nix

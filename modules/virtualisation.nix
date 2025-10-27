@@ -1,8 +1,11 @@
-{pkgs, ...}:
+{pkgs, inputs, ...}:
 {
   environment.systemPackages = with pkgs; [
+    inputs.winboat.packages.${pkgs.system}.winboat
+    freerdp
     distrobox
-		podman-compose
+		#podman-compose
+    docker-compose
   ];
   programs = {
     virt-manager.enable = true;
@@ -29,12 +32,14 @@
       #  host.enable = true;
         #guest.enable = true;
       #};
-    podman = { 
-			enable = true;
-			dockerCompat = true;
-			defaultNetwork.settings.dns_enabled = true;
-			dockerSocket.enable = true;
-  	};
-      #docker.enable = true;
+    #podman = { 
+		#	enable = true;
+		#	dockerCompat = true;
+		#	defaultNetwork.settings.dns_enabled = true;
+		#	dockerSocket.enable = true;
+  	#};
+      docker = {
+        enable = true;
+      };
 	};
 }
