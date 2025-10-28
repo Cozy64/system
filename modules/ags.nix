@@ -1,18 +1,21 @@
 { inputs, pkgs, ... }:
 {
   # add the home manager module
-  imports = [ inputs.ags.homeManagerModules.default ];
 
-  programs.ags = {
-    enable = true;
+  home-manager.users.cozy = {
+    imports = [ inputs.ags.homeManagerModules.default ];
 
-    # symlink to ~/.config/ags
-    configDir = ../ags;
+    programs.ags = {
+      enable = true;
 
-    # additional packages and executables to add to gjs's runtime
-    extraPackages = with pkgs; [
-      inputs.astal.packages.${pkgs.system}.battery
-      fzf
-    ];
+      # symlink to ~/.config/ags
+      configDir = ../ags;
+
+      # additional packages and executables to add to gjs's runtime
+      extraPackages = with pkgs; [
+        inputs.astal.packages.${pkgs.system}.battery
+        fzf
+      ];
+    };
   };
 }
