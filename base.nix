@@ -72,7 +72,6 @@ in
 		sbt-with-scala-native
 		gtk3
 		auto-cpufreq
-    ags
 		radeontop
 		wl-clicker
 		patchelf
@@ -488,12 +487,6 @@ in
     extraGroups = [ "podman" "wheel" "adbusers" "kvm" "docker" "wireshark" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [];
   };
-
-  home-manager.users.cozy = {
-    home = { 
-      stateVersion = "25.11";
-  	};
-	};
 
 
 }
