@@ -1,7 +1,6 @@
-{pkgs, inputs, ...}:
+{pkgs, ...}:
 {
   environment.systemPackages = with pkgs; [
-    inputs.winboat.packages.${pkgs.system}.winboat
     freerdp
     distrobox
 		#podman-compose
