@@ -6,12 +6,14 @@
     hyprland.url = "github:hyprwm/Hyprland";
     stablenixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    #nixpkgs.url = "github:NixOS/nixpkgs/5e2a59a5b1a82f89f2c7e598302a9cacebb72a67";
+
     oldnixpkgs.url = "github:NixOS/nixpkgs/27272c21afa6e506f8700f751b6bdec0dc8924c8";
 
-    winboat = {
-      url = "github:TibixDev/winboat";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #winboat = {
+    #  url = "github:TibixDev/winboat";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
 
     # Home Manager
@@ -21,7 +23,7 @@
     };
 
     lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.2";
+      url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -63,6 +65,7 @@
         ./modules/virtualisation.nix
         ./modules/ssh.nix
         ./modules/language.nix
+        ./modules/fonts.nix
         ./modules/gui.nix
         ./modules/printing.nix
         ./modules/steam.nix
@@ -99,6 +102,7 @@
         ./modules/virtualisation.nix
         ./modules/ssh.nix
         ./modules/language.nix
+        ./modules/fonts.nix
         ./modules/gui.nix
         ./modules/printing.nix
         ./modules/ly.nix

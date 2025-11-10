@@ -88,7 +88,8 @@ in
 		matugen
 		pcmanfm
 		waybar
-		#new-bottles
+    bottles
+		#new-bottle
 		pavucontrol
 		sbctl
 		#wpsoffice
@@ -147,9 +148,8 @@ in
 		imv
     conda
     obs-studio
-    onlyoffice-bin
     teams-for-linux
-		nvtopPackages.full
+		nvtopPackages.amd
 		btop
 		helvum
 		gparted
@@ -170,7 +170,7 @@ in
 		waypipe
 		unar
 		vulkan-tools
-		glxinfo
+    mesa-demos
 		bluez-tools
 		p7zip
 		winetricks
@@ -410,9 +410,6 @@ in
 				#stdenv.cc.cc.lib
 				#stdenv.cc.cc
         openssl
-        hwloc
-        libuv
-				pkg-config
 				gcc
         cmake
 				gnumake
