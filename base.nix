@@ -47,6 +47,7 @@ in
     };
 
   systemPackages = with pkgs; [
+    burpsuite
     spotify
     libuv
     hwloc 
