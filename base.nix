@@ -57,8 +57,6 @@ in
     tmux
     android-studio
     msr-tools
-    monero-gui
-    monero-cli
     p2pool
     xmrig
     dunst
@@ -69,7 +67,7 @@ in
     nixd
     nixos-anywhere
     rust-analyzer
-		protonvpn-gui
+		#protonvpn-gui
 		sbt-with-scala-native
 		gtk3
 		auto-cpufreq
@@ -83,7 +81,6 @@ in
 		conda
 		ngrok
 		kdePackages.filelight
-    solana-cli
 		swww
 		pywal
 		matugen
@@ -197,8 +194,6 @@ in
 		clinfo
 		gcc
     typescript
-		python312
-		python313Packages.gpustat
 		mangohud
   ];
 
