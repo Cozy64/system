@@ -47,6 +47,7 @@ in
     };
 
   systemPackages = with pkgs; [
+    xarchiver
     burpsuite
     spotify
     libuv
@@ -343,13 +344,14 @@ in
 
 
   programs = {
+
 	seahorse.enable = true;
 	git = {
 		enable = true;
 		package = pkgs.gitFull;
 
 	};
-	file-roller.enable = true;
+	#file-roller.enable = true;
 	dconf.enable = true;
 		foot = {
 			enable = true;
