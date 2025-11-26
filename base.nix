@@ -485,7 +485,7 @@ in
   };
 
   home-manager.users.cozy.home = {
-      stateVersion = "25.11";
+      stateVersion = "26.05";
   };
 
 
