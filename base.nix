@@ -47,6 +47,7 @@ in
     };
 
   systemPackages = with pkgs; [
+    aseprite
     xarchiver
     burpsuite
     spotify
@@ -472,7 +473,7 @@ in
   
 
 
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
   nix.settings.experimental-features = [ "nix-command" "flakes"];
 	#nix.package = pkgs.lix;
 
@@ -481,6 +482,10 @@ in
     isNormalUser = true;
     extraGroups = [ "podman" "wheel" "adbusers" "kvm" "docker" "wireshark" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [];
+  };
+
+  home-manager.users.cozy.home = {
+      stateVersion = "25.11";
   };
 
 

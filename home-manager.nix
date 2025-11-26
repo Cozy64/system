@@ -171,7 +171,6 @@
       color-scheme = "prefer-dark";
     };
     home = { 
-      stateVersion = "25.11";
       pointerCursor = {
         gtk.enable = true;
         x11.enable = true;

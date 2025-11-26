@@ -3,9 +3,6 @@
   # add the home manager module
 
   home-manager.users.cozy = {
-    home = { 
-      stateVersion = "25.11";
-  	};
 
     imports = [ inputs.ags.homeManagerModules.default ];
 
