@@ -47,7 +47,7 @@ in
     };
 
   systemPackages = with pkgs; [
-    aseprite
+    zoom-us
     xarchiver
     burpsuite
     spotify
