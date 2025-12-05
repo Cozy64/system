@@ -3,6 +3,7 @@
 
 
   hardware = {
+    i2c.enable = true;
 		amdgpu = {
 			opencl.enable = true;
 			initrd.enable = true;

@@ -62,7 +62,7 @@
         ./disk-slave.nix
         ./firmware-amd.nix
         ./modules/ags.nix
-        #./modules/tlp-amd.nix
+        ./modules/tlp-amd.nix
         ./modules/virtualisation.nix
         ./modules/ssh.nix
         ./modules/language.nix
