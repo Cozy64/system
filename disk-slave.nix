@@ -27,10 +27,10 @@
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
-  #swapDevices =[{ 
-	#		device = "/swapfile"; 
-	#		size = 40 * 1024;
-  #  }];  
+  swapDevices =[{ 
+			device = "/swapfile"; 
+			size = 40 * 1024;
+    }];  
 
 
   #swapDevices =

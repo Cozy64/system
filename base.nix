@@ -309,7 +309,7 @@ in
   };
 
 
-  zramSwap.enable = true;
+  #zramSwap.enable = true;
   services = {
 
 		

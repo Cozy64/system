@@ -29,7 +29,7 @@
 				alias vinix="nvim /home/cozy/system/base.nix"
 				alias vihome="nvim /home/cozy/system/home-manager.nix"
 				alias viflake="nvim /home/cozy/system/flake.nix"
-				alias viware="nvim /home/cozy/system/disk-amd.nix"
+				alias viware="nvim /home/cozy/system/disk-slave.nix"
 				alias vihypr="nvim /home/cozy/.config/hypr/hyprland.conf"
 				alias VI="sudo -E nvim"
 				alias NVIM="sudo -E nvim"
