@@ -278,6 +278,8 @@ in
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
+    earlySetup = true;
+    packages =  with pkgs; [terminus_font];
     #useXkbConfig = true; # use xkbOptions in tty.
   };
 

@@ -1,6 +1,7 @@
 {pkgs, ...}:
 {
           boot = {
+            initrd.systemd.enable = true;
             supportedFilesystems = [ "ntfs" ];
             kernelPackages = pkgs.linuxPackages_zen;
           lanzaboote = {
