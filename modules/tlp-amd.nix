@@ -13,8 +13,8 @@
 			  SOUND_POWER_SAVE_ON_AC=0;
 			  SOUND_POWER_SAVE_ON_BAT=1;
 			  SOUND_POWER_SAVE_CONTROLLER="Y";
-				#MEM_SLEEP_ON_AC="s2idle";
-				#MEM_SLEEP_ON_BAT="s2idle";
+				MEM_SLEEP_ON_AC="s2idle";
+				MEM_SLEEP_ON_BAT="s2idle";
 
 				#RUNTIME_PM_DRIVER_DENYLIST="mei_me";
 

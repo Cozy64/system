@@ -73,8 +73,8 @@
         ./modules/opentabletdriver.nix
         ./modules/rgb.nix
         ./modules/supergfxd.nix
-        #./modules/ly.nix
-        ./modules/sddm.nix
+        ./modules/ly.nix
+        #./modules/sddm.nix
         #./modules/asusd.nix
 
         ({ pkgs, ... }: {
