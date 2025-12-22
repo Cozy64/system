@@ -74,6 +74,7 @@
         ./modules/rgb.nix
         ./modules/supergfxd.nix
         ./modules/ly.nix
+        ./asusd.nix
         #./modules/sddm.nix
         #./modules/asusd.nix
 
