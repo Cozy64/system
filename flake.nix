@@ -3,7 +3,7 @@
 
   inputs = {
     # Nixpkgs channels
-    hyprland.url = "github:hyprwm/Hyprland";
+    #hyprland.url = "github:hyprwm/Hyprland";
     stablenixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     #nixpkgs.url = "github:NixOS/nixpkgs/5e2a59a5b1a82f89f2c7e598302a9cacebb72a67";
@@ -67,14 +67,14 @@
         ./modules/ssh.nix
         ./modules/language.nix
         ./modules/fonts.nix
-        ./modules/gui.nix
+        ./modules/hyprland.nix
         ./modules/printing.nix
         ./modules/steam.nix
         ./modules/opentabletdriver.nix
         ./modules/rgb.nix
         ./modules/supergfxd.nix
         ./modules/ly.nix
-        ./asusd.nix
+        #./modules/asusd.nix
         #./modules/sddm.nix
         #./modules/asusd.nix
 
@@ -106,7 +106,7 @@
         ./modules/ssh.nix
         ./modules/language.nix
         ./modules/fonts.nix
-        ./modules/gui.nix
+        ./modules/hyprland.nix
         ./modules/printing.nix
         ./modules/ly.nix
 

@@ -331,7 +331,7 @@ in
       percentageCritical = 15;
       percentageAction = 10;
       timeAction = 0;
-      criticalPowerAction = "Suspend";
+      criticalPowerAction = "Hibernate";
 			allowRiskyCriticalPowerAction = true;
     };
     logind.settings.Login = {
