@@ -60,7 +60,6 @@
         ./alias-slave.nix
         ./lanzaboote.nix
         ./home-manager.nix
-        ./disk-slave.nix
         ./firmware-amd.nix
         ./modules/ags.nix
         ./modules/tlp-amd.nix
@@ -102,7 +101,6 @@
         ./alias-rust.nix
         ./boot.nix
         ./home-manager.nix
-        ./disk-rust.nix
         ./firmware-amd.nix
         ./modules/virtualisation.nix
         ./modules/ssh.nix
