@@ -47,6 +47,7 @@ in
     };
 
   systemPackages = with pkgs; [
+    lshw
     zoom-us
     xarchiver
     burpsuite
