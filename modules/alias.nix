@@ -15,12 +15,12 @@
 			PS1=$PS1 
 			fi
 				#alias boot="sudo nixos-rebuild boot"
-				alias boot="sudo nixos-rebuild boot --flake /home/cozy/system#slave"
-				alias test="sudo nixos-rebuild test --flake /home/cozy/system#slave"
+				alias boot="sudo nixos-rebuild boot --impure --flake /home/cozy/system#$HOSTNAME"
+				alias test="sudo nixos-rebuild test --impure --flake /home/cozy/system#$HOSTNAME"
+				alias switch="sudo nixos-rebuild switch --impure --flake /home/cozy/system#$HOSTNAME"
 				alias fhs="export PS1='\[$(tput setaf 1)\]\u@\h \W> \[$(tput sgr0)\]' export LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH:$LD_LIBRARY_PATH"
 				alias list="sudo nixos-rebuild list-generations"
 				alias hibernate="systemctl hibernate"
-				alias switch="sudo nixos-rebuild switch --flake /home/cozy/system#slave"
 				alias update="nix flake update"
 				alias metadata="nix flake metadata /home/cozy/system"
 				alias garbage="sudo nix-collect-garbage -d"

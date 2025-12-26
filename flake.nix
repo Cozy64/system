@@ -57,10 +57,10 @@
         inputs.lanzaboote.nixosModules.lanzaboote
         /etc/nixos/hardware-configuration.nix
         ./base.nix
-        ./alias-slave.nix
         ./lanzaboote.nix
         ./home-manager.nix
         ./firmware-amd.nix
+        ./modules/alias.nix
         ./modules/ags.nix
         ./modules/tlp-amd.nix
         ./modules/virtualisation.nix
@@ -98,7 +98,7 @@
         home-manager.nixosModules.default
         /etc/nixos/hardware-configuration.nix
         ./base.nix
-        ./alias-rust.nix
+        ./modules/alias.nix
         ./boot.nix
         ./home-manager.nix
         ./firmware-amd.nix
@@ -135,7 +135,7 @@
         ./minimal.nix
         ./boot-miner.nix
         ./firmware-intel.nix
-        ./alias-miner.nix
+        ./modules/alias.nix
         ./modules/swapfile.nix
         ./modules/ssh.nix
 
