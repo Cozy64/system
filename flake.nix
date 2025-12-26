@@ -105,9 +105,9 @@
         ./modules/virtualisation.nix
         ./modules/ssh.nix
         ./modules/language.nix
+        ./modules/tlp-amd.nix
         ./modules/fonts.nix
         ./modules/hyprland.nix
-        ./modules/printing.nix
         ./modules/ly.nix
 
         ({ pkgs, ... }: {

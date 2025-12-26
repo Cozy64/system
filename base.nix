@@ -96,7 +96,7 @@ in
 		powertop
     itch
     godot_4
-    jetbrains.idea-community-bin
+    #jetbrains.idea-community-bin
 		wf-recorder
     hyprpaper
 		selectdefaultapplication
