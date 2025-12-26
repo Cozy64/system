@@ -98,10 +98,10 @@
         home-manager.nixosModules.default
         /etc/nixos/hardware-configuration.nix
         ./base.nix
-        ./modules/alias.nix
         ./boot.nix
         ./home-manager.nix
         ./firmware-amd.nix
+        ./modules/alias.nix
         ./modules/virtualisation.nix
         ./modules/ssh.nix
         ./modules/language.nix

@@ -19,12 +19,11 @@
   systemPackages = with pkgs; [
 		
     dmidecode
-    monero-cli
+    lshw
     tmux
 		patchelf
 		bc
 		rocmPackages.rocminfo
-    solana-cli
 		powertop
 		php
 		go
@@ -49,7 +48,7 @@
 		iw
 		unar
 		vulkan-tools
-		glxinfo
+    mesa-demos
 		p7zip
 		mangohud
 		nix-index
