@@ -25,7 +25,7 @@
 			  WIFI_PWR_ON_AC="off";
 			  WIFI_PWR_ON_BAT="off"; #no powersave for wifi
 			  WOL_DISABLE="Y";
-			  USB_AUTOSUSPEND=0;
+			  USB_AUTOSUSPEND=1;
 
 			  START_CHARGE_THRESH_BAT0=80;
 			  STOP_CHARGE_THRESH_BAT0=90;

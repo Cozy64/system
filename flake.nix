@@ -55,6 +55,7 @@
       modules = [
         home-manager.nixosModules.default
         inputs.lanzaboote.nixosModules.lanzaboote
+        /etc/nixos/hardware-configuration.nix
         ./base.nix
         ./alias-slave.nix
         ./lanzaboote.nix
@@ -96,6 +97,7 @@
       specialArgs = { inherit oldPkgs inputs; };
       modules = [
         home-manager.nixosModules.default
+        /etc/nixos/hardware-configuration.nix
         ./base.nix
         ./alias-rust.nix
         ./boot.nix
@@ -128,13 +130,13 @@
       specialArgs = { inherit oldPkgs inputs; };
       modules = [
         home-manager.nixosModules.default
+        /etc/nixos/hardware-configuration.nix
         #disko.nixosModules.disko
         #./hardware-configuration.nix
         #./partitioning/disko-efi.nix
         ./minimal.nix
         ./boot-miner.nix
         ./firmware-intel.nix
-	./disk-miner.nix
         ./alias-miner.nix
         ./modules/swapfile.nix
         ./modules/ssh.nix

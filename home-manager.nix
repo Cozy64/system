@@ -129,6 +129,17 @@
 
 		};
 
+  #programs = {
+  #  cava = {
+  #    enable = true;
+  #    settings = 
+  #    ''
+#
+#      '';
+
+#    };
+#  };
+
 	qt = {
 		enable = true;
 		platformTheme.name = "gtk3";
