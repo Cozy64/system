@@ -60,6 +60,7 @@
         ./lanzaboote.nix
         ./home-manager.nix
         ./firmware-amd.nix
+        ./modules/swapfile40.nix
         ./modules/alias.nix
         ./modules/ags.nix
         ./modules/tlp-amd.nix
