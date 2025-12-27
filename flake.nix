@@ -134,7 +134,7 @@
         #./hardware-configuration.nix
         #./partitioning/disko-efi.nix
         ./minimal.nix
-        ./boot-miner.nix
+        ./boot.nix
         ./firmware-intel.nix
         ./modules/alias.nix
         ./modules/swapfile.nix
