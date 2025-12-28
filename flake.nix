@@ -63,7 +63,7 @@
         ./modules/swapfile40.nix
         ./modules/alias.nix
         ./modules/ags.nix
-        ./modules/auto-cpufreq.nix
+        ./modules/tlp-amd.nix
         ./modules/virtualisation.nix
         ./modules/ssh.nix
         ./modules/language.nix
