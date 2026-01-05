@@ -47,6 +47,7 @@ in
     };
 
   systemPackages = with pkgs; [
+    vlc
     lshw
     zoom-us
     xarchiver
@@ -81,6 +82,7 @@ in
 		rocmPackages.rocminfo
 		git-credential-manager
 		kdePackages.kcalc
+    kdePackages.kdenlive
 		conda
 		ngrok
 		kdePackages.filelight
@@ -99,6 +101,7 @@ in
     godot_4
     #jetbrains.idea-community-bin
 		wf-recorder
+    swaybg
     hyprpaper
 		selectdefaultapplication
 		tradingview
