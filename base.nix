@@ -60,6 +60,7 @@ in
     dmidecode
     tmux
     android-studio
+    android-tools
     msr-tools
     p2pool
     xmrig
@@ -407,7 +408,6 @@ in
     virt-manager.enable = true;
     firefox.enable = true;
     #openvpn3.enable = true;
-    adb.enable = true;
 		nm-applet.enable = true;
     nix-ld = {
 			enable = true;
