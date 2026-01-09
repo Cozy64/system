@@ -109,7 +109,7 @@ in
 		github-desktop
 		gitkraken
 		php
-    blender-hip
+    blender
     prismlauncher
 		#mysql-workbench
 		go
@@ -246,6 +246,7 @@ in
 
   nixpkgs.config.allowUnfree = true; 
 	nixpkgs.config.allowUnsupportedSystem = true;
+  nixpkgs.config.rocmSupport = true;
 
 
 
