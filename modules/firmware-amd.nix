@@ -37,7 +37,7 @@
     };
    };
 
-
+  nixpkgs.config.rocmSupport = true;
 
 
 }

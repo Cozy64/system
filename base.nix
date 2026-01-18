@@ -247,7 +247,6 @@ in
 
   nixpkgs.config.allowUnfree = true; 
 	nixpkgs.config.allowUnsupportedSystem = true;
-  nixpkgs.config.rocmSupport = true;
 
 
 
