@@ -59,7 +59,7 @@
         ./base.nix
         ./lanzaboote.nix
         ./home-manager.nix
-        ./firmware-amd.nix
+        ./modules/firmware-amd.nix
         ./modules/swapfile40.nix
         ./modules/alias.nix
         ./modules/ags.nix
@@ -101,7 +101,7 @@
         ./base.nix
         ./boot.nix
         ./home-manager.nix
-        ./firmware-amd.nix
+        ./modules/firmware-amd.nix
         ./modules/alias.nix
         ./modules/virtualisation.nix
         ./modules/ssh.nix
@@ -135,7 +135,8 @@
         #./partitioning/disko-efi.nix
         ./minimal.nix
         ./boot.nix
-        ./firmware-intel.nix
+        ./modules/firmware-intel.nix
+        ./modules/tlp-intel.nix
         ./modules/alias.nix
         ./modules/swapfile.nix
         ./modules/ssh.nix
