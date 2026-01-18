@@ -102,8 +102,8 @@
         ./boot.nix
         ./home-manager.nix
         ./modules/firmware-amd.nix
+        ./modules/tlp-amd.nix
         ./modules/alias.nix
-        ./modules/virtualisation.nix
         ./modules/ssh.nix
         ./modules/language.nix
         ./modules/tlp-amd.nix
