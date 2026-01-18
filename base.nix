@@ -47,6 +47,7 @@ in
     };
 
   systemPackages = with pkgs; [
+    aseprite
     vlc
     lshw
     zoom-us

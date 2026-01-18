@@ -1,5 +1,7 @@
+
 { ... }:
 {
+
 
   services = {
 		tlp = {
@@ -12,25 +14,21 @@
 			  NMI_WATCHDOG=0; #kernel logging
 			  SOUND_POWER_SAVE_ON_AC=0;
 			  SOUND_POWER_SAVE_ON_BAT=1;
-			  SOUND_POWER_SAVE_ON_SAV=1;
 			  SOUND_POWER_SAVE_CONTROLLER="Y";
 				#MEM_SLEEP_ON_AC="s2idle";
 				#MEM_SLEEP_ON_BAT="s2idle";
-				#MEM_SLEEP_ON_SAV="s2idle";
 
 
-			  RUNTIME_PM_ON_AC="on";  #not really sure what those 4 do
+			  RUNTIME_PM_ON_AC="on";
 			  RUNTIME_PM_ON_BAT="auto";
-			  RUNTIME_PM_ON_SAV="auto";
 			  PCIE_ASPM_ON_AC="default";
 			  PCIE_ASPM_ON_BAT="powersupersave";
 			  PCIE_ASPM_ON_SAV="powersupersave";
 
 			  WIFI_PWR_ON_AC="off";
 			  WIFI_PWR_ON_BAT="off"; #no powersave for wifi
-			  WIFI_PWR_ON_SAV="off"; #no powersave for wifi
 			  WOL_DISABLE="Y";
-			  USB_AUTOSUSPEND=1;
+			  USB_AUTOSUSPEND=0;
 
 			  START_CHARGE_THRESH_BAT0=80;
 			  STOP_CHARGE_THRESH_BAT0=90;
@@ -53,20 +51,27 @@
 			  CPU_BOOST_ON_BAT=0;
 			  CPU_BOOST_ON_SAV=0;
 
-			  RADEON_DPM_PERF_LEVEL_ON_AC="auto"; #this shit nerfs my suspend on high
-			  RADEON_DPM_PERF_LEVEL_ON_BAT="low";
-			  RADEON_DPM_PERF_LEVEL_ON_SAV="low";
-			  RADEON_DPM_STATE_ON_AC="performance"; 
-			  RADEON_DPM_STATE_ON_BAT="battery";
-			  RADEON_DPM_STATE_ON_SAV="battery";
-			  RADEON_POWER_PROFILE_ON_AC="high";
-			  RADEON_POWER_PROFILE_ON_BAT="low";
-			  RADEON_POWER_PROFILE_ON_SAV="low";
-			  AMDGPU_ABM_LEVEL_ON_AC=0; 
-	 		  AMDGPU_ABM_LEVEL_ON_BAT=0; #setting to 3 makes my screen look ugly as fuck
-	 		  AMDGPU_ABM_LEVEL_ON_SAV=0; 
+
+        #CPU_SCALING_MIN_FREQ_ON_AC=0; manual freq change might break things 
+				#CPU_SCALING_MAX_FREQ_ON_AC=9999999;
+				#CPU_SCALING_MIN_FREQ_ON_BAT=0;
+				#INTEL_GPU_MIN_FREQ_ON_AC=0;
+				#INTEL_GPU_MIN_FREQ_ON_BAT=0;
+				#INTEL_GPU_MAX_FREQ_ON_AC=0;
+				#INTEL_GPU_MAX_FREQ_ON_BAT=0;
+				#INTEL_GPU_BOOST_FREQ_ON_AC=0;
+				#INTEL_GPU_BOOST_FREQ_ON_BAT=0;
+				CPU_HWP_DYN_BOOST_ON_AC=1; 
+				CPU_HWP_DYN_BOOST_ON_BAT=0; 
+				CPU_MIN_PERF_ON_AC=0; 
+				CPU_MAX_PERF_ON_AC=100; 
+				CPU_MIN_PERF_ON_BAT=0; 
+				CPU_MAX_PERF_ON_BAT=30; 
+
 			};
 		};
+
   };
 
 }
+
