@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ pkgs,lib,   ... }:
+{ pkgs, ... }:
 {
 
   environment = {
@@ -151,12 +151,6 @@
       {domain = "*";type = "-";item = "nofile";value = "1048576";}
     ];
   };
-
-	#powerManagement = {
-	#	enable = true;
-	#	#powertop.enable = true;
-	#	cpuFreqGovernor = "powersave";
-	#};
 
 
   services = {

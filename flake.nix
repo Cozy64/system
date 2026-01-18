@@ -102,13 +102,11 @@
         ./boot.nix
         ./home-manager.nix
         ./modules/firmware-amd.nix
+        ./modules/tlp-amd.nix
         ./modules/alias.nix
-        ./modules/virtualisation.nix
         ./modules/ssh.nix
-        ./modules/language.nix
         ./modules/fonts.nix
         ./modules/hyprland.nix
-        ./modules/printing.nix
         ./modules/ly.nix
 
         ({ pkgs, ... }: {
