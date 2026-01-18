@@ -156,7 +156,7 @@ in
     obs-studio
     teams-for-linux
 		nvtopPackages.amd
-		btop
+		btop-rocm
 		helvum
 		gparted
 		bluetuith

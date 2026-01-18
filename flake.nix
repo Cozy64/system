@@ -42,123 +42,123 @@
   };
 
   outputs = { nixpkgs, stablenixpkgs, oldbitwig, home-manager, ... }@inputs:
-  let
-    system = "x86_64-linux"; # set your arch here, or use builtins.currentSystem
-    stablePkgs = import stablenixpkgs { inherit system; };
-    oldBitwig = import oldbitwig { inherit system; config.allowUnfree = true; };
-  in {
+    let
+      system = "x86_64-linux"; # set your arch here, or use builtins.currentSystem
+      stablePkgs = import stablenixpkgs { inherit system; };
+      oldBitwig = import oldbitwig { inherit system; config.allowUnfree = true; };
+    in 
+  {
 
 
-    nixosConfigurations.slave = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = { inherit inputs; };
-      modules = [
-        home-manager.nixosModules.default
-        inputs.lanzaboote.nixosModules.lanzaboote
-        /etc/nixos/hardware-configuration.nix
-        ./base.nix
-        ./lanzaboote.nix
-        ./home-manager.nix
-        ./modules/firmware-amd.nix
-        ./modules/swapfile40.nix
-        ./modules/alias.nix
-        ./modules/ags.nix
-        ./modules/tlp-amd.nix
-        ./modules/virtualisation.nix
-        ./modules/ssh.nix
-        ./modules/language.nix
-        ./modules/fonts.nix
-        ./modules/hyprland.nix
-        ./modules/printing.nix
-        ./modules/steam.nix
-        ./modules/opentabletdriver.nix
-        ./modules/rgb.nix
-        ./modules/supergfxd.nix
-        ./modules/ly.nix
-        #./modules/asusd.nix
-        #./modules/sddm.nix
-        #./modules/asusd.nix
+    nixosConfigurations = { 
 
-        ({ ... }: {
+      slave = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit inputs; };
+        modules = [
+          home-manager.nixosModules.default
+          inputs.lanzaboote.nixosModules.lanzaboote
+          /etc/nixos/hardware-configuration.nix
+          ./base.nix
+          ./lanzaboote.nix
+          ./home-manager.nix
+          ./modules/firmware-amd.nix
+          ./modules/swapfile40.nix
+          ./modules/alias.nix
+          ./modules/ags.nix
+          ./modules/tlp-amd.nix
+          ./modules/virtualisation.nix
+          ./modules/ssh.nix
+          ./modules/language.nix
+          ./modules/fonts.nix
+          ./modules/hyprland.nix
+          ./modules/printing.nix
+          ./modules/steam.nix
+          ./modules/opentabletdriver.nix
+          ./modules/rgb.nix
+          ./modules/supergfxd.nix
+          ./modules/ly.nix
+          #./modules/asusd.nix
+          #./modules/sddm.nix
+          #./modules/asusd.nix
 
-          environment.systemPackages = [
+          ({ ... }: {
 
-          ];
+            environment.systemPackages = [
 
-  
-          networking.hostName = "slave";
+            ];
 
-        })
-      ];
+            networking.hostName = "slave";
+
+          })
+        ];
+      };
+
+      rust = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit oldBitwig inputs; };
+        modules = [
+          home-manager.nixosModules.default
+          /etc/nixos/hardware-configuration.nix
+          ./base.nix
+          ./boot.nix
+          ./home-manager.nix
+          ./modules/firmware-amd.nix
+          ./modules/tlp-amd.nix
+          ./modules/alias.nix
+          ./modules/ssh.nix
+          ./modules/language.nix
+          ./modules/tlp-amd.nix
+          ./modules/fonts.nix
+          ./modules/hyprland.nix
+          ./modules/ly.nix
+
+          ({ ... }: {
+
+            environment.systemPackages = [
+              oldBitwig.bitwig-studio
+            ];
+    
+            networking.hostName = "rust";
+
+          })
+        ];
+      };
+
+      miner = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit inputs; };
+        modules = [
+          home-manager.nixosModules.default
+          /etc/nixos/hardware-configuration.nix
+          #disko.nixosModules.disko
+          #./hardware-configuration.nix
+          #./partitioning/disko-efi.nix
+          ./minimal.nix
+          ./boot.nix
+          ./modules/firmware-intel.nix
+          ./modules/tlp-intel.nix
+          ./modules/alias.nix
+          ./modules/swapfile.nix
+          ./modules/ssh.nix
+
+
+          ({ ... }: {
+           # nixpkgs.config.packageOverrides = pkgs: {
+           #   new-bottles = pkgs.bottles.overrideAttrs (oldAttrs: {
+           #     src = inputs.new-bottles;
+           #   });
+           # };
+
+            environment.systemPackages = [
+
+            ];
+
+            networking.hostName = "miner";
+
+          })
+        ];
+      };
     };
-
-    nixosConfigurations.rust = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = { inherit oldBitwig inputs; };
-      modules = [
-        home-manager.nixosModules.default
-        /etc/nixos/hardware-configuration.nix
-        ./base.nix
-        ./boot.nix
-        ./home-manager.nix
-        ./modules/firmware-amd.nix
-        ./modules/tlp-amd.nix
-        ./modules/alias.nix
-        ./modules/ssh.nix
-        ./modules/language.nix
-        ./modules/tlp-amd.nix
-        ./modules/fonts.nix
-        ./modules/hyprland.nix
-        ./modules/ly.nix
-
-        ({ ... }: {
-
-          environment.systemPackages = [
-            oldBitwig.bitwig-studio
-          ];
-
-  
-          networking.hostName = "rust";
-
-        })
-      ];
-    };
-
-    nixosConfigurations.miner = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = { inherit inputs; };
-      modules = [
-        home-manager.nixosModules.default
-        /etc/nixos/hardware-configuration.nix
-        #disko.nixosModules.disko
-        #./hardware-configuration.nix
-        #./partitioning/disko-efi.nix
-        ./minimal.nix
-        ./boot.nix
-        ./modules/firmware-intel.nix
-        ./modules/tlp-intel.nix
-        ./modules/alias.nix
-        ./modules/swapfile.nix
-        ./modules/ssh.nix
-
-
-        ({ ... }: {
-         # nixpkgs.config.packageOverrides = pkgs: {
-         #   new-bottles = pkgs.bottles.overrideAttrs (oldAttrs: {
-         #     src = inputs.new-bottles;
-         #   });
-         # };
-
-          environment.systemPackages = [
-
-          ];
-
-          networking.hostName = "miner";
-
-        })
-      ];
-    };
-
-
   };
 }
