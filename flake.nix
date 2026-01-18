@@ -78,6 +78,7 @@
           ./modules/rgb.nix
           ./modules/supergfxd.nix
           ./modules/ly.nix
+          ./modules/ollama.nix
           #./modules/asusd.nix
           #./modules/sddm.nix
           #./modules/asusd.nix
