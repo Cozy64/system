@@ -236,7 +236,7 @@
         "type": "github"
       }
     },
-    "oldnixpkgs": {
+    "oldbitwig": {
       "locked": {
         "lastModified": 1728517921,
         "narHash": "sha256-ffb3/yh6/pBbltHEuf28W3/UK9jE+3qD7nJcW5M7stA=",
@@ -283,7 +283,7 @@
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
         "nixpkgs": "nixpkgs_4",
-        "oldnixpkgs": "oldnixpkgs",
+        "oldbitwig": "oldbitwig",
         "stablenixpkgs": "stablenixpkgs"
       }
     },
