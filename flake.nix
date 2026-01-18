@@ -8,7 +8,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     #nixpkgs.url = "github:NixOS/nixpkgs/5e2a59a5b1a82f89f2c7e598302a9cacebb72a67";
 
-    oldnixpkgs.url = "github:NixOS/nixpkgs/27272c21afa6e506f8700f751b6bdec0dc8924c8";
+    oldbitwig.url = "github:NixOS/nixpkgs/27272c21afa6e506f8700f751b6bdec0dc8924c8";
 
     #winboat = {
     #  url = "github:TibixDev/winboat";
@@ -41,17 +41,17 @@
     #};
   };
 
-  outputs = { self, nixpkgs, stablenixpkgs, oldnixpkgs, home-manager, disko, ... }@inputs:
+  outputs = { nixpkgs, stablenixpkgs, oldbitwig, home-manager, ... }@inputs:
   let
     system = "x86_64-linux"; # set your arch here, or use builtins.currentSystem
     stablePkgs = import stablenixpkgs { inherit system; };
-    oldPkgs = import oldnixpkgs { inherit system; config.allowUnfree = true; };
+    oldBitwig = import oldbitwig { inherit system; config.allowUnfree = true; };
   in {
 
 
     nixosConfigurations.slave = nixpkgs.lib.nixosSystem {
       inherit system;
-      specialArgs = { inherit oldPkgs inputs; };
+      specialArgs = { inherit inputs; };
       modules = [
         home-manager.nixosModules.default
         inputs.lanzaboote.nixosModules.lanzaboote
@@ -79,10 +79,10 @@
         #./modules/sddm.nix
         #./modules/asusd.nix
 
-        ({ pkgs, ... }: {
+        ({ ... }: {
 
           environment.systemPackages = [
-            oldPkgs.bitwig-studio
+
           ];
 
   
@@ -94,7 +94,7 @@
 
     nixosConfigurations.rust = nixpkgs.lib.nixosSystem {
       inherit system;
-      specialArgs = { inherit oldPkgs inputs; };
+      specialArgs = { inherit oldBitwig inputs; };
       modules = [
         home-manager.nixosModules.default
         /etc/nixos/hardware-configuration.nix
@@ -111,10 +111,10 @@
         ./modules/hyprland.nix
         ./modules/ly.nix
 
-        ({ pkgs, ... }: {
+        ({ ... }: {
 
           environment.systemPackages = [
-            oldPkgs.bitwig-studio
+            oldBitwig.bitwig-studio
           ];
 
   
@@ -126,7 +126,7 @@
 
     nixosConfigurations.miner = nixpkgs.lib.nixosSystem {
       inherit system;
-      specialArgs = { inherit oldPkgs inputs; };
+      specialArgs = { inherit inputs; };
       modules = [
         home-manager.nixosModules.default
         /etc/nixos/hardware-configuration.nix
@@ -142,7 +142,7 @@
         ./modules/ssh.nix
 
 
-        ({ pkgs, ... }: {
+        ({ ... }: {
          # nixpkgs.config.packageOverrides = pkgs: {
          #   new-bottles = pkgs.bottles.overrideAttrs (oldAttrs: {
          #     src = inputs.new-bottles;
@@ -150,7 +150,7 @@
          # };
 
           environment.systemPackages = [
-            #oldPkgs.bitwig-studio
+
           ];
 
           networking.hostName = "miner";
