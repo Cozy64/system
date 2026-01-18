@@ -79,6 +79,7 @@
           ./modules/supergfxd.nix
           ./modules/ly.nix
           ./modules/ollama.nix
+          ./modules/bluetooth.nix
           #./modules/asusd.nix
           #./modules/sddm.nix
           #./modules/asusd.nix
@@ -113,6 +114,7 @@
           ./modules/fonts.nix
           ./modules/hyprland.nix
           ./modules/ly.nix
+          ./modules/bluetooth.nix
 
           ({ ... }: {
 

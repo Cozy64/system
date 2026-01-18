@@ -17,10 +17,6 @@
 				ryzen-smu.enable = true;
       };
 		};
-    bluetooth= {
-      enable = true;
-			powerOnBoot = false;
-    };
     graphics = {
       enable = true;
       enable32Bit = true;
