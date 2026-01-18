@@ -55,12 +55,13 @@
       modules = [
         home-manager.nixosModules.default
         inputs.lanzaboote.nixosModules.lanzaboote
+        /etc/nixos/hardware-configuration.nix
         ./base.nix
-        ./alias-slave.nix
         ./lanzaboote.nix
         ./home-manager.nix
-        ./disk-slave.nix
-        ./firmware-amd.nix
+        ./modules/firmware-amd.nix
+        ./modules/swapfile40.nix
+        ./modules/alias.nix
         ./modules/ags.nix
         ./modules/tlp-amd.nix
         ./modules/virtualisation.nix
@@ -96,12 +97,12 @@
       specialArgs = { inherit oldPkgs inputs; };
       modules = [
         home-manager.nixosModules.default
+        /etc/nixos/hardware-configuration.nix
         ./base.nix
-        ./alias-rust.nix
         ./boot.nix
         ./home-manager.nix
-        ./disk-rust.nix
-        ./firmware-amd.nix
+        ./modules/firmware-amd.nix
+        ./modules/alias.nix
         ./modules/virtualisation.nix
         ./modules/ssh.nix
         ./modules/language.nix
@@ -128,14 +129,15 @@
       specialArgs = { inherit oldPkgs inputs; };
       modules = [
         home-manager.nixosModules.default
+        /etc/nixos/hardware-configuration.nix
         #disko.nixosModules.disko
         #./hardware-configuration.nix
         #./partitioning/disko-efi.nix
         ./minimal.nix
-        ./boot-miner.nix
-        ./firmware-intel.nix
-	./disk-miner.nix
-        ./alias-miner.nix
+        ./boot.nix
+        ./modules/firmware-intel.nix
+        ./modules/tlp-intel.nix
+        ./modules/alias.nix
         ./modules/swapfile.nix
         ./modules/ssh.nix
 

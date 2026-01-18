@@ -47,6 +47,9 @@ in
     };
 
   systemPackages = with pkgs; [
+    aseprite
+    vlc
+    lshw
     zoom-us
     xarchiver
     burpsuite
@@ -58,6 +61,7 @@ in
     dmidecode
     tmux
     android-studio
+    android-tools
     msr-tools
     p2pool
     xmrig
@@ -80,6 +84,7 @@ in
 		rocmPackages.rocminfo
 		git-credential-manager
 		kdePackages.kcalc
+    kdePackages.kdenlive
 		conda
 		ngrok
 		kdePackages.filelight
@@ -98,13 +103,14 @@ in
     godot_4
     #jetbrains.idea-community-bin
 		wf-recorder
+    swaybg
     hyprpaper
 		selectdefaultapplication
 		tradingview
 		github-desktop
 		gitkraken
 		php
-    blender-hip
+    blender
     prismlauncher
 		#mysql-workbench
 		go
@@ -241,6 +247,7 @@ in
 
   nixpkgs.config.allowUnfree = true; 
 	nixpkgs.config.allowUnsupportedSystem = true;
+  nixpkgs.config.rocmSupport = true;
 
 
 
@@ -403,7 +410,6 @@ in
     virt-manager.enable = true;
     firefox.enable = true;
     #openvpn3.enable = true;
-    adb.enable = true;
 		nm-applet.enable = true;
     nix-ld = {
 			enable = true;

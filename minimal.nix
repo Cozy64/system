@@ -19,12 +19,11 @@
   systemPackages = with pkgs; [
 		
     dmidecode
-    monero-cli
+    lshw
     tmux
 		patchelf
 		bc
 		rocmPackages.rocminfo
-    solana-cli
 		powertop
 		php
 		go
@@ -45,11 +44,10 @@
 		fzf
 		lua
 		ripgrep
-		rustup
 		iw
 		unar
 		vulkan-tools
-		glxinfo
+    mesa-demos
 		p7zip
 		mangohud
 		nix-index
@@ -97,9 +95,6 @@
 	
 		
     '';
-	#plasma6.excludePackages = with pkgs.kdePackages; [
-		#konsole
-	#];
 
   };
 
@@ -157,7 +152,6 @@
     ];
   };
 
-  zramSwap.enable = true;
 	#powerManagement = {
 	#	enable = true;
 	#	#powertop.enable = true;
@@ -195,19 +189,7 @@
       package = pkgs.gitFull;
 
     };
-    #uwsm = {
-    #enable = true;
-    #	waylandCompositors = {
-    #		hyprland = {
-    #		prettyName = "Hyprland";
-    #		comment = "Hyprland compositor managed by UWSM";
-    #		binPath = "/run/current-system/sw/bin/Hyprland";
-    #		};
-    #	};
-    #};
     dconf.enable = true;
-    #ssh.startAgent = true;
-      #openvpn3.enable = true;
     nix-ld = {
 			enable = true;
 			libraries = with pkgs; [
@@ -272,14 +254,6 @@
 
     
   };
-
-
-	#qt = {
-	#	enable = true;
-	#	platformTheme = "gtk3";
-	#	style = "adwaita-dark";
-	#};
-  
 
 
   system.stateVersion = "25.05"; # Did you read the comment?
