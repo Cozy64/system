@@ -129,6 +129,7 @@ in
 		lf
 		networkmanagerapplet
 		shared-mime-info
+    lxmenu-data
 		grimblast
 		rofi
 		rofimoji
