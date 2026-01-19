@@ -76,10 +76,10 @@
           ./modules/steam.nix
           ./modules/opentabletdriver.nix
           ./modules/rgb.nix
-          ./modules/supergfxd.nix
           ./modules/ly.nix
           ./modules/ollama.nix
           ./modules/bluetooth.nix
+          #./modules/supergfxd.nix
           #./modules/asusd.nix
           #./modules/sddm.nix
           #./modules/asusd.nix

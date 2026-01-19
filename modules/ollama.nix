@@ -1,14 +1,14 @@
 { ...}:
 {
   services = {
-   nextjs-ollama-llm-ui = {
-     enable = true;
+   #nextjs-ollama-llm-ui = {
+   #  enable = true;
 
-   };
+   #};
 
     ollama = {
       enable = true;
-      #rocmOverrideGfx = "";
+      rocmOverrideGfx = "10.30.0";
 
     };
   };
