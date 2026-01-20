@@ -106,7 +106,6 @@
           ./boot.nix
           ./home-manager.nix
           ./modules/firmware-amd.nix
-          ./modules/tlp-amd.nix
           ./modules/alias.nix
           ./modules/ssh.nix
           ./modules/language.nix
@@ -176,6 +175,7 @@
           ./minimal.nix
           ./boot.nix
           ./modules/firmware-intel.nix
+          ./modules/tlp-intel.nix
           ./modules/alias.nix
           ./modules/swapfile.nix
           ./modules/ssh.nix
