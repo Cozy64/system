@@ -32,7 +32,7 @@
     ags.url = "github:aylur/ags";
 
     # Disko (for declarative partitioning / nixos-anywhere)
-    disko.url = "github:nix-community/disko";
+    #disko.url = "github:nix-community/disko";
 
     # Example external package source
     #new-bottles = {
