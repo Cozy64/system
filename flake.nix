@@ -162,6 +162,42 @@
           })
         ];
       };
+
+
+      trash = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit inputs; };
+        modules = [
+          home-manager.nixosModules.default
+          /etc/nixos/hardware-configuration.nix
+          #disko.nixosModules.disko
+          #./hardware-configuration.nix
+          #./partitioning/disko-efi.nix
+          ./minimal.nix
+          ./boot.nix
+          ./modules/firmware-intel.nix
+          ./modules/alias.nix
+          ./modules/swapfile.nix
+          ./modules/ssh.nix
+
+
+          ({ ... }: {
+           # nixpkgs.config.packageOverrides = pkgs: {
+           #   new-bottles = pkgs.bottles.overrideAttrs (oldAttrs: {
+           #     src = inputs.new-bottles;
+           #   });
+           # };
+
+            environment.systemPackages = [
+
+            ];
+
+            networking.hostName = "trash";
+
+          })
+        ];
+      };
+
     };
   };
 }
