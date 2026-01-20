@@ -33,19 +33,29 @@
         "priority": 5,
         "memory-pool": true,
         "yield": true,
-        "asm": true
+        "max-threads-hint": 100,
+        "asm": true,
+        "argon2-impl": null,
+        "cn/0": false,
+        "cn-lite/0": false
     },
     "opencl": {
         "enabled": false,
         "cache": true,
         "loader": null,
         "platform": "AMD",
-        "adl": true
+        "adl": true,
+        "cn-lite/0": false,
+        "cn/0": false,
+        "panthera": false
     },
     "cuda": {
         "enabled": false,
         "loader": null,
-        "nvml": true
+        "nvml": true,
+        "cn-lite/0": false,
+        "cn/0": false,
+        "panthera": false
     },
     "log-file": null,
     "donate-level": 0,
@@ -93,10 +103,9 @@
     "verbose": 0,
     "watch": true,
     "rebench-algo": false,
-    "bench-algo-time": 10,
+    "bench-algo-time": 20,
     "algo-min-time": 0,
-    "algo-perf": {
-    },
+    "algo-perf": {},
     "pause-on-battery": false,
     "pause-on-active": false
 }

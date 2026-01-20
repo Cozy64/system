@@ -133,9 +133,6 @@
         modules = [
           home-manager.nixosModules.default
           /etc/nixos/hardware-configuration.nix
-          #disko.nixosModules.disko
-          #./hardware-configuration.nix
-          #./partitioning/disko-efi.nix
           ./minimal.nix
           ./boot.nix
           ./modules/firmware-intel.nix
@@ -146,11 +143,6 @@
 
 
           ({ ... }: {
-           # nixpkgs.config.packageOverrides = pkgs: {
-           #   new-bottles = pkgs.bottles.overrideAttrs (oldAttrs: {
-           #     src = inputs.new-bottles;
-           #   });
-           # };
 
             environment.systemPackages = [
 
@@ -181,11 +173,6 @@
 
 
           ({ ... }: {
-           # nixpkgs.config.packageOverrides = pkgs: {
-           #   new-bottles = pkgs.bottles.overrideAttrs (oldAttrs: {
-           #     src = inputs.new-bottles;
-           #   });
-           # };
 
             environment.systemPackages = [
 
