@@ -175,7 +175,6 @@
           ./minimal.nix
           ./boot.nix
           ./modules/firmware-intel.nix
-          ./modules/tlp-intel.nix
           ./modules/alias.nix
           ./modules/swapfile.nix
           ./modules/ssh.nix
