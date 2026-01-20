@@ -33,8 +33,7 @@
         "priority": 5,
         "memory-pool": true,
         "yield": true,
-        "asm": true,
-        "argon2-impl": null
+        "asm": true
     },
     "opencl": {
         "enabled": false,
