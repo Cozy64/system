@@ -1,13 +1,20 @@
 {pkgs, ...}:
 {
   environment.systemPackages = with pkgs; [
+    winboat
     freerdp
     distrobox
 		#podman-compose
     docker-compose
   ];
+
+
   programs = {
     virt-manager.enable = true;
+
+  };
+  services = {
+    spice-vdagentd.enable = true;
 
   };
   virtualisation = {
