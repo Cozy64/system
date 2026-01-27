@@ -84,7 +84,7 @@ in
 		rocmPackages.rocminfo
 		git-credential-manager
 		kdePackages.kcalc
-    kdePackages.kdenlive
+    #kdePackages.kdenlive
 		conda
 		ngrok
 		kdePackages.filelight
@@ -247,6 +247,7 @@ in
 	};
 
   nixpkgs.config.allowUnfree = true; 
+  nixpkgs.config.allowBroken = true; 
 	nixpkgs.config.allowUnsupportedSystem = true;
 
 
@@ -486,7 +487,7 @@ in
   users.extraGroups.vboxusers.members = [ "cozy" ];
   users.users.cozy = {
     isNormalUser = true;
-    extraGroups = [ "podman" "wheel" "adbusers" "kvm" "docker" "wireshark" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "podman" "wheel" "adbusers" "kvm" "docker" "wireshark" "libvirtd" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [];
   };
 
