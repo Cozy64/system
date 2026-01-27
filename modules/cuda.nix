@@ -1,13 +1,11 @@
-{ pkgs, ... }:
+{ pkgs,... }:
 {
-
   hardware = {
-    enableAllFirmware = true;
-    enableAllHardware = true;
-		cpu = {
-      intel.updateMicrocode = true;
-			x86.msr.enable = true;
+		amdgpu = {
+			opencl.enable = true;
+			initrd.enable = true;
 		};
+
     graphics = {
       enable = true;
       enable32Bit = true;
@@ -22,11 +20,9 @@
 
 			];
     };
-   };
 
+  };
 
-
-
+  nixpkgs.config.rocmSupport = true;
 
 }
-

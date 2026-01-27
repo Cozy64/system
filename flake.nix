@@ -137,7 +137,8 @@
           /etc/nixos/hardware-configuration.nix
           ./minimal.nix
           ./boot.nix
-          ./modules/firmware-intel.nix
+          ./modules/intelcpu.nix
+          ./modules/intelgpu.nix
           ./modules/tlp-intel.nix
           ./modules/alias.nix
           ./modules/swapfile.nix
@@ -167,7 +168,8 @@
           #./partitioning/disko-efi.nix
           ./minimal.nix
           ./boot.nix
-          ./modules/firmware-intel.nix
+          ./modules/intelcpu.nix
+          ./modules/intelgpu.nix
           ./modules/alias.nix
           ./modules/swapfile.nix
           ./modules/ssh.nix
