@@ -62,7 +62,8 @@
           ./base.nix
           ./lanzaboote.nix
           ./home-manager.nix
-          ./modules/firmware-amd.nix
+          ./modules/amdcpu.nix
+          ./modules/amdgpu.nix
           ./modules/swapfile40.nix
           ./modules/alias.nix
           ./modules/ags.nix
@@ -105,7 +106,8 @@
           ./base.nix
           ./boot.nix
           ./home-manager.nix
-          ./modules/firmware-amd.nix
+          ./modules/amdcpu.nix
+          ./modules/amdgpu.nix
           ./modules/alias.nix
           ./modules/ssh.nix
           ./modules/language.nix
