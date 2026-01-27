@@ -84,7 +84,7 @@ in
 		rocmPackages.rocminfo
 		git-credential-manager
 		kdePackages.kcalc
-    #kdePackages.kdenlive
+    kdePackages.kdenlive
 		conda
 		ngrok
 		kdePackages.filelight
@@ -156,7 +156,7 @@ in
     conda
     obs-studio
     teams-for-linux
-		nvtopPackages.amd
+		nvtopPackages.full
 		btop-rocm
 		helvum
 		gparted
@@ -246,9 +246,11 @@ in
 		};
 	};
 
-  nixpkgs.config.allowUnfree = true; 
-  nixpkgs.config.allowBroken = true; 
-	nixpkgs.config.allowUnsupportedSystem = true;
+  nixpkgs.config = {
+    allowUnfree = true; 
+    #allowBroken = true; 
+	  #allowUnsupportedSystem = true;
+  };
 
 
 
