@@ -41,7 +41,7 @@
     #};
   };
 
-  outputs = { nixpkgs, stablenixpkgs, oldbitwig, home-manager, ... }@inputs:
+  outputs = { nixpkgs, stablenixpkgs, oldbitwig, home-manager, lanzaboote, ... }@inputs:
     let
       system = "x86_64-linux"; # set your arch here, or use builtins.currentSystem
       stablePkgs = import stablenixpkgs { inherit system; };
@@ -57,7 +57,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           home-manager.nixosModules.default
-          inputs.lanzaboote.nixosModules.lanzaboote
+          lanzaboote.nixosModules.lanzaboote
           /etc/nixos/hardware-configuration.nix
           ./base.nix
           ./lanzaboote.nix
@@ -69,16 +69,16 @@
           ./modules/tlp-amd.nix
           ./modules/virtualisation.nix
           ./modules/ssh.nix
-          ./modules/language.nix
+          ./modules/language.nix 
           ./modules/fonts.nix
           ./modules/hyprland.nix
-          ./modules/printing.nix
           ./modules/steam.nix
           ./modules/opentabletdriver.nix
           ./modules/rgb.nix
           ./modules/ly.nix
           ./modules/ollama.nix
           ./modules/bluetooth.nix
+          #./modules/printing.nix
           #./modules/supergfxd.nix
           #./modules/asusd.nix
           #./modules/sddm.nix
@@ -162,7 +162,6 @@
           home-manager.nixosModules.default
           /etc/nixos/hardware-configuration.nix
           #disko.nixosModules.disko
-          #./hardware-configuration.nix
           #./partitioning/disko-efi.nix
           ./minimal.nix
           ./boot.nix
