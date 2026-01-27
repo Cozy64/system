@@ -84,7 +84,7 @@ in
 		rocmPackages.rocminfo
 		git-credential-manager
 		kdePackages.kcalc
-    kdePackages.kdenlive
+    #kdePackages.kdenlive
 		conda
 		ngrok
 		kdePackages.filelight
