@@ -37,7 +37,6 @@
 		yt-dlp
 		cava
 		fastfetch
- 		nvtopPackages.full
 		nmap
 		imv
 		btop
