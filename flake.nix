@@ -174,7 +174,6 @@
           ./modules/nvidia.nix
           ./modules/swapfile.nix
           ./modules/ssh.nix
-          ./modules/virtualisation.nix
 
 
           ({ ... }: {
