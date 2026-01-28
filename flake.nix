@@ -170,8 +170,8 @@
           ./boot.nix
           ./modules/intelcpu.nix
           ./modules/intelgpu.nix
-          ./modules/cuda.nix
           ./modules/alias.nix
+          ./modules/cuda.nix
           ./modules/swapfile.nix
           ./modules/ssh.nix
 
