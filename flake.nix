@@ -171,7 +171,6 @@
           ./modules/intelcpu.nix
           ./modules/intelgpu.nix
           ./modules/alias.nix
-          ./modules/nvidia.nix
           ./modules/swapfile.nix
           ./modules/ssh.nix
 
