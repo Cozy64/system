@@ -47,6 +47,7 @@ in
     };
 
   systemPackages = with pkgs; [
+    osu-lazer-bin
     aseprite
     vlc
     lshw

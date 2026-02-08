@@ -112,6 +112,7 @@
           ./modules/ssh.nix
           ./modules/language.nix
           ./modules/tlp-amd.nix
+          ./modules/steam.nix
           ./modules/fonts.nix
           ./modules/hyprland.nix
           ./modules/ly.nix
