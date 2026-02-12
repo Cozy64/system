@@ -2,6 +2,11 @@
 {
   home-manager.users.cozy = {
 
+    xdg = {
+      enable = true;
+      configFile."hypr/hyprland.conf".source = /home/cozy/system/configs/hypr/hyprland.conf;
+    };
+
 		
 		services = {
 
@@ -121,16 +126,6 @@
 
 		};
 
-  #programs = {
-  #  cava = {
-  #    enable = true;
-  #    settings = 
-  #    ''
-#
-#      '';
-
-#    };
-#  };
 
 	qt = {
 		enable = true;
@@ -143,10 +138,6 @@
 
     gtk = {
       enable = true;
-			#theme = {
-			#	name = "Flat-Remix-GTK-Red-Darkest";
-			#	package= pkgs.flat-remix-gtk;
-			#	};
 			theme = {
 				name = "Graphite-Dark";
 				package= pkgs.graphite-gtk-theme.override {
@@ -181,42 +172,8 @@
         package = pkgs.bibata-cursors;
         size = 24;
       };
-		#	packages = with pkgs; [
-		#	];
   	};
 
-#	stylix.targets.rofi.enable = true;
-#	stylix.enable = true;
-	
-#  };
-#	stylix = {
-#		enable = true;
-#		polarity = "dark";
-		#base16Scheme = {
-		#	base00 = "000000";
-		#	base01 = "222222";
-		#	base02 = "dd0000";
-		#	base03 = "dd0000";
-		#	base04 = "dd0000";
-		#	base05 = "dddddd"; #general text
-		#	base06 = "dd0000"; 
-		#	base07 = "dd0000"; 
-		#	base08 = "ff0000";
-		#	base09 = "ff0000";
-		#	base0A = "ffff00";
-		#	base0B = "60ff00";
-		#	base0C = "00ffff";
-		#	base0D = "dd0000";
-		#	base0E = "ff00ff";
-		#	base0F = "dd0000";
-		#};
-		#image = /home/cozy/wallpapers/loneflame.png;
-		#cursor = {
-		#	package = pkgs.bibata-cursors;
-    #  name = "Bibata-Modern-Classic";
-		#	size = 24;
-#
-#		};
 	};
 
 }
