@@ -1,5 +1,5 @@
 {
-  description = "Flake Systems";
+  description = "Cozy's System";
 
   inputs = {
     # Nixpkgs channels
@@ -75,15 +75,11 @@
           ./modules/hyprland.nix
           ./modules/steam.nix
           ./modules/opentabletdriver.nix
-          ./modules/rgb.nix
+          ./modules/asusd.nix
+          ./modules/supergfxd.nix
           ./modules/ly.nix
-          ./modules/ollama.nix
           ./modules/bluetooth.nix
           #./modules/printing.nix
-          #./modules/supergfxd.nix
-          #./modules/asusd.nix
-          #./modules/sddm.nix
-          #./modules/asusd.nix
 
           ({ ... }: {
 
