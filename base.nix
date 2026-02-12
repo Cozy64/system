@@ -47,6 +47,7 @@ in
     };
 
   systemPackages = with pkgs; [
+    ventoy-full
     osu-lazer-bin
     aseprite
     vlc
