@@ -197,16 +197,16 @@
 				gnumake
 				glibc
 				glib
-				xorg.libXtst
-    		xorg.libXxf86vm
-				xorg.libX11
-				xorg.libXcursor
-				xorg.libXrandr
-				xorg.libXinerama
-				xorg.libXext
-				xorg.libXrender
-				xorg.libXi
-				xorg.libxcb
+				libXtst
+    		libXxf86vm
+				libX11
+				libXcursor
+				libXrandr
+				libXinerama
+				libXext
+				libXrender
+				libXi
+				libxcb
 				libxkbcommon
 				wayland
 				mesa

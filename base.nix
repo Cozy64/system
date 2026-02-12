@@ -165,12 +165,12 @@ in
 		vscode-fhs
 		niv
 		fzf
-		xorg.xeyes
+		xeyes
 		wayland-utils
 		libnotify
 		lua
-		xorg.xev
-		xorg.xhost
+		xev
+		xhost
 		ripgrep
 		rustup
 		appimage-run
@@ -424,16 +424,16 @@ in
 				gnumake
 				glibc
 				glib
-				xorg.libXtst
-    		xorg.libXxf86vm
-				xorg.libX11
-				xorg.libXcursor
-				xorg.libXrandr
-				xorg.libXinerama
-				xorg.libXext
-				xorg.libXrender
-				xorg.libXi
-				xorg.libxcb
+				libXtst
+    		libXxf86vm
+				libX11
+				libXcursor
+				libXrandr
+				libXinerama
+				libXext
+				libXrender
+				libXi
+				libxcb
 				libxkbcommon
 				wayland
 				mesa
