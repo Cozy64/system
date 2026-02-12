@@ -4,10 +4,11 @@
   inputs = {
     # Nixpkgs channels
     #hyprland.url = "github:hyprwm/Hyprland";
-    stablenixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    stablepkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    #nixpkgs.url = "github:NixOS/nixpkgs/master";
+    gitpkgs.url = "github:NixOS/nixpkgs/master";
     oldpkgs.url = "github:NixOS/nixpkgs/e6eae2ee2110f3d31110d5c222cd395303343b08";
-    #nixpkgs.url = "github:NixOS/nixpkgs/5e2a59a5b1a82f89f2c7e598302a9cacebb72a67";
 
     oldbitwig.url = "github:NixOS/nixpkgs/27272c21afa6e506f8700f751b6bdec0dc8924c8";
 
@@ -42,11 +43,12 @@
     #};
   };
 
-  outputs = { nixpkgs, stablenixpkgs, oldpkgs, oldbitwig, home-manager, lanzaboote, ... }@inputs:
+  outputs = { nixpkgs, gitpkgs, stablepkgs, oldpkgs, oldbitwig, home-manager, lanzaboote, ... }@inputs:
     let
       system = "x86_64-linux"; # set your arch here, or use builtins.currentSystem
-      stablePkgs = import stablenixpkgs { inherit system; };
+      stablePkgs = import stablepkgs { inherit system; };
       oldPkgs = import oldpkgs { inherit system; };
+      gitPkgs = import gitpkgs { inherit system; };
       oldBitwig = import oldbitwig { inherit system; config.allowUnfree = true; };
     in 
   {
@@ -54,9 +56,9 @@
 
     nixosConfigurations = { 
 
-      slave = nixpkgs.lib.nixosSystem {
+      slave = gitpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit inputs oldPkgs; };
+        specialArgs = { inherit inputs gitPkgs stablePkgs oldPkgs ; };
         modules = [
           home-manager.nixosModules.default
           lanzaboote.nixosModules.lanzaboote
