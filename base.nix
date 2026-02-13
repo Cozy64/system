@@ -256,8 +256,6 @@ in
 
 
 
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
 	networking = {
   	firewall.enable = false;
     #interfaces.wlan0.mtu = 1450;
@@ -277,12 +275,9 @@ in
   # Set your time zone.
   time = {
     timeZone = "Asia/Kuala_Lumpur";
-    hardwareClockInLocalTime = true;
+    #hardwareClockInLocalTime = true;
   };
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -410,7 +405,6 @@ in
 			};
 		};
     virt-manager.enable = true;
-    firefox.enable = true;
     #openvpn3.enable = true;
 		nm-applet.enable = true;
     nix-ld = {
