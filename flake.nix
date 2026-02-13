@@ -56,7 +56,7 @@
 
     nixosConfigurations = { 
 
-      slave = gitpkgs.lib.nixosSystem {
+      slave = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = { inherit inputs gitPkgs stablePkgs oldPkgs ; };
         modules = [
