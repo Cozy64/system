@@ -5,6 +5,8 @@
     xdg = {
       enable = true;
       configFile."hypr/hyprland.conf".source = /home/cozy/system/configs/hypr/hyprland.conf;
+      configFile."waybar/config".source = /home/cozy/system/configs/waybar/config;
+      configFile."waybar/style.css".source = /home/cozy/system/configs/waybar/style.css;
     };
 
 		
