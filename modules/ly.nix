@@ -5,7 +5,7 @@
     displayManager = {
 		 ly = {
        enable = true;
-       package = oldPkgs.ly;
+       #package = oldPkgs.ly;
      };
 		};
   };

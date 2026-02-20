@@ -149,7 +149,7 @@ in
 		cava
 		fastfetch
 		zoxide
-		wineWowPackages.waylandFull
+		#wineWowPackages.waylandFull
 		nmap
 		pulsemixer
 		telegram-desktop
