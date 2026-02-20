@@ -68,7 +68,7 @@
           ./home-manager.nix
           ./modules/amdcpu.nix
           ./modules/amdgpu.nix
-          ./modules/swapfile20.nix
+          ./modules/swapfile30.nix
           ./modules/alias.nix
           ./modules/ags.nix
           ./modules/tlp-amd.nix
@@ -144,7 +144,7 @@
           ./modules/intelgpu.nix
           ./modules/tlp-intel.nix
           ./modules/alias.nix
-          ./modules/swapfile.nix
+          ./modules/swapfile20.nix
           ./modules/ssh.nix
           ./modules/zram.nix
 
@@ -175,7 +175,7 @@
           ./modules/intelcpu.nix
           ./modules/intelgpu.nix
           ./modules/alias.nix
-          ./modules/swapfile.nix
+          ./modules/swapfile20.nix
           ./modules/ssh.nix
           ./modules/zram.nix
 
