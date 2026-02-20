@@ -1,5 +1,12 @@
-{inputs, pkgs, ...}:
+{...}:
 {
+  home-manager.users.cozy = {
+
+    xdg = {
+      enable = true;
+      configFile."hypr/hyprland.conf".source = /home/cozy/system/configs/hypr/hyprland2560x160090hz.conf;
+    };
+  };
   programs = {
     hyprland = {
       enable = true;

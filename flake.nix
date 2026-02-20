@@ -68,7 +68,7 @@
           ./home-manager.nix
           ./modules/amdcpu.nix
           ./modules/amdgpu.nix
-          ./modules/swapfile40.nix
+          ./modules/swapfile20.nix
           ./modules/alias.nix
           ./modules/ags.nix
           ./modules/tlp-amd.nix
@@ -76,13 +76,14 @@
           ./modules/ssh.nix
           ./modules/language.nix 
           ./modules/fonts.nix
-          ./modules/hyprland.nix
+          ./modules/hyprland2560x160090hz.nix
           ./modules/steam.nix
           ./modules/opentabletdriver.nix
           ./modules/asusd.nix
           ./modules/supergfxd.nix
           ./modules/ly.nix
           ./modules/bluetooth.nix
+          ./modules/zram.nix
           #./modules/printing.nix
 
           ({ ... }: {
@@ -114,9 +115,10 @@
           ./modules/tlp-amd.nix
           ./modules/steam.nix
           ./modules/fonts.nix
-          ./modules/hyprland.nix
+          ./modules/hyprland1920x108060hz.nix
           ./modules/ly.nix
           ./modules/bluetooth.nix
+          ./modules/zram.nix
 
           ({ ... }: {
 
@@ -144,6 +146,7 @@
           ./modules/alias.nix
           ./modules/swapfile.nix
           ./modules/ssh.nix
+          ./modules/zram.nix
 
 
           ({ ... }: {
@@ -174,6 +177,7 @@
           ./modules/alias.nix
           ./modules/swapfile.nix
           ./modules/ssh.nix
+          ./modules/zram.nix
 
 
           ({ ... }: {
