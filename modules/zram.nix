@@ -2,5 +2,5 @@
 {  
   zramSwap = {
     enable = true;
-  }
+  };
   }
