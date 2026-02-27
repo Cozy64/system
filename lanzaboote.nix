@@ -5,7 +5,7 @@
             supportedFilesystems = [ "ntfs" ];
   		kernelParams = ["fbcon=font:VGA8x16" "default_hugepagesz=2M" "hugepagesz=1G" "hugepages=4"];
             # kernelPackages = pkgs.linuxPackages_zen;
-            kernelPackages = gitPkgs.linuxPackages_latest;
+            kernelPackages = pkgs.linuxPackages_latest;
           lanzaboote = {
             enable = true;
             pkiBundle = "/var/lib/sbctl";
