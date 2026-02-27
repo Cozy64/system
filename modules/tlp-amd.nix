@@ -14,9 +14,9 @@
 			  SOUND_POWER_SAVE_ON_BAT=1;
 			  SOUND_POWER_SAVE_ON_SAV=1;
 			  SOUND_POWER_SAVE_CONTROLLER="Y";
-				#MEM_SLEEP_ON_AC="s2idle";
-				#MEM_SLEEP_ON_BAT="s2idle";
-				#MEM_SLEEP_ON_SAV="s2idle";
+				MEM_SLEEP_ON_AC="deep"; #s2idle is the other option
+				MEM_SLEEP_ON_BAT="deep";
+				MEM_SLEEP_ON_SAV="deep";
 
 
 			  RUNTIME_PM_ON_AC="on";  #not really sure what those 4 do
@@ -42,7 +42,7 @@
 			  CPU_SCALING_GOVERNOR_ON_AC="performance";
 			  CPU_SCALING_GOVERNOR_ON_BAT="powersave";
 			  CPU_SCALING_GOVERNOR_ON_SAV="powersave";
-			  #CPU_SCALING_MAX_FREQ_ON_BAT=1400000; #lowky buggy when using this. Not recommended
+			  #CPU_SCALING_MAX_FREQ_ON_BAT=1400000; #buggy when using this. Not recommended
 			  CPU_ENERGY_PERF_POLICY_ON_AC="performance";
 			  CPU_ENERGY_PERF_POLICY_ON_BAT="power";
 			  CPU_ENERGY_PERF_POLICY_ON_SAV="power";
