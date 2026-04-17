@@ -100,7 +100,7 @@
 
       rust = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit oldBitwig inputs; };
+        specialArgs = { inherit oldBitwig gitPkgs inputs; };
         modules = [
           home-manager.nixosModules.default
           /etc/nixos/hardware-configuration.nix
