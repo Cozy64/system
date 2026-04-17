@@ -45,9 +45,18 @@ in
 
 
     };
+   etc."libinput/local-overrides.quirks".text = ''
+      [Never Debounce]
+      MatchUdevType=mouse
+      ModelBouncingKeys=1
+    '';
 
   systemPackages = with pkgs; [
-    solana-cli
+  
+    usbutils
+    crosspipe
+    tor-browser
+    onionshare
     osu-lazer-bin
     aseprite
     vlc
@@ -70,6 +79,7 @@ in
     dunst
     vscode-langservers-extracted
     typescript-language-server
+    astro-language-server
     basedpyright
     bash-language-server
     nixd
@@ -145,7 +155,6 @@ in
 		gitPkgs.krita
 		gimp3-with-plugins
 		musescore
-		mpv
 		yt-dlp
 		cava
 		fastfetch
@@ -160,7 +169,6 @@ in
     teams-for-linux
 		nvtopPackages.full
 		btop-rocm
-		helvum
 		gparted
 		bluetuith
 		vscode-fhs
@@ -330,13 +338,34 @@ in
     envfs.enable = true;
     flatpak.enable = true;
     #onedrive.enable = true;
+    #libinput = {
+    #  mouse = {
+    #    additionalOptions = ''
+    #      [Never Debounce]
+    #      MatchUdevType=mouse
+    #      ModelBouncingKeys=1
+    #    
+#
+#        '';
+#
+#      };
+#
+#    };
+    udev = {
+      enable = true;
+      extraRules = ''
+      KERNEL=="hidraw*", ATTRS{idVendor}=="373b", MODE="0666"
+
+
+      '';
+    };
     upower = {
       enable = true;
       percentageLow = 20;
       percentageCritical = 15;
       percentageAction = 10;
       timeAction = 0;
-      criticalPowerAction = "Hibernate";
+      criticalPowerAction = "Suspend";
 			allowRiskyCriticalPowerAction = true;
     };
     logind.settings.Login = {
@@ -353,6 +382,7 @@ in
 
   programs = {
 
+  firefox.enable = true;
 	seahorse.enable = true;
 	git = {
 		enable = true;
@@ -371,7 +401,7 @@ in
 					font = "monospace:size=12";
 
 				};
-				colors = {
+				colors-dark = {
 
 					alpha=0.9;
 					background="000000";
@@ -485,7 +515,7 @@ in
   users.extraGroups.vboxusers.members = [ "cozy" ];
   users.users.cozy = {
     isNormalUser = true;
-    extraGroups = [ "podman" "wheel" "adbusers" "kvm" "docker" "wireshark" "libvirtd" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "podman" "input" "wheel" "adbusers" "kvm" "docker" "wireshark" "libvirtd" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [];
   };
 

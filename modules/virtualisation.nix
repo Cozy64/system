@@ -1,7 +1,6 @@
 {pkgs, ...}:
 {
   environment.systemPackages = with pkgs; [
-    winboat
     freerdp
     distrobox
 		#podman-compose
@@ -21,7 +20,7 @@
     #waydroid.enable = true;
 		kvmgt.enable = true;
 		spiceUSBRedirection.enable = true;
-      #libvirtd.enable = true;
+      libvirtd.enable = true;
       #virtualbox = {
 			#	host.enable = true;
 			#	host.enableExtensionPack = true;
