@@ -100,7 +100,7 @@ in
 		conda
 		ngrok
 		kdePackages.filelight
-		swww
+		awww
 		pywal
 		matugen
 		pcmanfm
