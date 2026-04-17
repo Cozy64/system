@@ -1,8 +1,5 @@
 {...}:
 {
-  home-manager.users.cozy = {
-
-  };
   programs = {
     hyprland = {
       enable = true;

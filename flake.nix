@@ -52,7 +52,7 @@
     #};
   };
 
-  outputs = { nixpkgs, gitpkgs, stablepkgs, oldpkgs, oldbitwig, home-manager, lanzaboote, ... }@inputs:
+  outputs = { nixpkgs, gitpkgs, stablepkgs, oldpkgs, oldbitwig, home-manager, lanzaboote, quickshell, ... }@inputs:
     let
       system = "x86_64-linux"; # set your arch here, or use builtins.currentSystem
       stablePkgs = import stablepkgs { inherit system; };
