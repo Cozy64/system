@@ -2,11 +2,11 @@
 {
   home-manager.users.cozy = {
 
-    xdg = {
-      enable = true;
-      configFile."waybar/config".source = /home/cozy/system/configs/waybar/config;
-      configFile."waybar/style.css".source = /home/cozy/system/configs/waybar/style.css;
-    };
+#    xdg = {
+#      enable = true;
+#      configFile."waybar/config".source = /home/cozy/system/configs/waybar/config;
+#      configFile."waybar/style.css".source = /home/cozy/system/configs/waybar/style.css;
+#    };
 
 		
 		services = {
