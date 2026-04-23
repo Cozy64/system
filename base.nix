@@ -53,6 +53,8 @@ in
 
   systemPackages = with pkgs; [
   
+    fuzzel
+    quickshell
     usbutils
     crosspipe
     tor-browser

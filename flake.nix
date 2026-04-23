@@ -12,14 +12,14 @@
 
     oldbitwig.url = "github:NixOS/nixpkgs/27272c21afa6e506f8700f751b6bdec0dc8924c8";
 
-   quickshell = {
-      # add ?ref=<tag> to track a tag
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-
+   #quickshell = {
+   #   # add ?ref=<tag> to track a tag
+   #   url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+   #
       # THIS IS IMPORTANT
       # Mismatched system dependencies will lead to crashes and other issues.
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+   #      inputs.nixpkgs.follows = "nixpkgs";
+   #    };
 
     #winboat = {
     #  url = "github:TibixDev/winboat";
@@ -38,9 +38,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    astal.url = "github:aylur/astal";
+    #astal.url = "github:aylur/astal";
 
-    ags.url = "github:aylur/ags";
+    #ags.url = "github:aylur/ags";
 
     # Disko (for declarative partitioning / nixos-anywhere)
     #disko.url = "github:nix-community/disko";
@@ -52,7 +52,7 @@
     #};
   };
 
-  outputs = { nixpkgs, gitpkgs, stablepkgs, oldpkgs, oldbitwig, home-manager, lanzaboote, quickshell, ... }@inputs:
+  outputs = { nixpkgs, gitpkgs, stablepkgs, oldpkgs, oldbitwig, home-manager, lanzaboote,  ... }@inputs:
     let
       system = "x86_64-linux"; # set your arch here, or use builtins.currentSystem
       stablePkgs = import stablepkgs { inherit system; };
@@ -79,7 +79,6 @@
           ./modules/amdgpu.nix
           ./modules/swapfile20.nix
           ./modules/alias.nix
-          ./modules/ags.nix
           ./modules/tlp-amd.nix
           ./modules/virtualisation.nix
           ./modules/ssh.nix
