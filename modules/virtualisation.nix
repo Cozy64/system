@@ -2,9 +2,6 @@
 {
   environment.systemPackages = with pkgs; [
     freerdp
-    distrobox
-		#podman-compose
-    docker-compose
   ];
 
 
@@ -17,7 +14,6 @@
 
   };
   virtualisation = {
-    #waydroid.enable = true;
 		kvmgt.enable = true;
 		spiceUSBRedirection.enable = true;
       libvirtd.enable = true;
@@ -43,8 +39,5 @@
 		#	defaultNetwork.settings.dns_enabled = true;
 		#	dockerSocket.enable = true;
   	#};
-      docker = {
-        enable = true;
-      };
 	};
 }

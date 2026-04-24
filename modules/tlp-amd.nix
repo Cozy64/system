@@ -63,8 +63,8 @@
 			  RADEON_POWER_PROFILE_ON_BAT="low";
 			  RADEON_POWER_PROFILE_ON_SAV="low";
 			  AMDGPU_ABM_LEVEL_ON_AC=0; 
-	 		  AMDGPU_ABM_LEVEL_ON_BAT=3; #setting to 3 makes my screen look ugly as fuck
-	 		  AMDGPU_ABM_LEVEL_ON_SAV=3; 
+	 		  AMDGPU_ABM_LEVEL_ON_BAT=0; #setting to 3 makes my screen look ugly as fuck
+	 		  AMDGPU_ABM_LEVEL_ON_SAV=0; 
 			};
 		};
   };

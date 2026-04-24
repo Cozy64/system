@@ -80,7 +80,7 @@
           ./modules/swapfile20.nix
           ./modules/alias.nix
           ./modules/tlp-amd.nix
-          ./modules/virtualisation.nix
+          ./modules/docker.nix
           ./modules/ssh.nix
           ./modules/language.nix 
           ./modules/fonts.nix
@@ -116,6 +116,7 @@
           ./base.nix
           ./boot.nix
           ./home-manager.nix
+          ./modules/docker.nix
           ./modules/amdcpu.nix
           ./modules/amdgpu.nix
           ./modules/alias.nix
