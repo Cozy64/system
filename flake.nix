@@ -85,7 +85,7 @@
           ./modules/language.nix 
           ./modules/fonts.nix
           ./modules/hyprland.nix
-          ./modules/niri.nix
+          #./modules/niri.nix
           ./modules/steam.nix
           ./modules/opentabletdriver.nix
           ./modules/asusd.nix
