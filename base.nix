@@ -59,7 +59,7 @@ in
     crosspipe
     tor-browser
     onionshare
-    osu-lazer-bin
+    #osu-lazer-bin
     aseprite
     vlc
     lshw
@@ -107,7 +107,7 @@ in
 		matugen
 		pcmanfm
 		waybar
-    bottles
+    #bottles
 		#new-bottle
 		pavucontrol
 		sbctl
