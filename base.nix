@@ -53,6 +53,7 @@ in
 
   systemPackages = with pkgs; [
   
+    flutter
     fuzzel
     quickshell
     usbutils
@@ -260,6 +261,7 @@ in
 
   nixpkgs.config = {
     allowUnfree = true; 
+    allowInsecure = true; 
     #allowBroken = true; 
 	  #allowUnsupportedSystem = true;
   };

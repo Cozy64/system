@@ -81,6 +81,7 @@
           ./modules/alias.nix
           ./modules/tlp-amd.nix
           ./modules/docker.nix
+          ./modules/virtualisation.nix
           ./modules/ssh.nix
           ./modules/language.nix 
           ./modules/fonts.nix
