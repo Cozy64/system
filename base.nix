@@ -124,7 +124,6 @@ in
     hyprpaper
 		selectdefaultapplication
 		tradingview
-		github-desktop
 		gitkraken
 		php
     blender
@@ -367,9 +366,6 @@ in
 		gnome.gnome-keyring.enable = true;
 		#dbus.implementation = "broker";
     envfs.enable = true;
-    flatpak = {
-      enable = true;
-    };
     #onedrive.enable = true;
     #libinput = {
     #  mouse = {
