@@ -173,7 +173,7 @@ in
     obs-studio
     teams-for-linux
 		nvtopPackages.full
-		btop-rocm
+		btop
 		gparted
 		bluetuith
 		vscode-fhs

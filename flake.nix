@@ -117,7 +117,7 @@
           lanzaboote.nixosModules.lanzaboote
           /etc/nixos/hardware-configuration.nix
           ./base.nix
-          ./lanzaboote.nix
+          ./boot.nix
           ./home-manager.nix
           ./modules/intelgpu.nix
           ./modules/intelcpu.nix
