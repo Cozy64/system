@@ -14,6 +14,7 @@ in
 
 
   environment = {
+  pathsToLink = [ "/share/xdg-desktop-portal" "/share/applications" ];
 		variables = {
 		BEMENU_OPTS="-b -p '>' --fn 16 --bdr '#FFFFFF' --ab '#000000' --af '#666666' --nb '#000000' --nf '#666666' --tb '#000000' --tf '#FFFFFF' --fb '#000000' --ff '#FFFFFF' --hb '#000000' --hf '#FFFFFF'";
 		ANDROID_HOME="/home/cozy/Android/Sdk";
@@ -49,10 +50,11 @@ in
       [Never Debounce]
       MatchUdevType=mouse
       ModelBouncingKeys=1
-    '';
+   '';
 
   systemPackages = with pkgs; [
   
+    warehouse
     flutter
     fuzzel
     quickshell
@@ -155,7 +157,7 @@ in
 		discord-canary
 		sqlitebrowser
 		wireshark
-		gitPkgs.krita
+		krita
 		gimp3-with-plugins
 		musescore
 		yt-dlp
@@ -206,7 +208,7 @@ in
 		wget
 		file
 		pamixer
-		nodejs_20
+		nodejs
 		bemenu
 		bemoji
 		wl-clipboard
@@ -252,12 +254,26 @@ in
 	#];
 
   };
-	xdg.mime = {
-		enable = true;
-		defaultApplications = {
-			"inode/directory" = "pcmanfm.desktop";
-		};
-	};
+	xdg = {
+    portal.enable = true;
+    mime = {
+      enable = true;
+      defaultApplications = {
+
+        "x-scheme-handler/http" = ["librewolf.desktop"];
+        "x-scheme-handler/https" = ["librewolf.desktop"];
+        "x-scheme-handler/about" = ["librewolf.desktop"];
+        "x-scheme-handler/unknown" = ["librewolf.desktop"];
+        "images/png" = ["pix.desktop"];
+        "images/jpg" = ["pix.desktop"];
+        "images/webp" = ["pix.desktop"];
+        "images/svg+xml" = ["pix.desktop"];
+        "images/jpeg" = ["pix.desktop"];
+
+        "inode/directory" = "pcmanfm.desktop";
+      };
+    };
+  };
 
   nixpkgs.config = {
     allowUnfree = true; 

@@ -2,11 +2,24 @@
 {
   home-manager.users.cozy = {
 
-#    xdg = {
-#      enable = true;
-#      configFile."waybar/config".source = /home/cozy/system/configs/waybar/config;
-#      configFile."waybar/style.css".source = /home/cozy/system/configs/waybar/style.css;
-#    };
+  xdg = { 
+   
+    mime.enable = true;
+    portal = {
+      enable = true;
+        extraPortals = with pkgs; [xdg-desktop-portal-gtk xdg-desktop-portal-hyprland ];
+        config = {
+              hyprland = {
+                # Tells XDG to use the Hyprland portal for screen sharing/etc., 
+                # and fall back to the GTK portal for things it lacks (like file picking).
+                default = [ "hyprland" "gtk" ];
+              };
+        };
+
+      };
+
+
+    };
 
 		
 		services = {
@@ -71,7 +84,7 @@
               icon_position = "left";
               min_icon_size = 32;
               max_icon_size = 128;
-              icon_path = "/usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/";
+              #icon_path = "/usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/";
 
               ### History ###
               sticky_history = true;
