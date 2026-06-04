@@ -12,6 +12,10 @@
     };
 
   };
+	security = {
+    rtkit.enable = true;
+
+	};
 
 
 

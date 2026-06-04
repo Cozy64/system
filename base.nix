@@ -54,7 +54,6 @@ in
 
   systemPackages = with pkgs; [
   
-    git-credential-manager
     warehouse
     github-desktop
     flutter
@@ -101,7 +100,6 @@ in
 		patchelf
 		bc
 		rocmPackages.rocminfo
-		git-credential-manager
 		kdePackages.kcalc
     #kdePackages.kdenlive
 		conda
@@ -256,19 +254,19 @@ in
 
   };
 	xdg = {
-    portal = {
-      enable = true;
-      config = {
-        common = {
-          default = [
-            "gtk"
-          ];
-        };
-      };
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-    ];
-  };
+    #portal = {
+    #  enable = true;
+    #  config = {
+    #    common = {
+    #      default = [
+    #        "gtk"
+    #      ];
+    #    };
+    #  };
+    #  extraPortals = with pkgs; [
+    #    xdg-desktop-portal-gtk
+    #  ];
+    #};
     mime = {
       enable = true;
       defaultApplications = {
@@ -351,11 +349,6 @@ in
   security = {
 		#soteria.enable = true;
     polkit.enable = true;
-    rtkit.enable = true;
-    pam.loginLimits = [
-      {domain = "*";type = "-";item = "memlock";value = "infinity";}
-      {domain = "*";type = "-";item = "nofile";value = "1048576";}
-    ];
   };
 
   services = {
@@ -365,9 +358,9 @@ in
 		gvfs.enable = true;
 		udisks2.enable = true;
 		#blueman.enable = true;
-		gnome.gnome-keyring.enable = true;
+		#gnome.gnome-keyring.enable = true;
 		#dbus.implementation = "broker";
-    envfs.enable = true;
+    #envfs.enable = true;
     #onedrive.enable = true;
     #libinput = {
     #  mouse = {
@@ -382,14 +375,6 @@ in
 #      };
 #
 #    };
-    udev = {
-      enable = true;
-      extraRules = ''
-      KERNEL=="hidraw*", ATTRS{idVendor}=="373b", MODE="0666"
-
-
-      '';
-    };
     upower = {
       enable = true;
       percentageLow = 20;
@@ -414,16 +399,15 @@ in
   programs = {
 
   firefox.enable = true;
-	seahorse.enable = true;
+	#seahorse.enable = true;
 	git = {
 		enable = true;
 		package = pkgs.gitFull;
-    config.credential.helper = "libsecret";
 
 
 	};
 	#file-roller.enable = true;
-	dconf.enable = true;
+	#dconf.enable = true;
 		foot = {
 			enable = true;
 			settings = {
@@ -468,64 +452,62 @@ in
 
 			};
 		};
-    virt-manager.enable = true;
-    #openvpn3.enable = true;
 		nm-applet.enable = true;
-    nix-ld = {
-			enable = true;
-			libraries = with pkgs; [
-				#stdenv.cc.cc.lib
-				#stdenv.cc.cc
-        openssl
-				gcc
-        cmake
-				gnumake
-				glibc
-				glib
-				libXtst
-    		libXxf86vm
-				libX11
-				libXcursor
-				libXrandr
-				libXinerama
-				libXext
-				libXrender
-				libXi
-				libxcb
-				libxkbcommon
-				wayland
-				mesa
-				gtk3
-				alsa-lib
-				libpulseaudio
-				zlib
-				dbus
-				libGL
-				vulkan-loader
-				vulkan-tools
-				fontconfig
-				libdecor
-				speechd
-				
-
-			];
-		};
+    #nix-ld = {
+		#	enable = true;
+		#	libraries = with pkgs; [
+		#		#stdenv.cc.cc.lib
+		#		#stdenv.cc.cc
+    #    openssl
+		#		gcc
+    #    cmake
+		#		gnumake
+		#		glibc
+		#		glib
+		#		libXtst
+    #		libXxf86vm
+		#		libX11
+		#		libXcursor
+		#		libXrandr
+		#		libXinerama
+		#		libXext
+		#		libXrender
+		#		libXi
+		#		libxcb
+		#		libxkbcommon
+		#		wayland
+		#		mesa
+		#		gtk3
+		#		alsa-lib
+		#		libpulseaudio
+		#		zlib
+		#		dbus
+		#		libGL
+		#		vulkan-loader
+		#		vulkan-tools
+		#		fontconfig
+		#		libdecor
+		#		speechd
+		#		
+#
+#			];
+#		};
 
       neovim = {
         enable = true;
         defaultEditor = true;
         viAlias = true;
         vimAlias = true;
-	#configure = {
-	#	customRC = ''
-	#	set number
-	#	set tabstop=2 
-	#	set shiftwidth=2 
-	#	set noswapfile
-	#	set clipboard+=unnamedplus
-	#	'';
+        #configure = {
+        #	customRC = ''
+        #	set number
+        #	set tabstop=2 
+        #	set shiftwidth=2 
+        #	set noswapfile
+        #	set clipboard+=unnamedplus
+        #	'';
 
-	#};
+        #};
 
 
       };
