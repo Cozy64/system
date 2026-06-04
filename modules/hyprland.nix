@@ -8,9 +8,7 @@
 systemd = {
   user.services.polkit-gnome-authentication-agent-1 = {
     description = "polkit-gnome-authentication-agent-1";
-    wantedBy = [ "hyprland-session.target" ];
-    wants    = [ "hyprland-session.target" ];
-    after    = [ "hyprland-session.target" ];
+    wantedBy = [ "default.target" ];
     serviceConfig = {
         Type = "simple";
         ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
