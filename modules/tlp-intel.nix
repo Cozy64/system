@@ -55,6 +55,9 @@
         #CPU_SCALING_MIN_FREQ_ON_AC=0; manual freq change might break things 
 				#CPU_SCALING_MAX_FREQ_ON_AC=9999999;
 				#CPU_SCALING_MIN_FREQ_ON_BAT=0;
+        INTEL_GPU_POWER_PROFILE_ON_AC="base";
+        INTEL_GPU_POWER_PROFILE_ON_BAT="base";
+        INTEL_GPU_POWER_PROFILE_ON_SAV="power_saving";
 				#INTEL_GPU_MIN_FREQ_ON_AC=0;
 				#INTEL_GPU_MIN_FREQ_ON_BAT=0;
 				#INTEL_GPU_MAX_FREQ_ON_AC=0;
