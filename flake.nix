@@ -108,6 +108,45 @@
         ];
       };
 
+
+      sky = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit inputs gitPkgs stablePkgs oldPkgs ; };
+        modules = [
+          home-manager.nixosModules.default
+          lanzaboote.nixosModules.lanzaboote
+          /etc/nixos/hardware-configuration.nix
+          ./base.nix
+          ./lanzaboote.nix
+          ./home-manager.nix
+          ./modules/intelgpu.nix
+          ./modules/intelcpu.nix
+          ./modules/swapfile20.nix
+          ./modules/alias.nix
+          ./modules/tlp-intel.nix
+          ./modules/ssh.nix
+          ./modules/language.nix 
+          ./modules/fonts.nix
+          ./modules/hyprland.nix
+          #./modules/niri.nix
+          ./modules/steam.nix
+          ./modules/ly.nix
+          ./modules/bluetooth.nix
+          ./modules/zram.nix
+          ./modules/printing.nix
+
+          ({ ... }: {
+
+            environment.systemPackages = [
+
+            ];
+
+            networking.hostName = "sky";
+
+          })
+        ];
+      };
+
       rust = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = { inherit oldBitwig gitPkgs inputs; };
