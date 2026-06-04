@@ -9,6 +9,7 @@
     #nixpkgs.url = "github:NixOS/nixpkgs/master";
     gitpkgs.url = "github:NixOS/nixpkgs/master";
     oldpkgs.url = "github:NixOS/nixpkgs/e6eae2ee2110f3d31110d5c222cd395303343b08";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
 
     oldbitwig.url = "github:NixOS/nixpkgs/27272c21afa6e506f8700f751b6bdec0dc8924c8";
 
@@ -52,7 +53,7 @@
     #};
   };
 
-  outputs = { nixpkgs, gitpkgs, stablepkgs, oldpkgs, oldbitwig, home-manager, lanzaboote,  ... }@inputs:
+  outputs = {nix-flatpak, nixpkgs, gitpkgs, stablepkgs, oldpkgs, oldbitwig, home-manager, lanzaboote,  ... }@inputs:
     let
       system = "x86_64-linux"; # set your arch here, or use builtins.currentSystem
       stablePkgs = import stablepkgs { inherit system; };
@@ -64,6 +65,46 @@
 
 
     nixosConfigurations = { 
+
+      sky = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit inputs gitPkgs stablePkgs oldPkgs ; };
+        modules = [
+          home-manager.nixosModules.default
+          lanzaboote.nixosModules.lanzaboote
+          nix-flatpak.nixosModules.nix-flatpak
+          /etc/nixos/hardware-configuration.nix
+          ./base.nix
+          ./boot.nix
+          ./home-manager.nix
+          ./modules/flatpak.nix
+          ./modules/intelgpu.nix
+          ./modules/intelcpu.nix
+          ./modules/swapfile20.nix
+          ./modules/alias.nix
+          ./modules/tlp-intel.nix
+          ./modules/ssh.nix
+          ./modules/language.nix 
+          ./modules/fonts.nix
+          ./modules/hyprland.nix
+          #./modules/niri.nix
+          ./modules/steam.nix
+          ./modules/ly.nix
+          ./modules/bluetooth.nix
+          ./modules/zram.nix
+          ./modules/printing.nix
+
+          ({ ... }: {
+
+            environment.systemPackages = [
+
+            ];
+
+            networking.hostName = "sky";
+
+          })
+        ];
+      };
 
       slave = nixpkgs.lib.nixosSystem {
         inherit system;
@@ -108,44 +149,6 @@
         ];
       };
 
-
-      sky = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs gitPkgs stablePkgs oldPkgs ; };
-        modules = [
-          home-manager.nixosModules.default
-          lanzaboote.nixosModules.lanzaboote
-          /etc/nixos/hardware-configuration.nix
-          ./base.nix
-          ./boot.nix
-          ./home-manager.nix
-          ./modules/intelgpu.nix
-          ./modules/intelcpu.nix
-          ./modules/swapfile20.nix
-          ./modules/alias.nix
-          ./modules/tlp-intel.nix
-          ./modules/ssh.nix
-          ./modules/language.nix 
-          ./modules/fonts.nix
-          ./modules/hyprland.nix
-          #./modules/niri.nix
-          ./modules/steam.nix
-          ./modules/ly.nix
-          ./modules/bluetooth.nix
-          ./modules/zram.nix
-          ./modules/printing.nix
-
-          ({ ... }: {
-
-            environment.systemPackages = [
-
-            ];
-
-            networking.hostName = "sky";
-
-          })
-        ];
-      };
 
       rust = nixpkgs.lib.nixosSystem {
         inherit system;

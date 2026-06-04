@@ -255,7 +255,19 @@ in
 
   };
 	xdg = {
-    portal.enable = true;
+    portal = {
+      enable = true;
+      config = {
+        common = {
+          default = [
+            "gtk"
+          ];
+        };
+      };
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
+  };
     mime = {
       enable = true;
       defaultApplications = {
@@ -345,7 +357,6 @@ in
     ];
   };
 
-
   services = {
 
 		
@@ -356,7 +367,9 @@ in
 		gnome.gnome-keyring.enable = true;
 		#dbus.implementation = "broker";
     envfs.enable = true;
-    flatpak.enable = true;
+    flatpak = {
+      enable = true;
+    };
     #onedrive.enable = true;
     #libinput = {
     #  mouse = {
