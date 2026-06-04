@@ -13,7 +13,6 @@
 
   # Add here the flatpaks you want to install
   services.flatpak.packages = [
-    "io.github.shiftey.Desktop"
 
   ];
 

@@ -54,7 +54,9 @@ in
 
   systemPackages = with pkgs; [
   
+    git-credential-manager
     warehouse
+    github-desktop
     flutter
     fuzzel
     quickshell
@@ -416,6 +418,8 @@ in
 	git = {
 		enable = true;
 		package = pkgs.gitFull;
+    config.credential.helper = "libsecret";
+
 
 	};
 	#file-roller.enable = true;
