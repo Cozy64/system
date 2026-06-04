@@ -156,9 +156,12 @@
     };
 
 
-    dconf.settings."org/gnome/desktop/interface" = {
-      #gtk-theme = "Graphite-Dark";
-      color-scheme = "prefer-dark";
+    dconf = {
+      enable = true;
+      settings."org/gnome/desktop/interface" = {
+        #gtk-theme = "Graphite-Dark";
+        color-scheme = "prefer-dark";
+      };
     };
     home = { 
       pointerCursor = {

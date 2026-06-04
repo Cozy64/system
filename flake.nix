@@ -82,7 +82,7 @@
           ./modules/intelcpu.nix
           ./modules/swapfile20.nix
           ./modules/alias.nix
-          ./modules/tlp-intel.nix
+          ./modules/power-profiles-daemon.nix
           ./modules/ssh.nix
           ./modules/language.nix 
           ./modules/fonts.nix
@@ -96,11 +96,13 @@
 
           ({ ... }: {
 
+            networking.hostName = "sky";
             environment.systemPackages = [
 
             ];
+            system.stateVersion = "26.05"; # Did you read the comment?
+            home-manager.users.cozy.home.stateVersion = "26.05";
 
-            networking.hostName = "sky";
 
           })
         ];
@@ -120,7 +122,7 @@
           ./modules/amdgpu.nix
           ./modules/swapfile20.nix
           ./modules/alias.nix
-          ./modules/tlp-amd.nix
+          ./modules/tlp-intel.nix
           ./modules/docker.nix
           ./modules/virtualisation.nix
           ./modules/ssh.nix
@@ -144,6 +146,9 @@
             ];
 
             networking.hostName = "slave";
+
+            system.stateVersion = "26.05"; # Did you read the comment?
+            home-manager.users.cozy.home.stateVersion = "26.05";
 
           })
         ];

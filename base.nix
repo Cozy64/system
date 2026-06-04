@@ -316,7 +316,7 @@ in
 
 
   security = {
-    pam.services.login.enableGnomeKeyring = true;
+    #pam.services.login.enableGnomeKeyring = true;
 		#soteria.enable = true;
     polkit.enable = true;
   };
@@ -328,7 +328,7 @@ in
 		gvfs.enable = true;
 		udisks2.enable = true;
 		#blueman.enable = true;
-		gnome.gnome-keyring.enable = true;
+		#gnome.gnome-keyring.enable = true;
 		#dbus.implementation = "broker";
     #envfs.enable = true;
     #onedrive.enable = true;
@@ -368,9 +368,9 @@ in
 
   programs = {
 
-  #ssh.startAgent = true;
+  ssh.startAgent = true;
   firefox.enable = true;
-	seahorse.enable = true;
+	#seahorse.enable = true;
 	git = {
 		enable = true;
 		package = pkgs.gitFull;
@@ -378,7 +378,7 @@ in
 
 	};
 	#file-roller.enable = true;
-	#dconf.enable = true;
+	dconf.enable = true;
 		foot = {
 			enable = true;
 			settings = {
@@ -493,7 +493,6 @@ in
   
 
 
-  system.stateVersion = "25.11"; # Did you read the comment?
   nix.settings.experimental-features = [ "nix-command" "flakes"];
 	#nix.package = pkgs.lix;
 
@@ -504,9 +503,6 @@ in
     packages = with pkgs; [];
   };
 
-  home-manager.users.cozy.home = {
-      stateVersion = "26.05";
-  };
 
 
 }
