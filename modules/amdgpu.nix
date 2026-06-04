@@ -1,5 +1,12 @@
 { pkgs,... }:
 {
+	environment.systemPackages = with pkgs; [
+    nvtopPackages.amd
+		rocmPackages.rocminfo
+    btop-rocm
+		
+
+	];
   hardware = {
 		amdgpu = {
 			opencl.enable = true;

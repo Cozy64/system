@@ -2,24 +2,6 @@
 {
   home-manager.users.cozy = {
 
-  xdg = { 
-   
-    mime.enable = true;
-    portal = {
-      enable = true;
-        extraPortals = with pkgs; [xdg-desktop-portal-gtk xdg-desktop-portal-hyprland ];
-        config = {
-              hyprland = {
-                # Tells XDG to use the Hyprland portal for screen sharing/etc., 
-                # and fall back to the GTK portal for things it lacks (like file picking).
-                default = [ "hyprland" "gtk" ];
-              };
-        };
-
-      };
-
-
-    };
 
 		
 		services = {

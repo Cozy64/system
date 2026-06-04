@@ -1,4 +1,3 @@
-# home.nix
 { lib, ... }: {
 
   # Add a new remote. Keep the default one (flathub)
@@ -13,6 +12,7 @@
 
   # Add here the flatpaks you want to install
   services.flatpak.packages = [
+    #"io.github.shiftey.Desktop"
 
   ];
 

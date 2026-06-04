@@ -14,15 +14,14 @@ in
 
 
   environment = {
-  pathsToLink = [ "/share/xdg-desktop-portal" "/share/applications" ];
 		variables = {
 		BEMENU_OPTS="-b -p '>' --fn 16 --bdr '#FFFFFF' --ab '#000000' --af '#666666' --nb '#000000' --nf '#666666' --tb '#000000' --tf '#FFFFFF' --fb '#000000' --ff '#FFFFFF' --hb '#000000' --hf '#FFFFFF'";
 		ANDROID_HOME="/home/cozy/Android/Sdk";
 		PATH="/home/cozy/.cargo/bin:/home/cozy/.local/bin:/home/cozy/.deno/bin:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$PATH";
-    GSETTINGS_SCHEMA_DIR="${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}/glib-2.0/schemas";
+    #GSETTINGS_SCHEMA_DIR="${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}/glib-2.0/schemas";
 	  #LD_LIBRARY_PATH = lib.mkForce"$NIX_LD_LIBRARY_PATH:$LD_LIBRARY_PATH";	
 		XDG_RUNTIME_DIR = "/run/user/$UID";
-		NIXOS_OZONE_WL="1";
+		#NIXOS_OZONE_WL="1";
 		#AMD_VULKAN_ICD = "RADV";
 		#PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig:${pkgs.hidapi}/lib/pkgconfig";
 		#XDG_SESSION_TYPE="wayland";
@@ -53,7 +52,8 @@ in
    '';
 
   systemPackages = with pkgs; [
-  
+    polkit_gnome
+    lxqt.lxqt-policykit 
     warehouse
     github-desktop
     flutter
@@ -168,7 +168,6 @@ in
     conda
     obs-studio
     teams-for-linux
-		nvtopPackages.full
 		btop
 		gparted
 		bluetuith
@@ -251,32 +250,18 @@ in
 
   };
 	xdg = {
-    #portal = {
-    #  enable = true;
-    #  config = {
-    #    common = {
-    #      default = [
-    #        "gtk"
-    #      ];
-    #    };
-    #  };
-    #  extraPortals = with pkgs; [
-    #    xdg-desktop-portal-gtk
-    #  ];
-    #};
     mime = {
       enable = true;
       defaultApplications = {
-
-        "x-scheme-handler/http" = ["librewolf.desktop"];
-        "x-scheme-handler/https" = ["librewolf.desktop"];
-        "x-scheme-handler/about" = ["librewolf.desktop"];
-        "x-scheme-handler/unknown" = ["librewolf.desktop"];
-        "images/png" = ["pix.desktop"];
-        "images/jpg" = ["pix.desktop"];
-        "images/webp" = ["pix.desktop"];
-        "images/svg+xml" = ["pix.desktop"];
-        "images/jpeg" = ["pix.desktop"];
+        "x-scheme-handler/http" = ["google-chrome.desktop"];
+        "x-scheme-handler/https" = ["google-chrome.desktop"];
+        "x-scheme-handler/about" = ["google-chrome.desktop"];
+        "x-scheme-handler/unknown" = ["google-chrome.desktop"];
+        "images/png" = ["imv.desktop"];
+        "images/jpg" = ["imv.desktop"];
+        "images/webp" = ["imv.desktop"];
+        "images/svg+xml" = ["imv.desktop"];
+        "images/jpeg" = ["imv.desktop"];
 
         "inode/directory" = "pcmanfm.desktop";
       };
@@ -326,24 +311,12 @@ in
     #useXkbConfig = true; # use xkbOptions in tty.
   };
 
-  systemd.user.services.polkit-gnome-authentication-agent-1 = {
-    description = "polkit-gnome-authentication-agent-1";
-    wantedBy = [ "graphical-session.target" ];
-    wants = [ "graphical-session.target" ];
-    after = [ "graphical-session.target" ];
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-      Restart = "on-failure";
-      RestartSec = 1;
-      TimeoutStopSec = 10;
-    };
-};
 
 
 
 
   security = {
+    pam.services.login.enableGnomeKeyring = true;
 		#soteria.enable = true;
     polkit.enable = true;
   };
@@ -355,7 +328,7 @@ in
 		gvfs.enable = true;
 		udisks2.enable = true;
 		#blueman.enable = true;
-		#gnome.gnome-keyring.enable = true;
+		gnome.gnome-keyring.enable = true;
 		#dbus.implementation = "broker";
     #envfs.enable = true;
     #onedrive.enable = true;
@@ -395,8 +368,9 @@ in
 
   programs = {
 
+  #ssh.startAgent = true;
   firefox.enable = true;
-	#seahorse.enable = true;
+	seahorse.enable = true;
 	git = {
 		enable = true;
 		package = pkgs.gitFull;
@@ -516,7 +490,21 @@ in
     
   };
 
-
+systemd = {
+  user.services.polkit-gnome-authentication-agent-1 = {
+    description = "polkit-gnome-authentication-agent-1";
+    wantedBy = [ "hyprland-session.target" ];
+    wants    = [ "hyprland-session.target" ];
+    after    = [ "hyprland-session.target" ];
+    serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
+  };
+};
   
 
 

@@ -1,6 +1,11 @@
 { pkgs, ... }:
 {
 
+	environment.systemPackages = with pkgs; [
+    nvtopPackages.intel
+		
+
+	];
   hardware = {
     graphics = {
       enable = true;

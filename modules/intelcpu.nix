@@ -5,7 +5,11 @@
     enableAllFirmware = true;
     enableAllHardware = true;
 		cpu = {
-      intel.updateMicrocode = true;
+      intel = {
+        updateMicrocode = true;
+        npu.enable = true;
+      };
+      
 			x86.msr.enable = true;
 		};
    };
