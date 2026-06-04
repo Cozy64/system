@@ -62,12 +62,9 @@ in
     usbutils
     crosspipe
     tor-browser
-    onionshare
     #osu-lazer-bin
-    aseprite
     vlc
     lshw
-    zoom-us
     xarchiver
     burpsuite
     spotify

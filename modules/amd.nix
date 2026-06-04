@@ -1,9 +1,11 @@
 {pkgs, ...}:
 {
-	environment.systemPackages = with pkgs; {
+	environment.systemPackages = with pkgs; ]
+		rocmPackages.rocminfo
+    btop-rocm
 		
 
-	};
+	];
 
 
 }
