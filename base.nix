@@ -117,7 +117,6 @@ in
     godot_4
     #jetbrains.idea-community-bin
 		wf-recorder
-    swaybg
     hyprpaper
 		selectdefaultapplication
 		tradingview
