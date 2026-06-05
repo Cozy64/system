@@ -6,6 +6,7 @@
 		
 		services = {
 
+    ssh-agent.enable = true;
 			dunst = {
 				enable = true;
           settings = {
