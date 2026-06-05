@@ -13,20 +13,6 @@
 
     oldbitwig.url = "github:NixOS/nixpkgs/27272c21afa6e506f8700f751b6bdec0dc8924c8";
 
-   #quickshell = {
-   #   # add ?ref=<tag> to track a tag
-   #   url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-   #
-      # THIS IS IMPORTANT
-      # Mismatched system dependencies will lead to crashes and other issues.
-   #      inputs.nixpkgs.follows = "nixpkgs";
-   #    };
-
-    #winboat = {
-    #  url = "github:TibixDev/winboat";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
-
 
     # Home Manager
     home-manager = {
@@ -81,8 +67,9 @@
           ./modules/intelgpu.nix
           ./modules/intelcpu.nix
           ./modules/swapfile20.nix
+          ./modules/docker.nix
           ./modules/alias.nix
-          ./modules/power-profiles-daemon.nix
+          ./modules/tlp-intel.nix
           ./modules/ssh.nix
           ./modules/language.nix 
           ./modules/fonts.nix
@@ -91,7 +78,7 @@
           ./modules/steam.nix
           ./modules/ly.nix
           ./modules/bluetooth.nix
-          ./modules/zram.nix
+          #./modules/zram.nix
           ./modules/printing.nix
 
           ({ ... }: {
@@ -122,7 +109,7 @@
           ./modules/amdgpu.nix
           ./modules/swapfile20.nix
           ./modules/alias.nix
-          ./modules/tlp-intel.nix
+          ./modules/tlp-amd.nix
           ./modules/docker.nix
           ./modules/virtualisation.nix
           ./modules/ssh.nix
