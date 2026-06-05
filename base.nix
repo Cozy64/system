@@ -248,6 +248,34 @@ in
 	#];
 
   };
+
+#powerManagement.powerDownCommands = ''
+#  ${pkgs.kmod}/bin/modprobe -r rtw89_8851be
+#'';
+#
+#powerManagement.resumeCommands = ''
+#  echo 1 > /sys/bus/pci/devices/0000:01:00.0/remove
+#  echo 1 > /sys/bus/pci/rescan
+#  ${pkgs.kmod}/bin/modprobe rtw89_8851be
+#'';
+
+
+#powerManagement = {
+#  enable = true;
+#  powerDownCommands = ''
+#    ${pkgs.kmod}/bin/modprobe -rv rtw89_8851be
+#  '';
+#
+#  resumeCommands = ''
+#    ${pkgs.kmod}/bin/modprobe -v rtw89_8851be
+#  '';
+#};
+  #${pkgs.networkmanager}/bin/nmcli radio wifi off
+   # ${pkgs.kmod}/bin/modprobe -rv rtw89_8851be
+   # ${pkgs.kmod}/bin/modprobe -rv rtw89_pci
+   # ${pkgs.kmod}/bin/modprobe -rv rtw89_core
+   # ${pkgs.kmod}/bin/modprobe -rv btusb
+   # ${pkgs.kmod}/bin/modprobe -rv btrtl
 	xdg = {
     mime = {
       enable = true;
@@ -289,6 +317,7 @@ in
       wifi = { 
         backend = "iwd";
         powersave = false;
+        macAddress = "preserve";
       };
 
     };
@@ -311,11 +340,18 @@ in
   };
 
 
+#systemd = {
+#  tmpfiles.rules = [
+#  "w /sys/bus/pci/devices/0000:01:00.0/power/control - - - - on"
+#
+#  ];
+#};
 
+  
 
 
   security = {
-    #pam.services.login.enableGnomeKeyring = true;
+    pam.services.login.enableGnomeKeyring = true;
 		#soteria.enable = true;
     polkit.enable = true;
   };

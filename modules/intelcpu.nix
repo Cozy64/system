@@ -3,6 +3,7 @@
 
   hardware = {
     enableAllFirmware = true;
+    enableRedistributableFirmware = true;
     enableAllHardware = true;
 		cpu = {
       intel = {
