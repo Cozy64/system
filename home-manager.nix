@@ -3,6 +3,44 @@
   home-manager.users.cozy = {
 
 
+    programs = {
+      fuzzel = {
+        enable = true;
+        settings = {
+            main = {
+              font = "monospace:size=10";
+              prompt = ">  ";
+              icon-theme = "hicolor";
+              lines = 15;
+              width = 25;
+              line-height = 16;
+              # Left empty parameters commented out as Nix requires explicit values
+              # horizontal-pad = 0;
+              # vertical-pad = 0;
+              # inner-pad = 0;
+            };
+
+            colors = {
+              input = "ddddddff";
+              text = "ddddddff";
+              match = "888888ff";
+              prompt = "ddddddff";
+              selection-text = "ddddddff";
+              selection-match = "444444ff";
+              selection = "aaaaaadd";
+              border = "aaaaaaff";
+              background = "000000dd";
+            };
+
+            border = {
+              width = 0;
+              radius = 0;
+            };
+
+        };
+      };
+
+    };
 		
 		services = {
 

@@ -27,9 +27,9 @@
 			  RUNTIME_PM_ON_AC="on";
 			  RUNTIME_PM_ON_BAT="on"; #settings ts to auto turns off wifi after boot lmao
 			  RUNTIME_PM_ON_SAV="on";
-			  PCIE_ASPM_ON_AC="performance";
-			  PCIE_ASPM_ON_BAT="default";
-			  PCIE_ASPM_ON_SAV="default";
+			  PCIE_ASPM_ON_AC="default";
+			  PCIE_ASPM_ON_BAT="powersupersave";
+			  PCIE_ASPM_ON_SAV="powersupersave";
 
 			  WIFI_PWR_ON_AC="off";
 			  WIFI_PWR_ON_BAT="off"; #no powersave for wifi
@@ -63,7 +63,7 @@
 				#CPU_SCALING_MAX_FREQ_ON_AC=9999999;
 				#CPU_SCALING_MIN_FREQ_ON_BAT=0;
         INTEL_GPU_POWER_PROFILE_ON_AC="base";
-        INTEL_GPU_POWER_PROFILE_ON_BAT="base";
+        INTEL_GPU_POWER_PROFILE_ON_BAT="power_saving";
         INTEL_GPU_POWER_PROFILE_ON_SAV="power_saving";
 				#INTEL_GPU_MIN_FREQ_ON_AC=0;
 				#INTEL_GPU_MIN_FREQ_ON_BAT=0;

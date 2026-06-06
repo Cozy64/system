@@ -15,7 +15,7 @@ in
 
   environment = {
 		variables = {
-		BEMENU_OPTS="-b -p '>' --fn 16 --bdr '#FFFFFF' --ab '#000000' --af '#666666' --nb '#000000' --nf '#666666' --tb '#000000' --tf '#FFFFFF' --fb '#000000' --ff '#FFFFFF' --hb '#000000' --hf '#FFFFFF'";
+		BEMENU_OPTS="-b -p '>' --fn 16 --bdr '#FFFFFF' --ab '#000000' --af '#666666' --nb '#000000' --nf '#666666' --tb '#000000' --tf '#FFFFFF' --fb '#000000' --ff '#FFFFFF' --hb '#000000dd' --hf '#FFFFFF'";
 		ANDROID_HOME="/home/cozy/Android/Sdk";
 		PATH="/home/cozy/.cargo/bin:/home/cozy/.local/bin:/home/cozy/.deno/bin:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$PATH";
     #GSETTINGS_SCHEMA_DIR="${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}/glib-2.0/schemas";
@@ -403,9 +403,13 @@ in
 
   programs = {
 
-  ssh.startAgent = true;
   firefox.enable = true;
 	#seahorse.enable = true;
+  gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+
+  };
 	git = {
 		enable = true;
 		package = pkgs.gitFull;

@@ -44,19 +44,19 @@ systemd = {
 
               listener = [
                 {
-                  timeout = 120;
+                  timeout = 60;
                   on-timeout = "brightnessctl -s set 1";
                   on-resume = "brightnessctl -r";
                 }
                 {
-                  timeout = 360;
+                  timeout = 120;
                   on-timeout = "hyprctl dispatch dpms off";
                   on-resume = "hyprctl dispatch dpms on";
                 }
-                {
-                  timeout = 720;
-                  on-timeout = "systemctl suspend";
-                }
+                #{
+                #  timeout = 240;
+                #  on-timeout = "systemctl suspend";
+                #}
               ];
           };
 
