@@ -17,6 +17,7 @@
 			  NMI_WATCHDOG=0; #kernel logging
 			  SOUND_POWER_SAVE_ON_AC=0;
 			  SOUND_POWER_SAVE_ON_BAT=1;
+			  SOUND_POWER_SAVE_ON_SAV=1;
 			  SOUND_POWER_SAVE_CONTROLLER="Y";
 				#MEM_SLEEP_ON_AC="s2idle";
 				#MEM_SLEEP_ON_BAT="s2idle";

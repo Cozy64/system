@@ -14,6 +14,172 @@ in
 
 
   environment = {
+    systemPackages = with pkgs; [
+      cliphist
+      claude-code
+      file-roller
+      polkit_gnome
+      lxqt.lxqt-policykit 
+      warehouse
+      github-desktop
+      flutter
+      fuzzel
+      quickshell
+      usbutils
+      crosspipe
+      tor-browser
+      #osu-lazer-bin
+      vlc
+      lshw
+      xarchiver
+      burpsuite
+      spotify
+      libuv
+      hwloc 
+      pkg-config
+      anydesk
+      dmidecode
+      tmux
+      android-studio
+      android-tools
+      msr-tools
+      p2pool
+      xmrig
+      dunst
+      vscode-langservers-extracted
+      vscode-fhs
+      typescript-language-server
+      astro-language-server
+      basedpyright
+      bash-language-server
+      nixd
+      nixos-anywhere
+      rust-analyzer
+      #protonvpn-gui
+      sbt-with-scala-native
+      gtk3
+      auto-cpufreq
+      radeontop
+      wl-clicker
+      patchelf
+      bc
+      rocmPackages.rocminfo
+      kdePackages.kcalc
+      #kdePackages.kdenlive
+      conda
+      ngrok
+      kdePackages.filelight
+      awww
+      pywal
+      matugen
+      pcmanfm
+      waybar
+      #bottles
+      #new-bottle
+      pavucontrol
+      sbctl
+      #wpsoffice
+      powertop
+      itch
+      godot_4
+      #jetbrains.idea-community-bin
+      wf-recorder
+      hyprpaper
+      selectdefaultapplication
+      tradingview
+      gitkraken
+      php
+      blender
+      prismlauncher
+      #mysql-workbench
+      go
+      #zed-editor
+      google-chrome
+      pnpm
+      wvkbd
+      rot8
+      fd
+      postman
+      yarn
+      brightnessctl
+      swaybg
+      adwaita-icon-theme
+      batsignal
+      lf
+      networkmanagerapplet
+      shared-mime-info
+      lxmenu-data
+      grimblast
+      rofi
+      rofimoji
+      qbittorrent
+      nixd
+      nnn
+      discord
+      discord-canary
+      sqlitebrowser
+      wireshark
+      krita
+      gimp3-with-plugins
+      musescore
+      yt-dlp
+      cava
+      fastfetch
+      zoxide
+      #wineWowPackages.waylandFull
+      nmap
+      pulsemixer
+      telegram-desktop
+      imv
+      conda
+      obs-studio
+      teams-for-linux
+      btop
+      gparted
+      bluetuith
+      niv
+      fzf
+      xeyes
+      wayland-utils
+      libnotify
+      lua
+      xev
+      xhost
+      ripgrep
+      rustup
+      appimage-run
+      iw
+      waypipe
+      unar
+      vulkan-tools
+      mesa-demos
+      bluez-tools
+      p7zip
+      winetricks
+      mangohud
+      ffmpeg_6-full
+      nix-index
+      killall
+      zip
+      unzip
+      #lmms
+      deno
+      wtype
+      wget
+      file
+      pamixer
+      nodejs
+      bemenu
+      bemoji
+      wl-clipboard
+      libwebp
+      imagemagickBig
+      ncdu
+      clinfo
+      gcc
+      typescript
+      mangohud
+    ];
 		variables = {
 		BEMENU_OPTS="-b -p '>' --fn 16 --bdr '#FFFFFF' --ab '#000000' --af '#666666' --nb '#000000' --nf '#666666' --tb '#000000' --tf '#FFFFFF' --fb '#000000' --ff '#FFFFFF' --hb '#000000dd' --hf '#FFFFFF'";
 		ANDROID_HOME="/home/cozy/Android/Sdk";
@@ -51,169 +217,6 @@ in
       ModelBouncingKeys=1
    '';
 
-  systemPackages = with pkgs; [
-    polkit_gnome
-    lxqt.lxqt-policykit 
-    warehouse
-    github-desktop
-    flutter
-    fuzzel
-    quickshell
-    usbutils
-    crosspipe
-    tor-browser
-    #osu-lazer-bin
-    vlc
-    lshw
-    xarchiver
-    burpsuite
-    spotify
-    libuv
-    hwloc 
-    pkg-config
-    anydesk
-    dmidecode
-    tmux
-    android-studio
-    android-tools
-    msr-tools
-    p2pool
-    xmrig
-    dunst
-    vscode-langservers-extracted
-    typescript-language-server
-    astro-language-server
-    basedpyright
-    bash-language-server
-    nixd
-    nixos-anywhere
-    rust-analyzer
-		#protonvpn-gui
-		sbt-with-scala-native
-		gtk3
-		auto-cpufreq
-		radeontop
-		wl-clicker
-		patchelf
-		bc
-		rocmPackages.rocminfo
-		kdePackages.kcalc
-    #kdePackages.kdenlive
-		conda
-		ngrok
-		kdePackages.filelight
-		awww
-		pywal
-		matugen
-		pcmanfm
-		waybar
-    #bottles
-		#new-bottle
-		pavucontrol
-		sbctl
-		#wpsoffice
-		powertop
-    itch
-    godot_4
-    #jetbrains.idea-community-bin
-		wf-recorder
-    hyprpaper
-		selectdefaultapplication
-		tradingview
-		gitkraken
-		php
-    blender
-    prismlauncher
-		#mysql-workbench
-		go
-		#zed-editor
-		google-chrome
-		pnpm
-		wvkbd
-		rot8
-		fd
-		postman
-		yarn
-		brightnessctl
-		swaybg
-		adwaita-icon-theme
-		batsignal
-		lf
-		networkmanagerapplet
-		shared-mime-info
-    lxmenu-data
-		grimblast
-		rofi
-		rofimoji
-		qbittorrent
-		nixd
-		nnn
-		discord
-		discord-canary
-		sqlitebrowser
-		wireshark
-		krita
-		gimp3-with-plugins
-		musescore
-		yt-dlp
-		cava
-		fastfetch
-		zoxide
-		#wineWowPackages.waylandFull
-		nmap
-		pulsemixer
-		telegram-desktop
-		imv
-    conda
-    obs-studio
-    teams-for-linux
-		btop
-		gparted
-		bluetuith
-		vscode-fhs
-		niv
-		fzf
-		xeyes
-		wayland-utils
-		libnotify
-		lua
-		xev
-		xhost
-		ripgrep
-		rustup
-		appimage-run
-		iw
-		waypipe
-		unar
-		vulkan-tools
-    mesa-demos
-		bluez-tools
-		p7zip
-		winetricks
-		mangohud
-		ffmpeg_6-full
-		nix-index
-		killall
-		zip
-		unzip
-		#lmms
-		deno
-		wtype
-		wget
-		file
-		pamixer
-		nodejs
-		bemenu
-		bemoji
-		wl-clipboard
-		libwebp
-		imagemagickBig
-		ncdu
-		clinfo
-		gcc
-    typescript
-		mangohud
-  ];
 
     interactiveShellInit = ''
 	PS1="\[$(tput setaf 7)\]\u@\h \W> \[$(tput sgr0)\]"
@@ -289,7 +292,11 @@ in
         "images/webp" = ["imv.desktop"];
         "images/svg+xml" = ["imv.desktop"];
         "images/jpeg" = ["imv.desktop"];
-
+        "application/zip" = "org.gnome.FileRoller.desktop";
+        "application/x-tar" = "org.gnome.FileRoller.desktop";
+        "application/x-gzip" = "org.gnome.FileRoller.desktop";
+        "application/x-bzip2" = "org.gnome.FileRoller.desktop";
+        "application/x-7z-compressed" = "org.gnome.FileRoller.desktop";
         "inode/directory" = "pcmanfm.desktop";
       };
     };
@@ -365,7 +372,6 @@ in
 		#blueman.enable = true;
 		#gnome.gnome-keyring.enable = true;
 		#dbus.implementation = "broker";
-    #envfs.enable = true;
     #onedrive.enable = true;
     #libinput = {
     #  mouse = {
@@ -390,8 +396,8 @@ in
 			allowRiskyCriticalPowerAction = true;
     };
     logind.settings.Login = {
-			HandleLidSwitch="ignore";
-			HandleLidSwitchExternalPower="ignore";
+			HandleLidSwitch="suspend";
+			HandleLidSwitchExternalPower="suspend";
 			HandleSuspendKey="suspend";
 			HandlePowerKey="suspend";
     };
@@ -416,7 +422,6 @@ in
 
 
 	};
-	#file-roller.enable = true;
 	dconf.enable = true;
 		foot = {
 			enable = true;
@@ -463,45 +468,6 @@ in
 			};
 		};
 		nm-applet.enable = true;
-    #nix-ld = {
-		#	enable = true;
-		#	libraries = with pkgs; [
-		#		#stdenv.cc.cc.lib
-		#		#stdenv.cc.cc
-    #    openssl
-		#		gcc
-    #    cmake
-		#		gnumake
-		#		glibc
-		#		glib
-		#		libXtst
-    #		libXxf86vm
-		#		libX11
-		#		libXcursor
-		#		libXrandr
-		#		libXinerama
-		#		libXext
-		#		libXrender
-		#		libXi
-		#		libxcb
-		#		libxkbcommon
-		#		wayland
-		#		mesa
-		#		gtk3
-		#		alsa-lib
-		#		libpulseaudio
-		#		zlib
-		#		dbus
-		#		libGL
-		#		vulkan-loader
-		#		vulkan-tools
-		#		fontconfig
-		#		libdecor
-		#		speechd
-		#		
-#
-#			];
-#		};
 
       neovim = {
         enable = true;

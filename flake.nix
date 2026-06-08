@@ -64,12 +64,14 @@
           ./boot.nix
           ./home-manager.nix
           ./modules/flatpak.nix
+          ./modules/ollama.nix
           ./modules/intelgpu.nix
           ./modules/intelcpu.nix
           ./modules/swapfile20.nix
           ./modules/tlp-intel.nix
           #./modules/docker.nix
           ./modules/alias.nix
+          ./modules/fhs.nix
           ./modules/ssh.nix
           ./modules/language.nix 
           ./modules/fonts.nix
@@ -79,7 +81,7 @@
           ./modules/ly.nix
           ./modules/bluetooth.nix
           ./modules/zram.nix
-          ./modules/printing.nix
+          #./modules/printing.nix
 
           ({ ... }: {
 

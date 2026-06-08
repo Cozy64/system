@@ -4,7 +4,6 @@
 		
 
 	];
-services.hypridle.enable = true;
 
 systemd = {
   user.services.polkit-gnome-authentication-agent-1 = {
@@ -39,23 +38,23 @@ systemd = {
         enable = true;
           settings = {
               general = {
-                after_sleep_cmd = "hyprctl dispatch dpms on";
+                after_sleep_cmd = "hyprctl dispatch dpms on && brightnessctl -r";
               };
 
               listener = [
                 {
                   timeout = 60;
-                  on-timeout = "brightnessctl -s set 1";
+                  on-timeout = "systemd-ac-power || brightnessctl -s set 1";
                   on-resume = "brightnessctl -r";
                 }
                 {
                   timeout = 120;
-                  on-timeout = "hyprctl dispatch dpms off";
+                  on-timeout = "systemd-ac-power || hyprctl dispatch dpms off";
                   on-resume = "hyprctl dispatch dpms on";
                 }
                 {
                   timeout = 240; 
-                  on-timeout = "systemctl suspend";
+                  on-timeout = "systemd-ac-power || systemctl suspend";
                 }
               ];
           };
