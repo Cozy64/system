@@ -18,7 +18,6 @@ in
       cliphist
       claude-code
       file-roller
-      polkit_gnome
       lxqt.lxqt-policykit 
       warehouse
       github-desktop
@@ -324,7 +323,6 @@ in
       wifi = { 
         backend = "iwd";
         powersave = false;
-        macAddress = "preserve";
       };
 
     };
@@ -358,7 +356,7 @@ in
 
 
   security = {
-    pam.services.login.enableGnomeKeyring = true;
+    pam.services.login.enableGnomeKeyring = true; 
 		#soteria.enable = true;
     polkit.enable = true;
   };
@@ -370,7 +368,7 @@ in
 		gvfs.enable = true;
 		udisks2.enable = true;
 		#blueman.enable = true;
-		#gnome.gnome-keyring.enable = true;
+		gnome.gnome-keyring.enable = true;
 		#dbus.implementation = "broker";
     #onedrive.enable = true;
     #libinput = {
@@ -410,12 +408,12 @@ in
   programs = {
 
   firefox.enable = true;
-	#seahorse.enable = true;
-  gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
+	seahorse.enable = true; #displays gnome keystring data
+  #gnupg.agent = {
+  #  enable = true;
+  #  enableSSHSupport = true;
 
-  };
+  #};
 	git = {
 		enable = true;
 		package = pkgs.gitFull;

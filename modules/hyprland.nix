@@ -1,9 +1,11 @@
 {pkgs, ...}:
 {
 	environment.systemPackages = with pkgs; [
+  polkit_gnome
 		
 
 	];
+  services.hypridle.enable = true;
 
 systemd = {
   user.services.polkit-gnome-authentication-agent-1 = {
