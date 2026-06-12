@@ -31,7 +31,7 @@
 				alias vihome="nvim /home/cozy/system/home-manager.nix"
 				alias viflake="nvim /home/cozy/system/flake.nix"
 				alias viware="nvim /home/cozy/system/disk-slave.nix"
-				alias vihypr="nvim /home/cozy/.config/hypr/hyprland.conf"
+				alias vihypr="nvim /home/cozy/system/modules/hyprland.nix"
 				alias VI="sudo -E nvim"
 				alias NVIM="sudo -E nvim"
 				alias NNN="sudo -E nnn"
