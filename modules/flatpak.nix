@@ -17,6 +17,7 @@
     "org.apache.netbeans"
     "org.godotengine.Godot"
     "org.kde.kdenlive"
+    #"com.github.IsmaelMartinez.teams_for_linux"
     #"io.github.shiftey.Desktop"
 
   ];

@@ -15,6 +15,7 @@ in
 
   environment = {
     systemPackages = with pkgs; [
+      (ciscoPacketTracer9.overrideAttrs (old: { src = /home/cozy/system/packettracer/CiscoPacketTracer_900_Ubuntu_64bit.deb; }))
       cliphist
       claude-code
       file-roller
@@ -125,7 +126,7 @@ in
       cava
       fastfetch
       zoxide
-      #wineWowPackages.waylandFull
+      wineWow64Packages.waylandFull
       nmap
       pulsemixer
       telegram-desktop
@@ -344,6 +345,9 @@ in
     #useXkbConfig = true; # use xkbOptions in tty.
   };
 
+systemd.sleep.settings.Sleep = {
+  HibernateDelaySec="1h"; 
+};
 
 #systemd = {
 #  tmpfiles.rules = [
@@ -390,14 +394,14 @@ in
       percentageCritical = 15;
       percentageAction = 10;
       timeAction = 0;
-      criticalPowerAction = "Suspend";
+      criticalPowerAction = "Hibernate";
 			allowRiskyCriticalPowerAction = true;
     };
     logind.settings.Login = {
-			HandleLidSwitch="suspend";
-			HandleLidSwitchExternalPower="suspend";
-			HandleSuspendKey="suspend";
-			HandlePowerKey="suspend";
+			HandleLidSwitch="suspend-then-hibernate";
+			HandleLidSwitchExternalPower="suspend-then-hibernate";
+			HandleSuspendKey="suspend-then-hibernate";
+			HandlePowerKey="suspend-then-hibernate";
     };
 
 

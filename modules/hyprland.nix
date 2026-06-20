@@ -38,30 +38,32 @@
     services = {
       hypridle = {
         enable = true;
-          settings = {
-              general = {
-                after_sleep_cmd = "hyprctl dispatch dpms on && brightnessctl -r";
-              };
-
-              listener = [
-                {
-                  timeout = 60;
-                  on-timeout = "systemd-ac-power || brightnessctl -s set 1";
-                  on-resume = "brightnessctl -r";
-                }
-                {
-                  timeout = 120;
-                  on-timeout = "systemd-ac-power || hyprctl dispatch dpms off";
-                  on-resume = "hyprctl dispatch dpms on";
-                }
-                {
-                  timeout = 240; 
-                  on-timeout = "systemd-ac-power || systemctl suspend";
-                }
-              ];
+        settings = {
+          general = {
+            after_sleep_cmd = "hyprctl dispatch dpms on";
           };
 
-        
+          listener = [
+            #{
+            #  timeout = 60;
+            #  on-timeout = "systemd-ac-power || brightnessctl -s set 1";
+            #  on-resume = "brightnessctl -r";
+            #}
+            {
+              timeout = 60;
+              on-timeout = "systemd-ac-power || hyprctl dispatch dpms off";
+              on-resume = "hyprctl dispatch dpms on";
+            }
+            {
+              timeout = 120; 
+              on-timeout = "systemd-ac-power || systemctl suspend-then-hibernate";
+            }
+            #{
+            #  timeout = 80 ; 
+            #  on-timeout = "systemd-ac-power || systemctl hibernate";
+            #}
+          ];
+        };
 
       };
 
