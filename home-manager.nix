@@ -34,8 +34,7 @@
 
             border = {
               width = 0;
-              radius = 0;
-            };
+              radius = 0; };
 
         };
       };
@@ -203,6 +202,10 @@
       };
     };
     home = { 
+      packages = with pkgs; [
+        gcr #for gnomekeystring apparently 
+
+      ];
       pointerCursor = {
         gtk.enable = true;
         x11.enable = true;

@@ -1,9 +1,8 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
-{ pkgs, gitPkgs, stablePkgs, lib,   ... }:
+{ pkgs, gitPkgs, stablePkgs, unstablePkgs, lib,   ... }:
 let
-  	stable = import <nixos-stable> {config = { allowUnfree = true;};}; 
 		#sources = import /home/cozy/nix/sources.nix;
 		#lanzaboote = import sources.lanzaboote;
 in
@@ -15,7 +14,8 @@ in
 
   environment = {
     systemPackages = with pkgs; [
-      (ciscoPacketTracer9.overrideAttrs (old: { src = /home/cozy/system/packettracer/CiscoPacketTracer_900_Ubuntu_64bit.deb; }))
+      #(ciscoPacketTracer9.overrideAttrs (old: { src = /home/cozy/system/packettracer/CiscoPacketTracer_900_Ubuntu_64bit.deb; }))
+      trash-cli
       cliphist
       claude-code
       file-roller
@@ -23,6 +23,7 @@ in
       warehouse
       github-desktop
       flutter
+      wechat
       fuzzel
       quickshell
       usbutils
@@ -37,7 +38,6 @@ in
       libuv
       hwloc 
       pkg-config
-      anydesk
       dmidecode
       tmux
       android-studio
@@ -47,7 +47,7 @@ in
       xmrig
       dunst
       vscode-langservers-extracted
-      vscode-fhs
+      #vscode-fhs
       typescript-language-server
       astro-language-server
       basedpyright
@@ -234,6 +234,7 @@ in
 	    }
 
 	    export NNN_TMPFILE="''${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+      export NNN_TRASH=1
 
 
 	    command nnn "$@"
@@ -283,21 +284,26 @@ in
     mime = {
       enable = true;
       defaultApplications = {
-        "x-scheme-handler/http" = ["google-chrome.desktop"];
-        "x-scheme-handler/https" = ["google-chrome.desktop"];
-        "x-scheme-handler/about" = ["google-chrome.desktop"];
-        "x-scheme-handler/unknown" = ["google-chrome.desktop"];
-        "images/png" = ["imv.desktop"];
-        "images/jpg" = ["imv.desktop"];
-        "images/webp" = ["imv.desktop"];
-        "images/svg+xml" = ["imv.desktop"];
-        "images/jpeg" = ["imv.desktop"];
-        "application/zip" = "org.gnome.FileRoller.desktop";
-        "application/x-tar" = "org.gnome.FileRoller.desktop";
-        "application/x-gzip" = "org.gnome.FileRoller.desktop";
-        "application/x-bzip2" = "org.gnome.FileRoller.desktop";
-        "application/x-7z-compressed" = "org.gnome.FileRoller.desktop";
-        "inode/directory" = "pcmanfm.desktop";
+          "x-scheme-handler/http" = ["google-chrome.desktop"];
+          "x-scheme-handler/https" = ["google-chrome.desktop"];
+          "x-scheme-handler/about" = ["google-chrome.desktop"];
+          "x-scheme-handler/unknown" = ["google-chrome.desktop"];
+          "x-scheme-handler/x-github-client" = ["github-desktop.desktop"];
+          "x-scheme-handler/x-github-desktop-dev-auth" = ["github-desktop.desktop"];
+          "x-scheme-handler/gitkraken" = ["gitkraken.desktop"];
+          "x-scheme-handler/claude-cli" = ["claude-code-url-handler.desktop"];
+          "image/png" = ["imv.desktop"];
+          "image/jpg" = ["imv.desktop"];
+          "image/webp" = ["imv.desktop"];
+          "image/svg+xml" = ["imv.desktop"];
+          "image/jpeg" = ["imv.desktop"];
+          "application/zip" = "org.gnome.FileRoller.desktop";
+          "application/x-tar" = "org.gnome.FileRoller.desktop";
+          "application/x-gzip" = "org.gnome.FileRoller.desktop";
+          "application/x-bzip2" = "org.gnome.FileRoller.desktop";
+          "application/x-7z-compressed" = "org.gnome.FileRoller.desktop";
+          "inode/directory" = "pcmanfm.desktop";
+          "text/html"=["google-chrome.desktop"];
       };
     };
   };

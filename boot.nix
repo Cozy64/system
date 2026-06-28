@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{pkgs, gitPkgs, ...}:
 {
   boot = {
     supportedFilesystems = [ "ntfs" ];
@@ -7,7 +7,8 @@
 
      # kernelModules= ["rtw89_pci disable_aspm_l1=Y disable_aspm_l1ss=Y"];
     # kernelPackages = pkgs.linuxPackages_zen;
-      kernelPackages = pkgs.linuxPackages_latest;
+      #kernelPackages = pkgs.linuxPackages_latest;
+      kernelPackages = pkgs.linuxPackages_7_0;
       loader = {
         efi.canTouchEfiVariables = true;
         systemd-boot.enable = true;

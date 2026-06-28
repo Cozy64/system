@@ -58,10 +58,6 @@
               timeout = 120; 
               on-timeout = "systemd-ac-power || systemctl suspend-then-hibernate";
             }
-            #{
-            #  timeout = 80 ; 
-            #  on-timeout = "systemd-ac-power || systemctl hibernate";
-            #}
           ];
         };
 

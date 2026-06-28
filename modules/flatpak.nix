@@ -12,11 +12,13 @@
 
   # Add here the flatpaks you want to install
   services.flatpak.packages = [
-    #"com.visualstudio.code"
+    "com.visualstudio.code"
     "com.jetbrains.IntelliJ-IDEA-Ultimate"
     "org.apache.netbeans"
     "org.godotengine.Godot"
     "org.kde.kdenlive"
+    #"com.anydesk.Anydesk"
+    #"com.tencent.WeChat"
     #"com.github.IsmaelMartinez.teams_for_linux"
     #"io.github.shiftey.Desktop"
 
