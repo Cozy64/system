@@ -55,7 +55,7 @@ in
       nixd
       nixos-anywhere
       rust-analyzer
-      #protonvpn-gui
+      proton-vpn
       sbt-with-scala-native
       gtk3
       auto-cpufreq
@@ -81,7 +81,7 @@ in
       #wpsoffice
       powertop
       itch
-      godot_4
+      #godot_4
       #jetbrains.idea-community-bin
       wf-recorder
       hyprpaper

@@ -17,6 +17,8 @@
     "org.apache.netbeans"
     "org.godotengine.Godot"
     "org.kde.kdenlive"
+    "org.gtk.Gtk3theme.Adwaita-dark"
+    #"com.protonvpn.www"
     #"com.anydesk.Anydesk"
     #"com.tencent.WeChat"
     #"com.github.IsmaelMartinez.teams_for_linux"

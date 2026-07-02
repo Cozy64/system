@@ -70,9 +70,9 @@
           ./modules/ollama.nix
           ./modules/intelgpu.nix
           ./modules/intelcpu.nix
-          ./modules/swapfile30.nix
+          ./modules/swapfile20.nix
           ./modules/tlp-intel.nix
-          #./modules/docker.nix
+          ./modules/docker.nix
           ./modules/alias.nix
           ./modules/fhs.nix
           ./modules/ssh.nix
@@ -83,7 +83,7 @@
           ./modules/steam.nix
           ./modules/ly.nix
           ./modules/bluetooth.nix
-          ./modules/zram.nix
+          #./modules/zram.nix
           #./modules/printing.nix
 
           ({ ... }: {
