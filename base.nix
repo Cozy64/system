@@ -47,7 +47,7 @@ in
       xmrig
       dunst
       vscode-langservers-extracted
-      #vscode-fhs
+      vscode-fhs
       typescript-language-server
       astro-language-server
       basedpyright
@@ -116,7 +116,6 @@ in
       nixd
       nnn
       discord
-      discord-canary
       sqlitebrowser
       wireshark
       krita
@@ -187,6 +186,7 @@ in
     #GSETTINGS_SCHEMA_DIR="${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}/glib-2.0/schemas";
 	  #LD_LIBRARY_PATH = lib.mkForce"$NIX_LD_LIBRARY_PATH:$LD_LIBRARY_PATH";	
 		XDG_RUNTIME_DIR = "/run/user/$UID";
+    LIBVA_DRIVER_NAME = "iHD";
 		#NIXOS_OZONE_WL="1";
 		#AMD_VULKAN_ICD = "RADV";
 		#PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig:${pkgs.hidapi}/lib/pkgconfig";

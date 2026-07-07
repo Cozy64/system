@@ -6,9 +6,9 @@
     initrd.kernelModules = [ "i915" ];
 
      # kernelModules= ["rtw89_pci disable_aspm_l1=Y disable_aspm_l1ss=Y"];
-    # kernelPackages = pkgs.linuxPackages_zen;
+     kernelPackages = pkgs.linuxPackages_6_18;
       #kernelPackages = pkgs.linuxPackages_latest;
-      kernelPackages = gitPkgs.linuxPackages_latest;
+      #kernelPackages = gitPkgs.linuxPackages_latest;
       #kernelPackages = pkgs.linuxPackages_7_0;
       loader = {
         efi.canTouchEfiVariables = true;

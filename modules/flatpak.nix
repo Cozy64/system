@@ -12,7 +12,7 @@
 
   # Add here the flatpaks you want to install
   services.flatpak.packages = [
-    "com.visualstudio.code"
+    #"com.visualstudio.code"
     "com.jetbrains.IntelliJ-IDEA-Ultimate"
     "org.apache.netbeans"
     "org.godotengine.Godot"

@@ -70,9 +70,9 @@
           ./modules/ollama.nix
           ./modules/intelgpu.nix
           ./modules/intelcpu.nix
-          ./modules/swapfile20.nix
+          ./modules/swapfile40.nix
           ./modules/tlp-intel.nix
-          ./modules/docker.nix
+          ./modules/podman.nix
           ./modules/alias.nix
           ./modules/fhs.nix
           ./modules/ssh.nix
