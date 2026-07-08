@@ -14,11 +14,13 @@ in
 
   environment = {
     systemPackages = with pkgs; [
-      #(ciscoPacketTracer9.overrideAttrs (old: { src = /home/cozy/system/packettracer/CiscoPacketTracer_900_Ubuntu_64bit.deb; }))
+      (ciscoPacketTracer9.overrideAttrs (old: { src = /home/cozy/packettracer/CiscoPacketTracer_900_Ubuntu_64bit.deb; }))
+      #(ciscoPacketTracer9.override { packetTracerSource = /home/cozy/packettracer/CiscoPacketTracer_900_Ubuntu_64bit.deb; })
       trash-cli
       cliphist
       claude-code
       file-roller
+      libreoffice-fresh
       lxqt.lxqt-policykit 
       warehouse
       github-desktop

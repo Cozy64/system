@@ -4,6 +4,7 @@
     distrobox
 		#podman-compose
     docker-compose
+    #winboat
   ];
 
 

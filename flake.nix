@@ -18,8 +18,8 @@
 
     # Home Manager
     home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/home-manager/release-26.05";
+      inputs.nixpkgs.follows = "stablepkgs";
     };
 
     lanzaboote = {
@@ -72,7 +72,8 @@
           ./modules/intelcpu.nix
           ./modules/swapfile40.nix
           ./modules/tlp-intel.nix
-          ./modules/podman.nix
+          #./modules/virtualisation.nix
+          #./modules/podman.nix
           ./modules/alias.nix
           ./modules/fhs.nix
           ./modules/ssh.nix
@@ -93,7 +94,10 @@
 
             ];
             system.stateVersion = "26.05"; # Did you read the comment?
-            home-manager.users.cozy.home.stateVersion = "26.05";
+            home-manager.users.cozy.home = {
+              stateVersion = "26.05";
+              enableNixpkgsReleaseCheck = false;
+              };
 
 
           })
