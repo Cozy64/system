@@ -14,8 +14,9 @@ in
 
   environment = {
     systemPackages = with pkgs; [
-      (ciscoPacketTracer9.overrideAttrs (old: { src = /home/cozy/packettracer/CiscoPacketTracer_900_Ubuntu_64bit.deb; }))
+      #(ciscoPacketTracer9.overrideAttrs (old: { src = /home/cozy/packettracer/CiscoPacketTracer_900_Ubuntu_64bit.deb; }))
       #(ciscoPacketTracer9.override { packetTracerSource = /home/cozy/packettracer/CiscoPacketTracer_900_Ubuntu_64bit.deb; })
+      aseprite
       trash-cli
       cliphist
       claude-code
@@ -49,7 +50,7 @@ in
       xmrig
       dunst
       vscode-langservers-extracted
-      vscode-fhs
+      #vscode-fhs
       typescript-language-server
       astro-language-server
       basedpyright
@@ -93,8 +94,8 @@ in
       php
       blender
       prismlauncher
-      #mysql-workbench
-      go
+      mysql-workbench
+      #go
       #zed-editor
       google-chrome
       pnpm
@@ -122,7 +123,6 @@ in
       wireshark
       krita
       gimp3-with-plugins
-      musescore
       yt-dlp
       cava
       fastfetch
@@ -157,7 +157,6 @@ in
       bluez-tools
       p7zip
       winetricks
-      mangohud
       ffmpeg_6-full
       nix-index
       killall
@@ -198,10 +197,12 @@ in
 		#MOZ_WEBRENDERER="1";
 		#SDL_VIDEODRIVER="x11";
 		#GCM_CREDENTIAL_STORE="gpg";
-		#XMODIFIERS="@im=fcitx";
-		#SDL_IM_MODULE="fcitx";
-		#INPUT_METHOD="fcitx";
-		#GLFW_IM_MODULE="fcitx";
+		XMODIFIERS="@im=fcitx";
+		SDL_IM_MODULE="fcitx";
+		INPUT_METHOD="fcitx";
+		GLFW_IM_MODULE="fcitx";
+    #GTK_IM_MODULE="fcitx";
+    QT_IM_MODULE="fcitx";
 		#XCURSOR_SIZE="24";
 		#HYPRCURSOR_SIZE="24";
 		#HYPRCURSOR_THEME="HyprBibataModernClassicSVG";
@@ -290,10 +291,7 @@ in
           "x-scheme-handler/https" = ["google-chrome.desktop"];
           "x-scheme-handler/about" = ["google-chrome.desktop"];
           "x-scheme-handler/unknown" = ["google-chrome.desktop"];
-          "x-scheme-handler/x-github-client" = ["github-desktop.desktop"];
-          "x-scheme-handler/x-github-desktop-dev-auth" = ["github-desktop.desktop"];
-          "x-scheme-handler/gitkraken" = ["gitkraken.desktop"];
-          "x-scheme-handler/claude-cli" = ["claude-code-url-handler.desktop"];
+          "text/html"=["google-chrome.desktop"];
           "image/png" = ["imv.desktop"];
           "image/jpg" = ["imv.desktop"];
           "image/webp" = ["imv.desktop"];
@@ -305,7 +303,6 @@ in
           "application/x-bzip2" = "org.gnome.FileRoller.desktop";
           "application/x-7z-compressed" = "org.gnome.FileRoller.desktop";
           "inode/directory" = "pcmanfm.desktop";
-          "text/html"=["google-chrome.desktop"];
       };
     };
   };
@@ -315,8 +312,10 @@ in
     allowInsecure = true; 
     #allowBroken = true; 
 	  #allowUnsupportedSystem = true;
+    permittedInsecurePackages = [
+      "electron-40.10.5"
+    ];
   };
-
 
 
 
@@ -440,7 +439,7 @@ systemd.sleep.settings.Sleep = {
 				lines=10000;
 			};
 				main = {
-					font = "monospace:size=12";
+					font = "terminus_font:size=14";
 
 				};
 				colors-dark = {

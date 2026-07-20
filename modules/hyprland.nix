@@ -55,7 +55,7 @@
               on-resume = "hyprctl dispatch dpms on";
             }
             {
-              timeout = 120; 
+              timeout = 240; 
               on-timeout = "systemd-ac-power || systemctl suspend-then-hibernate";
             }
           ];

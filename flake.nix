@@ -73,7 +73,7 @@
           ./modules/swapfile40.nix
           ./modules/tlp-intel.nix
           #./modules/virtualisation.nix
-          #./modules/podman.nix
+          ./modules/podman.nix
           ./modules/alias.nix
           ./modules/fhs.nix
           ./modules/ssh.nix
@@ -104,51 +104,51 @@
         ];
       };
 
-      slave = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs gitPkgs stablePkgs oldPkgs ; };
-        modules = [
-          home-manager.nixosModules.default
-          lanzaboote.nixosModules.lanzaboote
-          /etc/nixos/hardware-configuration.nix
-          ./base.nix
-          ./lanzaboote.nix
-          ./home-manager.nix
-          ./modules/amdcpu.nix
-          ./modules/amdgpu.nix
-          ./modules/swapfile20.nix
-          ./modules/alias.nix
-          ./modules/tlp-amd.nix
-          ./modules/docker.nix
-          ./modules/virtualisation.nix
-          ./modules/ssh.nix
-          ./modules/language.nix 
-          ./modules/fonts.nix
-          ./modules/hyprland.nix
-          #./modules/niri.nix
-          ./modules/steam.nix
-          ./modules/opentabletdriver.nix
-          ./modules/asusd.nix
-          ./modules/supergfxd.nix
-          ./modules/ly.nix
-          ./modules/bluetooth.nix
-          ./modules/zram.nix
-          #./modules/printing.nix
-
-          ({ ... }: {
-
-            environment.systemPackages = [
-
-            ];
-
-            networking.hostName = "slave";
-
-            system.stateVersion = "26.05"; # Did you read the comment?
-            home-manager.users.cozy.home.stateVersion = "26.05";
-
-          })
-        ];
-      };
+      #slave = nixpkgs.lib.nixosSystem {
+      #  inherit system;
+      #  specialArgs = { inherit inputs gitPkgs stablePkgs oldPkgs ; };
+      #  modules = [
+      #    home-manager.nixosModules.default
+      #    lanzaboote.nixosModules.lanzaboote
+      #    /etc/nixos/hardware-configuration.nix
+      #    ./base.nix
+      #    ./lanzaboote.nix
+      #    ./home-manager.nix
+      #    ./modules/amdcpu.nix
+      #    ./modules/amdgpu.nix
+      #    ./modules/swapfile20.nix
+      #    ./modules/alias.nix
+      #    ./modules/tlp-amd.nix
+      #    ./modules/docker.nix
+      #    ./modules/virtualisation.nix
+      #    ./modules/ssh.nix
+      #    ./modules/language.nix 
+      #    ./modules/fonts.nix
+      #    ./modules/hyprland.nix
+      #    #./modules/niri.nix
+      #    ./modules/steam.nix
+      #    ./modules/opentabletdriver.nix
+      #    ./modules/asusd.nix
+      #    ./modules/supergfxd.nix
+      #    ./modules/ly.nix
+      #    ./modules/bluetooth.nix
+      #    ./modules/zram.nix
+      #    #./modules/printing.nix
+#
+#          ({ ... }: {
+#
+#            environment.systemPackages = [
+#
+#            ];
+#
+#            networking.hostName = "slave";
+#
+#            system.stateVersion = "26.05"; # Did you read the comment?
+#            home-manager.users.cozy.home.stateVersion = "26.05";
+#
+#          })
+#        ];
+#      };
 
 
       rust = nixpkgs.lib.nixosSystem {

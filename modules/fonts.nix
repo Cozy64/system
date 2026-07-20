@@ -4,13 +4,16 @@
   fonts = {
     fontDir.enable = true;
 
-    #fontconfig.defaultFonts = {
-    #  emoji = [ "Noto Color Emoji" ];
-    #  monospace = [ "Source Han Mono" ];
-    #  sansSerif = [ "Noto Sans CJK SC" ];
-    #  serif = [ "Source Han Serif" ];
-    #};
+    fontconfig.defaultFonts = {
+      emoji = [ "Noto Color Emoji" "Noto Emoji Monochrome" ];
+      monospace = [ "Terminus" ];
+      sansSerif = [ "Terminus" ];
+      serif = [ "Terminus" ];
+    };
     packages = with pkgs; [
+      terminus_font
+      terminus_font_ttf
+      monocraft
 			nerd-fonts._0xproto
 			nerd-fonts._3270
 			nerd-fonts.agave

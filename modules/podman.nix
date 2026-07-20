@@ -4,7 +4,6 @@
     distrobox
 		podman-compose
     freerdp
-    winboat
     #docker-compose
   ];
 

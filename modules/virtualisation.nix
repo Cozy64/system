@@ -9,13 +9,25 @@
 
   };
   services = {
-    spice-vdagentd.enable = true;
+    #qemuGuest.enable = true;
+    #spice-vdagentd.enable = true;
 
   };
   virtualisation = {
 		kvmgt.enable = true;
 		spiceUSBRedirection.enable = true;
-      libvirtd.enable = true;
+      libvirtd = {
+        enable = true;
+        qemu = {
+          swtpm.enable = true;
+          runAsRoot = true;
+          vhostUserPackages = with pkgs; [
+            virtiofsd
+
+          ];
+
+        };
+      };
       #virtualbox = {
 			#	host.enable = true;
 			#	host.enableExtensionPack = true;
