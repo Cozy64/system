@@ -8,7 +8,7 @@
         enable = true;
         settings = {
             main = {
-              font = "monospace:size=10";
+              font = "monospace:size=12";
               prompt = ">  ";
               icon-theme = "hicolor";
               lines = 15;
@@ -43,7 +43,7 @@
 		
 		services = {
 
-    ssh-agent.enable = true;
+      ssh-agent.enable = true;
 			dunst = {
 				enable = true;
           settings = {
