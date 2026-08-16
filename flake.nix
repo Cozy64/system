@@ -8,7 +8,8 @@ description = "Cozy's System";
     unstablepkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     #nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     #nixpkgs.url = "github:NixOS/nixpkgs/master";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    #nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "path:/home/cozy/nixpkgs";
     gitpkgs.url = "github:NixOS/nixpkgs/master";
     oldpkgs.url = "github:NixOS/nixpkgs/e6eae2ee2110f3d31110d5c222cd395303343b08";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
@@ -20,7 +21,7 @@ description = "Cozy's System";
     # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
-      inputs.nixpkgs.follows = "stablepkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     lanzaboote = {
