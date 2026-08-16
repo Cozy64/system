@@ -16,12 +16,16 @@ in
     systemPackages = with pkgs; [
       #(ciscoPacketTracer9.overrideAttrs (old: { src = /home/cozy/packettracer/CiscoPacketTracer_900_Ubuntu_64bit.deb; }))
       #(ciscoPacketTracer9.override { packetTracerSource = /home/cozy/packettracer/CiscoPacketTracer_900_Ubuntu_64bit.deb; })
-      aseprite
+      #aseprite
       trash-cli
+      jq
       cliphist
       claude-code
       file-roller
+      chromedriver
+      chromium
       libreoffice-fresh
+      uv
       lxqt.lxqt-policykit 
       warehouse
       github-desktop
@@ -288,10 +292,12 @@ in
     mime = {
       enable = true;
       defaultApplications = {
-          "x-scheme-handler/http" = ["google-chrome.desktop"];
-          "x-scheme-handler/https" = ["google-chrome.desktop"];
-          "x-scheme-handler/about" = ["google-chrome.desktop"];
-          "x-scheme-handler/unknown" = ["google-chrome.desktop"];
+          "application/pdf" = "google-chrome.desktop";
+          "x-scheme-handler/http" = "google-chrome.desktop";
+          "x-scheme-handler/https" = "google-chrome.desktop";
+          "x-scheme-handler/about" = "google-chrome.desktop";
+          "x-scheme-handler/unknown" = "google-chrome.desktop";
+          "text/html"="google-chrome.desktop";
           "text/plain" = ["nvim-qt.desktop"];
           "text/html"=["nvim-qt.desktop"];
           "image/png" = ["imv.desktop"];
@@ -441,7 +447,7 @@ systemd.sleep.settings.Sleep = {
 				lines=10000;
 			};
 				main = {
-					font = "terminus_font:size=14";
+					font = "Terminus:size=14";
 
 				};
 				colors-dark = {

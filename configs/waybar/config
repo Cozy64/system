@@ -8,7 +8,14 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces","hyprland/window"],
     "modules-center": [], 
-    "modules-right": ["tray", "pulseaudio", "temperature","battery","clock"],
+    "modules-right": ["tray","custom/crypto", "cpu","memory","battery","clock"],
+
+"custom/crypto": {
+    "exec": "bash ~/system/scripts/crypto.sh",
+    "return-type": "json",
+    "interval": 5,
+    "format": "{}"
+},
 
 "custom/weather": {
     "format": "{}°",
@@ -29,18 +36,18 @@
 
 },
 
-	//"mpris": {
-	//"format": "DEFAULT: {player_icon} {dynamic}",
-	//"format-paused": "DEFAULT: {status_icon} <i>{dynamic}</i>",
-	//"player-icons": {
-		//"default": "▶",
-		//"mpv": "🎵"
-	//},
-	//"status-icons": {
-	//	"paused": "⏸"
-	//},
+	"mpris": {
+	"format": "DEFAULT: {player_icon} {dynamic}",
+	"format-paused": "DEFAULT: {status_icon} <i>{dynamic}</i>",
+	"player-icons": {
+		"default": "▶",
+		"mpv": "🎵"
+	},
+	"status-icons": {
+		"paused": "⏸"
+	}
 
-//},
+},
 
 	"hyprland/workspaces": {
 		"on-click": "activate",
@@ -63,7 +70,7 @@
 	"interval": 1
     },
     "cpu": {
-        "format": "{usage}%  ",
+        "format": "{usage}%  ",
         "tooltip": true,
 	"interval": 1
     },
@@ -128,7 +135,7 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""],
+            "default": ["", "", ""]
         }
     }
 }

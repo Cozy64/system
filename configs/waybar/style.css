@@ -1,11 +1,22 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     /* font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif; */
-    font-family: "monospace", "Font Awesome 6 Free";
+    font-family: "Terminus", "Noto Color Emoji";
     font-size: 18px;
 }
 
-
+#custom-crypto {
+    /* Background and text colors */
+    background: none;
+    color: #dddddd;
+    
+    
+    /* Border matching */
+    border: none;
+    
+    /* Typography */
+    /*font-weight: bold;*/
+}
 
 window#waybar {
     background-color: rgba(0, 0, 0, 0.8);

@@ -4,7 +4,9 @@
 
 
   services = {
+    
 		tlp = {
+      pd.enable = true;
 			enable = true;
 			settings = {
 				TLP_ENABLE=1;

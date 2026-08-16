@@ -100,7 +100,7 @@
 
               ### Icons ###
               enable_recursive_icon_lookup = true;
-              icon_theme = "Adwaita";
+              icon_theme = "WhiteSur";
               icon_position = "left";
               min_icon_size = 32;
               max_icon_size = 128;
@@ -170,28 +170,36 @@
 	#		#};
 	};
 
-    gtk = {
-      enable = true;
-			theme = {
-				name = "Graphite-Dark";
-				package= pkgs.graphite-gtk-theme.override {
-					tweaks = ["black"];
-					themeVariants = ["default"];
-					colorVariants = ["dark"];
-				};
-			};
-      #cursorTheme = {
-      # name = "Bibata-Modern-Classic";
-      # package = pkgs.bibata-cursors;
-      # size = 24;
- 			#};
-			iconTheme = {
-				name = "Tela-black-dark";
-				package = pkgs.tela-icon-theme;
-				#name = "Papirus-Dark";
-				#package = pkgs.papirus-icon-theme;
+  gtk = {
+    enable = true;
+
+    theme = {
+      # UPDATE THIS: Must match the generated folder name for the grey variant
+      name = "WhiteSur-Dark-grey"; 
+      package = pkgs.whitesur-gtk-theme.override {
+        altVariants = [ ];
+        colorVariants = [ "dark" ];
+        opacityVariants = [ "normal" ];
+        themeVariants = [ "grey" ]; # Changed to grey
+        schemeVariants = [ "standard" ];
+
+        nautilusStyle = "stable";
+        roundedMaxWindow = false;
+        darkerColor = true;
       };
     };
+
+    iconTheme = {
+      # UPDATE THIS: Use the dark variant of the grey icons to match your theme
+      name = "WhiteSur-grey-dark"; 
+      package = pkgs.whitesur-icon-theme.override {
+        themeVariants = [ "grey" ]; # Changed to grey
+
+        boldPanelIcons = false;
+        alternativeIcons = false;
+      };
+    };
+  };
 
 
     dconf = {
@@ -209,6 +217,7 @@
       pointerCursor = {
         gtk.enable = true;
         x11.enable = true;
+
         name = "Bibata-Modern-Classic";
         package = pkgs.bibata-cursors;
         size = 24;

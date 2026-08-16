@@ -1,5 +1,5 @@
 {
-  description = "Cozy's System";
+description = "Cozy's System";
 
   inputs = {
     # Nixpkgs channels
@@ -15,6 +15,7 @@
 
     oldbitwig.url = "github:NixOS/nixpkgs/27272c21afa6e506f8700f751b6bdec0dc8924c8";
 
+    # Upstream TLP source from GitHub
 
     # Home Manager
     home-manager = {
@@ -41,7 +42,7 @@
     #};
   };
 
-  outputs = {nix-flatpak, nixpkgs, gitpkgs, unstablepkgs, stablepkgs, oldpkgs, oldbitwig, home-manager, lanzaboote,  ... }@inputs:
+  outputs = { nix-flatpak, nixpkgs, gitpkgs, unstablepkgs, stablepkgs, oldpkgs, oldbitwig, home-manager, lanzaboote , ... }@inputs:
     let
       system = "x86_64-linux"; # set your arch here, or use builtins.currentSystem
       stablePkgs = import stablepkgs { inherit system; };
@@ -51,7 +52,6 @@
       oldBitwig = import oldbitwig { inherit system; config.allowUnfree = true; };
     in 
   {
-
 
     nixosConfigurations = { 
 
@@ -87,7 +87,8 @@
           #./modules/zram.nix
           #./modules/printing.nix
 
-          ({ ... }: {
+          ({ pkgs, ... }: {
+
 
             networking.hostName = "sky";
             environment.systemPackages = [

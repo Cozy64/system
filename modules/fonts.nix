@@ -6,9 +6,12 @@
 
     fontconfig.defaultFonts = {
       emoji = [ "Noto Color Emoji" "Noto Emoji Monochrome" ];
-      monospace = [ "Terminus" ];
-      sansSerif = [ "Terminus" ];
-      serif = [ "Terminus" ];
+      #monospace = [ "Terminus" "Terminus (TTF)" "monospace" ];
+      #sansSerif = [ "Terminus" "Terminus (TTF)" "monospace" ];
+      #serif = [ "Terminus" "Terminus (TTF)" "monospace" ];
+      monospace = ["Terminess Nerd Font Mono" ];
+      sansSerif = ["Terminess Nerd Font Mono)" ];
+      serif = ["Terminess Nerd Font Mono)" ];
     };
     packages = with pkgs; [
       terminus_font

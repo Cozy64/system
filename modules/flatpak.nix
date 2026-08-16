@@ -18,6 +18,7 @@
     "org.godotengine.Godot"
     "org.kde.kdenlive"
     "org.gtk.Gtk3theme.Adwaita-dark"
+    "com.spotify.Client"
     #"org.musescore.MuseScore"
     #"com.protonvpn.www"
     #"com.anydesk.Anydesk"
