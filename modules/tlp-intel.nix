@@ -1,5 +1,4 @@
-
-{ ... }:
+{localpkgs, config, ... }:
 {
 
 
@@ -7,15 +6,17 @@
     
 		tlp = {
       pd.enable = true;
+      pd.package = localpkgs.tlp-pd;
+      package = localpkgs.tlp.override { enableRDW = config.networking.networkmanager.enable; };
 			enable = true;
 			settings = {
 				TLP_ENABLE=1;
 				TLP_MSG_COLORS="91 93 1 92";
-       # TLP_DEFAULT_MODE="BAT";
+        TLP_PROFILE_DEFAULT="PRF";
 			  TLP_PERSISTENT_DEFAULT=0;
         TLP_PROFILE_AC="PRF";
         TLP_PROFILE_BAT="SAV";
-        TLP_AUTO_SWITCH=2;
+        TLP_AUTO_SWITCH=1;
 			  NMI_WATCHDOG=0; #kernel logging
 			  SOUND_POWER_SAVE_ON_AC=0;
 			  SOUND_POWER_SAVE_ON_BAT=1;

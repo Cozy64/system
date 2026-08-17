@@ -20,6 +20,9 @@ in
       trash-cli
       jq
       cliphist
+      polkit_gnome
+      gitkraken
+      libsecret
       claude-code
       file-roller
       chromedriver
@@ -192,7 +195,7 @@ in
     #GSETTINGS_SCHEMA_DIR="${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}/glib-2.0/schemas";
 	  #LD_LIBRARY_PATH = lib.mkForce"$NIX_LD_LIBRARY_PATH:$LD_LIBRARY_PATH";	
 		XDG_RUNTIME_DIR = "/run/user/$UID";
-    LIBVA_DRIVER_NAME = "iHD";
+    #LIBVA_DRIVER_NAME = "iHD";
 		#NIXOS_OZONE_WL="1";
 		#AMD_VULKAN_ICD = "RADV";
 		#PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig:${pkgs.hidapi}/lib/pkgconfig";
@@ -289,6 +292,12 @@ in
    # ${pkgs.kmod}/bin/modprobe -rv btusb
    # ${pkgs.kmod}/bin/modprobe -rv btrtl
 	xdg = {
+    portal = {
+      enable = true;
+      wlr.enable = true;
+      xdgOpenUsePortal = true;
+
+    };
     mime = {
       enable = true;
       defaultApplications = {
@@ -425,19 +434,17 @@ systemd.sleep.settings.Sleep = {
 
   programs = {
 
-  firefox.enable = true;
-	seahorse.enable = true; #displays gnome keystring data
-  #gnupg.agent = {
-  #  enable = true;
-  #  enableSSHSupport = true;
+    firefox.enable = true;
+    seahorse.enable = true; #displays gnome keystring data
+    #gnupg.agent = {
+    #  enable = true;
+    #  enableSSHSupport = true;
 
-  #};
-	git = {
-		enable = true;
-		package = pkgs.gitFull;
-
-
-	};
+    #};
+    git = {
+      enable = true;
+      package = pkgs.gitFull;
+  };
 	dconf.enable = true;
 		foot = {
 			enable = true;

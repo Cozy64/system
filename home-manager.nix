@@ -2,6 +2,23 @@
 {
   home-manager.users.cozy = {
 
+systemd.user.services.polkit-gnome-authentication-agent-1 = {
+  Unit = {
+    Description = "polkit-gnome-authentication-agent-1";
+    Wants = [ "graphical-session.target" ];
+    After = [ "graphical-session.target" ];
+  };
+  Install = {
+    WantedBy = [ "graphical-session.target" ];
+  };
+  Service = {
+    Type = "simple";
+    ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+    Restart = "on-failure";
+    RestartSec = 1;
+    TimeoutStopSec = 10;
+  };
+};
 
     programs = {
       fuzzel = {
@@ -38,6 +55,14 @@
 
         };
       };
+  git = {
+    enable = true;
+    settings = {
+      credential = {
+        helper = "libsecret";
+      };
+    };
+  };
 
     };
 		
@@ -215,6 +240,7 @@
 
       ];
       pointerCursor = {
+        enable = true;
         gtk.enable = true;
         x11.enable = true;
 
