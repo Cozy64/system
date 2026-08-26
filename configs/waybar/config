@@ -6,14 +6,46 @@
     "spacing": 14, // Gaps between modules (4px)
     //"margin": 0,
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces","hyprland/window"],
+    "modules-left": 
+    [
+      "hyprland/workspaces",
+      "hyprland/window"
+    ],
     "modules-center": [], 
-    "modules-right": ["tray","custom/crypto", "cpu","memory","battery","clock"],
+    "modules-right": 
+    [
+      "tray",
+      "custom/crypto", 
+      "custom/monero_stats",
+      "cpu",
+      "memory",
+      "power-profiles-daemon", // Add it to your bar layout
+      "battery",
+      "clock"
+    ],
 
+"custom/monero_stats": {
+    "format": "{}",
+    "exec": "/home/cozy/system/scripts/monero_stats.sh",
+    "interval": 10,
+    "tooltip": false
+},
+
+"power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}",
+    "tooltip": true,
+    "format-icons": {
+     // "default": " ",
+      "performance": " ",
+      "balanced": " ",
+      "power-saver": " "
+    }
+  },
 "custom/crypto": {
     "exec": "bash ~/system/scripts/crypto.sh",
     "return-type": "json",
-    "interval": 5,
+    "interval": 10,
     "format": "{}"
 },
 
@@ -99,12 +131,12 @@
           "critical": 20
         },
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}%  ",
-        "format-plugged": "{capacity}%  ",
+        "format-charging": "{capacity}% 󰂄 ",
+        "format-plugged": "{capacity}% 󱟢 ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": [" ", " ", " ", " ", " "],
+        "format-icons": ["󰁻 ", "󰁽 ", "󰁿 ", "󰂁 ", "󰁹 "],
 		"interval": 1
     },
     "network": {

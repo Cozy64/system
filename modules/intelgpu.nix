@@ -3,6 +3,8 @@
 
 	environment.systemPackages = with pkgs; [
     nvtopPackages.intel
+    intel-gpu-tools
+    libva-utils
 		
 
 	];
@@ -16,7 +18,7 @@
         vpl-gpu-rt
       ];
 			extraPackages32 = with pkgs.driversi686Linux; [
-
+      intel-media-driver
 			];
     };
    };

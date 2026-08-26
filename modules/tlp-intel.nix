@@ -6,8 +6,8 @@
     
 		tlp = {
       pd.enable = true;
-      pd.package = localpkgs.tlp-pd;
-      package = localpkgs.tlp.override { enableRDW = config.networking.networkmanager.enable; };
+      #pd.package = lpkgs.tlp-pd;
+      #package = pkgs.tlp.override { enableRDW = config.networking.networkmanager.enable; };
 			enable = true;
 			settings = {
 				TLP_ENABLE=1;
@@ -29,8 +29,8 @@
 			  #RUNTIME_PM_DISABLE = "01:00.0";
 
 			  RUNTIME_PM_ON_AC="on";
-			  RUNTIME_PM_ON_BAT="on"; #settings ts to auto turns off wifi after boot lmao
-			  RUNTIME_PM_ON_SAV="on";
+			  RUNTIME_PM_ON_BAT="auto"; 
+			  RUNTIME_PM_ON_SAV="auto";
 			  PCIE_ASPM_ON_AC="default";
 			  PCIE_ASPM_ON_BAT="powersupersave";
 			  PCIE_ASPM_ON_SAV="powersupersave";
@@ -39,15 +39,15 @@
 			  WIFI_PWR_ON_BAT="off"; #no powersave for wifi
 			  WIFI_PWR_ON_SAV="off"; #no powersave for wifi
 			  WOL_DISABLE="Y";
-			  USB_AUTOSUSPEND=0;
+			  USB_AUTOSUSPEND=1;
 
 			  START_CHARGE_THRESH_BAT0=75;
 			  STOP_CHARGE_THRESH_BAT0=80;
 			  START_CHARGE_THRESH_BAT1=75;
 			  STOP_CHARGE_THRESH_BAT1=80;
 			  PLATFORM_PROFILE_ON_AC="performance";
-			  PLATFORM_PROFILE_ON_BAT="quiet";
-			  PLATFORM_PROFILE_ON_SAV="quiet";
+			  PLATFORM_PROFILE_ON_BAT="balanced";
+			  PLATFORM_PROFILE_ON_SAV="balanced";
 			  CPU_SCALING_GOVERNOR_ON_AC="performance";
 			  CPU_SCALING_GOVERNOR_ON_BAT="powersave";
 			  CPU_SCALING_GOVERNOR_ON_SAV="powersave";
@@ -81,9 +81,9 @@
 				CPU_MIN_PERF_ON_AC=0; 
 				CPU_MAX_PERF_ON_AC=100; 
 				CPU_MIN_PERF_ON_BAT=0; 
-				CPU_MAX_PERF_ON_BAT=40; 
+				CPU_MAX_PERF_ON_BAT=20; 
 				CPU_MIN_PERF_ON_SAV=0; 
-				CPU_MAX_PERF_ON_SAV=40; 
+				CPU_MAX_PERF_ON_SAV=20; 
 
 			};
 		};

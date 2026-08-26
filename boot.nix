@@ -1,6 +1,9 @@
 {pkgs, gitPkgs, ...}:
 {
   boot = {
+    kernel.sysctl = {
+      "vm.nr_hupages" = 1024;
+    };
     supportedFilesystems = [ "ntfs" ];
   	kernelParams = [
       #"vfio_pci" 
@@ -9,9 +12,9 @@
       #"intel_iommu=on"
       "pcie_port_pm=off"
       "fbcon=font:TER8x16" 
-      "default_hugepagesz=2M" 
-      "hugepagesz=1G" 
-      "hugepages=4"
+      #"default_hugepagesz=2M" 
+      #"hugepagesz=1G" 
+      #"hugepages=4"
     ];
     initrd.kernelModules = [ 
       "i915"
@@ -24,7 +27,8 @@
      # kernelModules= ["rtw89_pci disable_aspm_l1=Y disable_aspm_l1ss=Y"];
      #kernelPackages = pkgs.linuxPackages_6_18;
       #kernelPackages = pkgs.linuxPackages_latest;
-      kernelPackages = pkgs.linuxPackages_latest;
+      #kernelPackages = pkgs.linuxPackages_latest;
+      kernelPackages = pkgs.linuxPackages_cachyos;
       #kernelPackages = pkgs.linuxPackages_7_0;
       loader = {
         efi.canTouchEfiVariables = true;

@@ -25,9 +25,10 @@ in
       libsecret
       claude-code
       file-roller
+      obsidian
       chromedriver
-      chromium
-      libreoffice-fresh
+      #chromium
+      #libreoffice-fresh
       uv
       lxqt.lxqt-policykit 
       warehouse
@@ -195,7 +196,7 @@ in
     #GSETTINGS_SCHEMA_DIR="${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}/glib-2.0/schemas";
 	  #LD_LIBRARY_PATH = lib.mkForce"$NIX_LD_LIBRARY_PATH:$LD_LIBRARY_PATH";	
 		XDG_RUNTIME_DIR = "/run/user/$UID";
-    #LIBVA_DRIVER_NAME = "iHD";
+    LIBVA_DRIVER_NAME = "iHD";
 		#NIXOS_OZONE_WL="1";
 		#AMD_VULKAN_ICD = "RADV";
 		#PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig:${pkgs.hidapi}/lib/pkgconfig";
@@ -434,7 +435,7 @@ systemd.sleep.settings.Sleep = {
 
   programs = {
 
-    firefox.enable = true;
+    #firefox.enable = true;
     seahorse.enable = true; #displays gnome keystring data
     #gnupg.agent = {
     #  enable = true;

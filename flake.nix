@@ -6,10 +6,12 @@ description = "Cozy's System";
     #hyprland.url = "github:hyprwm/Hyprland";
     stablepkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     unstablepkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:NixOS/nixpkgs/master";
     localpkgs.url = "path:/home/cozy/nixpkgs";
+    #nixpkgs.url = "github:NixOS/nixpkgs/master";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    #nixpkgs.url = "path:/home/cozy/nixpkgs";
     gitpkgs.url = "github:NixOS/nixpkgs/master";
-    oldpkgs.url = "github:NixOS/nixpkgs/e6eae2ee2110f3d31110d5c222cd395303343b08";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
 
     oldbitwig.url = "github:NixOS/nixpkgs/27272c21afa6e506f8700f751b6bdec0dc8924c8";
@@ -41,12 +43,11 @@ description = "Cozy's System";
     #};
   };
 
-  outputs = { nix-flatpak, localpkgs, nixpkgs, gitpkgs, unstablepkgs, stablepkgs, oldpkgs, oldbitwig, home-manager, lanzaboote , ... }@inputs:
+  outputs = { nix-flatpak, chaotic, localpkgs, nixpkgs, gitpkgs, unstablepkgs, stablepkgs, oldbitwig, home-manager, lanzaboote , ... }@inputs:
     let
       system = "x86_64-linux"; # set your arch here, or use builtins.currentSystem
       stablePkgs = import stablepkgs { inherit system; };
       unstablePkgs = import unstablepkgs { inherit system; };
-      oldPkgs = import oldpkgs { inherit system; };
       gitPkgs = import gitpkgs { inherit system; };
       localpkgs = import gitpkgs { inherit system; };
       oldBitwig = import oldbitwig { inherit system; config.allowUnfree = true; };
@@ -57,11 +58,12 @@ description = "Cozy's System";
 
       sky = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit unstablePkgs localpkgs inputs gitPkgs stablePkgs oldPkgs ; };
+        specialArgs = { inherit unstablePkgs localpkgs inputs gitPkgs stablePkgs ; };
         modules = [
           home-manager.nixosModules.default
           lanzaboote.nixosModules.lanzaboote
           nix-flatpak.nixosModules.nix-flatpak
+          chaotic.nixosModules.default 
           /etc/nixos/hardware-configuration.nix
           ./base.nix
           ./boot.nix
@@ -72,7 +74,7 @@ description = "Cozy's System";
           ./modules/intelcpu.nix
           ./modules/swapfile40.nix
           ./modules/tlp-intel.nix
-          #./modules/virtualisation.nix
+          ./modules/virtualisation.nix
           ./modules/podman.nix
           ./modules/alias.nix
           ./modules/fhs.nix
