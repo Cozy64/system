@@ -6,7 +6,7 @@ description = "Cozy's System";
     #hyprland.url = "github:hyprwm/Hyprland";
     stablepkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     unstablepkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    #localpkgs.url = "path:/home/cozy/nixpkgs";
+    localpkgs.url = "path:/home/cozy/nixpkgs";
     #nixpkgs.url = "github:NixOS/nixpkgs/master";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
@@ -43,13 +43,13 @@ description = "Cozy's System";
     #};
   };
 
-  outputs = { nix-flatpak, chaotic, nixpkgs, gitpkgs, unstablepkgs, stablepkgs, oldbitwig, home-manager, lanzaboote , ... }@inputs:
+  outputs = { nix-flatpak, localpkgs, chaotic, nixpkgs, gitpkgs, unstablepkgs, stablepkgs, oldbitwig, home-manager, lanzaboote , ... }@inputs:
     let
       system = "x86_64-linux"; # set your arch here, or use builtins.currentSystem
       stablePkgs = import stablepkgs { inherit system; };
       unstablePkgs = import unstablepkgs { inherit system; };
       gitPkgs = import gitpkgs { inherit system; };
-      #localpkgs = import gitpkgs { inherit system; };
+      localpkgs = import gitpkgs { inherit system; };
       oldBitwig = import oldbitwig { inherit system; config.allowUnfree = true; };
     in 
   {
@@ -66,8 +66,8 @@ description = "Cozy's System";
           chaotic.nixosModules.default 
           /etc/nixos/hardware-configuration.nix
           ./base.nix
-          ./boot.nix
           ./home-manager.nix
+          ./modules/intel-boot.nix
           ./modules/flatpak.nix
           ./modules/ollama.nix
           ./modules/intelgpu.nix
@@ -117,8 +117,8 @@ description = "Cozy's System";
           chaotic.nixosModules.default 
           /etc/nixos/hardware-configuration.nix
           ./base.nix
-          ./boot.nix
           ./home-manager.nix
+          ./modules/amd-boot.nix
           ./modules/docker.nix
           ./modules/amdcpu.nix
           ./modules/amdgpu.nix
@@ -159,7 +159,7 @@ description = "Cozy's System";
           home-manager.nixosModules.default
           /etc/nixos/hardware-configuration.nix
           ./minimal.nix
-          ./boot.nix
+          ./modules/intel-boot.nix
           ./modules/intelcpu.nix
           ./modules/intelgpu.nix
           ./modules/tlp-intel.nix
@@ -191,7 +191,7 @@ description = "Cozy's System";
           #disko.nixosModules.disko
           #./partitioning/disko-efi.nix
           ./minimal.nix
-          ./boot.nix
+          ./intel-boot.nix
           ./modules/intelcpu.nix
           ./modules/intelgpu.nix
           ./modules/alias.nix

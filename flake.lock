@@ -68,11 +68,11 @@
     },
     "gitpkgs": {
       "locked": {
-        "lastModified": 1788385690,
-        "narHash": "sha256-7ENFBx9NwOvWkZKeVToYD8HXytIi+4/wjBC3dyUR/Y4=",
+        "lastModified": 1788387098,
+        "narHash": "sha256-QoNIsUIB/p6YGNPv6aDH2I8FpmgLoDGb2IA09G4eGXc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "cb1ed590306ce0dbb2e1315cecd56f426838ce4e",
+        "rev": "71c004fa4b6bee896f2631937a6c378918379b1c",
         "type": "github"
       },
       "original": {
@@ -144,6 +144,18 @@
         "owner": "nix-community",
         "repo": "lanzaboote",
         "type": "github"
+      }
+    },
+    "localpkgs": {
+      "locked": {
+        "lastModified": 1787751431,
+        "narHash": "sha256-COSS09tg1Qm3c7RQhnEUKJl0wo9x/oD04QYyykWiFNY=",
+        "path": "/home/cozy/nixpkgs",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/cozy/nixpkgs",
+        "type": "path"
       }
     },
     "nix-flatpak": {
@@ -238,6 +250,7 @@
         "gitpkgs": "gitpkgs",
         "home-manager": "home-manager_2",
         "lanzaboote": "lanzaboote",
+        "localpkgs": "localpkgs",
         "nix-flatpak": "nix-flatpak",
         "nixpkgs": "nixpkgs_2",
         "oldbitwig": "oldbitwig",
