@@ -124,6 +124,7 @@ description = "Cozy's System";
           ./modules/amdgpu.nix
           ./modules/alias.nix
           ./modules/ssh.nix
+          ./modules/fhs.nix
           ./modules/language.nix
           ./modules/tlp-amd.nix
           ./modules/steam.nix
@@ -165,6 +166,7 @@ description = "Cozy's System";
           ./modules/tlp-intel.nix
           ./modules/alias.nix
           ./modules/swapfile20.nix
+          ./modules/fhs.nix
           ./modules/ssh.nix
           ./modules/zram.nix
 
@@ -195,6 +197,7 @@ description = "Cozy's System";
           ./modules/intelcpu.nix
           ./modules/intelgpu.nix
           ./modules/alias.nix
+          ./modules/fhs.nix
           ./modules/swapfile20.nix
           ./modules/ssh.nix
           ./modules/zram.nix
