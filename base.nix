@@ -17,6 +17,7 @@ in
       #(ciscoPacketTracer9.overrideAttrs (old: { src = /home/cozy/packettracer/CiscoPacketTracer_900_Ubuntu_64bit.deb; }))
       #(ciscoPacketTracer9.override { packetTracerSource = /home/cozy/packettracer/CiscoPacketTracer_900_Ubuntu_64bit.deb; })
       #aseprite
+      firebase-tools
       trash-cli
       jq
       cliphist
