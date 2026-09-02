@@ -6,7 +6,7 @@ description = "Cozy's System";
     #hyprland.url = "github:hyprwm/Hyprland";
     stablepkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     unstablepkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    localpkgs.url = "path:/home/cozy/nixpkgs";
+    #localpkgs.url = "path:/home/cozy/nixpkgs";
     #nixpkgs.url = "github:NixOS/nixpkgs/master";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
@@ -43,13 +43,13 @@ description = "Cozy's System";
     #};
   };
 
-  outputs = { nix-flatpak, chaotic, localpkgs, nixpkgs, gitpkgs, unstablepkgs, stablepkgs, oldbitwig, home-manager, lanzaboote , ... }@inputs:
+  outputs = { nix-flatpak, chaotic, nixpkgs, gitpkgs, unstablepkgs, stablepkgs, oldbitwig, home-manager, lanzaboote , ... }@inputs:
     let
       system = "x86_64-linux"; # set your arch here, or use builtins.currentSystem
       stablePkgs = import stablepkgs { inherit system; };
       unstablePkgs = import unstablepkgs { inherit system; };
       gitPkgs = import gitpkgs { inherit system; };
-      localpkgs = import gitpkgs { inherit system; };
+      #localpkgs = import gitpkgs { inherit system; };
       oldBitwig = import oldbitwig { inherit system; config.allowUnfree = true; };
     in 
   {
@@ -58,7 +58,7 @@ description = "Cozy's System";
 
       sky = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit unstablePkgs localpkgs inputs gitPkgs stablePkgs ; };
+        specialArgs = { inherit unstablePkgs inputs gitPkgs stablePkgs ; };
         modules = [
           home-manager.nixosModules.default
           lanzaboote.nixosModules.lanzaboote
@@ -107,51 +107,6 @@ description = "Cozy's System";
         ];
       };
 
-      #slave = nixpkgs.lib.nixosSystem {
-      #  inherit system;
-      #  specialArgs = { inherit inputs gitPkgs stablePkgs oldPkgs ; };
-      #  modules = [
-      #    home-manager.nixosModules.default
-      #    lanzaboote.nixosModules.lanzaboote
-      #    /etc/nixos/hardware-configuration.nix
-      #    ./base.nix
-      #    ./lanzaboote.nix
-      #    ./home-manager.nix
-      #    ./modules/amdcpu.nix
-      #    ./modules/amdgpu.nix
-      #    ./modules/swapfile20.nix
-      #    ./modules/alias.nix
-      #    ./modules/tlp-amd.nix
-      #    ./modules/docker.nix
-      #    ./modules/virtualisation.nix
-      #    ./modules/ssh.nix
-      #    ./modules/language.nix 
-      #    ./modules/fonts.nix
-      #    ./modules/hyprland.nix
-      #    #./modules/niri.nix
-      #    ./modules/steam.nix
-      #    ./modules/opentabletdriver.nix
-      #    ./modules/asusd.nix
-      #    ./modules/supergfxd.nix
-      #    ./modules/ly.nix
-      #    ./modules/bluetooth.nix
-      #    ./modules/zram.nix
-      #    #./modules/printing.nix
-#
-#          ({ ... }: {
-#
-#            environment.systemPackages = [
-#
-#            ];
-#
-#            networking.hostName = "slave";
-#
-#            system.stateVersion = "26.05"; # Did you read the comment?
-#            home-manager.users.cozy.home.stateVersion = "26.05";
-#
-#          })
-#        ];
-#      };
 
 
       rust = nixpkgs.lib.nixosSystem {
@@ -159,6 +114,7 @@ description = "Cozy's System";
         specialArgs = { inherit oldBitwig gitPkgs inputs; };
         modules = [
           home-manager.nixosModules.default
+          chaotic.nixosModules.default 
           /etc/nixos/hardware-configuration.nix
           ./base.nix
           ./boot.nix
@@ -177,15 +133,22 @@ description = "Cozy's System";
           ./modules/bluetooth.nix
           ./modules/zram.nix
 
-          ({ ... }: {
+          ({ pkgs, ... }: {
 
+
+            networking.hostName = "rust";
             environment.systemPackages = [
               oldBitwig.bitwig-studio
             ];
-    
-            networking.hostName = "rust";
+            system.stateVersion = "26.05"; # Did you read the comment?
+            home-manager.users.cozy.home = {
+              stateVersion = "26.05";
+              enableNixpkgsReleaseCheck = false;
+              };
+
 
           })
+    
         ];
       };
 
@@ -248,6 +211,52 @@ description = "Cozy's System";
           })
         ];
       };
+
+      #slave = nixpkgs.lib.nixosSystem {
+      #  inherit system;
+      #  specialArgs = { inherit inputs gitPkgs stablePkgs oldPkgs ; };
+      #  modules = [
+      #    home-manager.nixosModules.default
+      #    lanzaboote.nixosModules.lanzaboote
+      #    /etc/nixos/hardware-configuration.nix
+      #    ./base.nix
+      #    ./lanzaboote.nix
+      #    ./home-manager.nix
+      #    ./modules/amdcpu.nix
+      #    ./modules/amdgpu.nix
+      #    ./modules/swapfile20.nix
+      #    ./modules/alias.nix
+      #    ./modules/tlp-amd.nix
+      #    ./modules/docker.nix
+      #    ./modules/virtualisation.nix
+      #    ./modules/ssh.nix
+      #    ./modules/language.nix 
+      #    ./modules/fonts.nix
+      #    ./modules/hyprland.nix
+      #    #./modules/niri.nix
+      #    ./modules/steam.nix
+      #    ./modules/opentabletdriver.nix
+      #    ./modules/asusd.nix
+      #    ./modules/supergfxd.nix
+      #    ./modules/ly.nix
+      #    ./modules/bluetooth.nix
+      #    ./modules/zram.nix
+      #    #./modules/printing.nix
+#
+#          ({ ... }: {
+#
+#            environment.systemPackages = [
+#
+#            ];
+#
+#            networking.hostName = "slave";
+#
+#            system.stateVersion = "26.05"; # Did you read the comment?
+#            home-manager.users.cozy.home.stateVersion = "26.05";
+#
+#          })
+#        ];
+#      };
 
     };
   };
