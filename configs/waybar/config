@@ -26,7 +26,7 @@
 
 "custom/monero_stats": {
     "format": "{}",
-    "exec": "/home/cozy/system/scripts/monero_stats.sh",
+    "exec": "bash ~/system/scripts/monero_stats.sh",
     "interval": 10,
     "tooltip": false
 },
