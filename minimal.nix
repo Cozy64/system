@@ -46,6 +46,7 @@
 		ripgrep
 		iw
 		unar
+    jq
 		vulkan-tools
     mesa-demos
 		p7zip
