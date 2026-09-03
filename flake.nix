@@ -161,7 +161,7 @@ description = "Cozy's System";
           ./modules/intel/boot.nix
           ./modules/intel/cpu.nix
           ./modules/intel/gpu.nix
-          ./modules/intel/.nix
+          ./modules/intel/tlp.nix
           ./modules/disable/lidonsleep.nix
           ./modules/alias.nix
           ./modules/swapfile20.nix
