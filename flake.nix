@@ -71,7 +71,7 @@ description = "Cozy's System";
           ./modules/intel/cpu.nix
           ./modules/hyperidle.nix
           ./modules/intel/gpu.nix
-          ./modules/intel/.nix
+          ./modules/intel/tlp.nix
           ./modules/enable/lidswitchsleep.nix
           ./modules/swapfile40.nix
           ./modules/virtualisation.nix
