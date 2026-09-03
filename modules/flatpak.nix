@@ -8,7 +8,6 @@
 
   services.flatpak.update.auto.enable = false;
   services.flatpak.uninstallUnmanaged = false;
-  services.flatpak.enable = true;
 
   # Add here the flatpaks you want to install
   services.flatpak.packages = [

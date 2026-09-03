@@ -206,22 +206,6 @@
         "type": "github"
       }
     },
-    "oldbitwig": {
-      "locked": {
-        "lastModified": 1728517921,
-        "narHash": "sha256-ffb3/yh6/pBbltHEuf28W3/UK9jE+3qD7nJcW5M7stA=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "27272c21afa6e506f8700f751b6bdec0dc8924c8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "27272c21afa6e506f8700f751b6bdec0dc8924c8",
-        "type": "github"
-      }
-    },
     "pre-commit": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -253,7 +237,6 @@
         "localpkgs": "localpkgs",
         "nix-flatpak": "nix-flatpak",
         "nixpkgs": "nixpkgs_2",
-        "oldbitwig": "oldbitwig",
         "stablepkgs": "stablepkgs",
         "unstablepkgs": "unstablepkgs"
       }

@@ -14,7 +14,6 @@ description = "Cozy's System";
     gitpkgs.url = "github:NixOS/nixpkgs/master";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
 
-    oldbitwig.url = "github:NixOS/nixpkgs/27272c21afa6e506f8700f751b6bdec0dc8924c8";
 
     # Upstream TLP source from GitHub
 
@@ -43,14 +42,13 @@ description = "Cozy's System";
     #};
   };
 
-  outputs = { nix-flatpak, localpkgs, chaotic, nixpkgs, gitpkgs, unstablepkgs, stablepkgs, oldbitwig, home-manager, lanzaboote , ... }@inputs:
+  outputs = { nix-flatpak, localpkgs, chaotic, nixpkgs, gitpkgs, unstablepkgs, stablepkgs, home-manager, lanzaboote , ... }@inputs:
     let
       system = "x86_64-linux"; # set your arch here, or use builtins.currentSystem
       stablePkgs = import stablepkgs { inherit system; };
       unstablePkgs = import unstablepkgs { inherit system; };
       gitPkgs = import gitpkgs { inherit system; };
       localpkgs = import gitpkgs { inherit system; };
-      oldBitwig = import oldbitwig { inherit system; config.allowUnfree = true; };
     in 
   {
 
@@ -67,13 +65,14 @@ description = "Cozy's System";
           /etc/nixos/hardware-configuration.nix
           ./base.nix
           ./home-manager.nix
-          ./modules/intel-boot.nix
           ./modules/flatpak.nix
           ./modules/ollama.nix
-          ./modules/intelgpu.nix
-          ./modules/intelcpu.nix
+          ./modules/intel/boot.nix
+          ./modules/intel/cpu.nix
+          ./modules/intel/gpu.nix
+          ./modules/intel/.nix
+          ./modules/enable/lidswitchsleep.nix
           ./modules/swapfile40.nix
-          ./modules/tlp-intel.nix
           ./modules/virtualisation.nix
           ./modules/podman.nix
           ./modules/alias.nix
@@ -111,23 +110,22 @@ description = "Cozy's System";
 
       rust = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit oldBitwig gitPkgs inputs; };
+        specialArgs = { inherit gitPkgs inputs; };
         modules = [
           home-manager.nixosModules.default
           chaotic.nixosModules.default 
           /etc/nixos/hardware-configuration.nix
           ./base.nix
           ./home-manager.nix
-          ./modules/amd-boot.nix
-          ./modules/docker.nix
-          ./modules/amdcpu.nix
-          ./modules/amdgpu.nix
+          ./modules/amd/boot.nix
+          ./modules/amd/cpu.nix
+          ./modules/amd/gpu.nix
+          ./modules/disable/lidonsleep.nix
           ./modules/alias.nix
           ./modules/ssh.nix
           ./modules/fhs.nix
           ./modules/language.nix
-          ./modules/tlp-amd.nix
-          ./modules/steam.nix
+          ./modules/amd/tlp.nix
           ./modules/fonts.nix
           ./modules/hyprland.nix
           ./modules/ly.nix
@@ -139,7 +137,6 @@ description = "Cozy's System";
 
             networking.hostName = "rust";
             environment.systemPackages = [
-              oldBitwig.bitwig-studio
             ];
             system.stateVersion = "26.05"; # Did you read the comment?
             home-manager.users.cozy.home = {
@@ -160,10 +157,11 @@ description = "Cozy's System";
           home-manager.nixosModules.default
           /etc/nixos/hardware-configuration.nix
           ./minimal.nix
-          ./modules/intel-boot.nix
-          ./modules/intelcpu.nix
-          ./modules/intelgpu.nix
-          ./modules/tlp-intel.nix
+          ./modules/intel/boot.nix
+          ./modules/intel/cpu.nix
+          ./modules/intel/gpu.nix
+          ./modules/intel/.nix
+          ./modules/disable/lidonsleep.nix
           ./modules/alias.nix
           ./modules/swapfile20.nix
           ./modules/fhs.nix

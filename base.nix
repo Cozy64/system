@@ -391,6 +391,7 @@ systemd.sleep.settings.Sleep = {
   };
 
   services = {
+    flatpak.enable = true;
 
 		
 		devmon.enable = true;
@@ -423,8 +424,6 @@ systemd.sleep.settings.Sleep = {
 			allowRiskyCriticalPowerAction = true;
     };
     logind.settings.Login = {
-			HandleLidSwitch="suspend-then-hibernate";
-			HandleLidSwitchExternalPower="suspend-then-hibernate";
 			HandleSuspendKey="suspend-then-hibernate";
 			HandlePowerKey="suspend-then-hibernate";
     };
