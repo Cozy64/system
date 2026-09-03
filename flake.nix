@@ -69,6 +69,7 @@ description = "Cozy's System";
           ./modules/ollama.nix
           ./modules/intel/boot.nix
           ./modules/intel/cpu.nix
+          ./modules/hyperidle.nix
           ./modules/intel/gpu.nix
           ./modules/intel/.nix
           ./modules/enable/lidswitchsleep.nix
