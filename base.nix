@@ -386,6 +386,7 @@ systemd.sleep.settings.Sleep = {
 
   security = {
     pam.services.login.enableGnomeKeyring = true; 
+    pam.services.ly.enableGnomeKeyring = true;
 		#soteria.enable = true;
     polkit.enable = true;
   };
@@ -397,6 +398,15 @@ systemd.sleep.settings.Sleep = {
 		devmon.enable = true;
 		gvfs.enable = true;
 		udisks2.enable = true;
+    dbus = { 
+      enable = true;
+    #  packages = with pkgs; [
+    #    gnome-keyring
+    #    gcr
+
+    #  ];
+    };
+    
 		#blueman.enable = true;
 		gnome.gnome-keyring.enable = true;
 		#dbus.implementation = "broker";

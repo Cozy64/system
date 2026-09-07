@@ -69,7 +69,7 @@ description = "Cozy's System";
           ./modules/ollama.nix
           ./modules/intel/boot.nix
           ./modules/intel/cpu.nix
-          ./modules/hyperidle.nix
+          ./modules/hypridle.nix
           ./modules/intel/gpu.nix
           ./modules/intel/tlp.nix
           ./modules/enable/lidswitchsleep.nix
@@ -84,8 +84,8 @@ description = "Cozy's System";
           ./modules/hyprland.nix
           #./modules/niri.nix
           ./modules/steam.nix
-          ./modules/ly.nix
           ./modules/bluetooth.nix
+          ./modules/ly.nix
           #./modules/zram.nix
           #./modules/printing.nix
 

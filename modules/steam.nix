@@ -13,6 +13,8 @@
 			gamescopeSession.enable = true;
       extraCompatPackages = with pkgs; [
         proton-ge-bin
+        proton-cachyos
+
       ];
 
     };

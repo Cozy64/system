@@ -5,7 +5,7 @@
 systemd.user.services.polkit-gnome-authentication-agent-1 = {
   Unit = {
     Description = "polkit-gnome-authentication-agent-1";
-    Wants = [ "graphical-session.target" ];
+    PartOf = [ "graphical-session.target" ];
     After = [ "graphical-session.target" ];
   };
   Install = {
@@ -31,6 +31,7 @@ systemd.user.services.polkit-gnome-authentication-agent-1 = {
               lines = 15;
               width = 25;
               line-height = 16;
+              launch-prefix = "uwsm app --";
               # Left empty parameters commented out as Nix requires explicit values
               # horizontal-pad = 0;
               # vertical-pad = 0;
@@ -68,7 +69,6 @@ systemd.user.services.polkit-gnome-authentication-agent-1 = {
 		
 		services = {
 
-      ssh-agent.enable = true;
 			dunst = {
 				enable = true;
           settings = {

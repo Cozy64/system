@@ -17,12 +17,12 @@
             #}
             {
               timeout = 60;
-              on-timeout = ''[ "$(tlpctl get)" = "power-saver" ] && hyprctl dispatch dpms off'';
+              on-timeout = "systemd-ac-power || hyprctl dispatch dpms off";
               on-resume = "hyprctl dispatch dpms on";
             }
             {
               timeout = 240; 
-              on-timeout = ''[ "$(tlpctl get)" = "power-saver" ] && systemctl suspend-then-hibernate'';
+              on-timeout = "systemd-ac-power || systemctl suspend-then-hibernate";
             }
           ];
         };

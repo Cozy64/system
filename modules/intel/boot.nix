@@ -2,7 +2,7 @@
 {
   boot = {
     kernel.sysctl = {
-      "vm.nr_hugepages" = 1024;
+      #"vm.nr_hugepages" = 1024;
     };
     supportedFilesystems = [ "ntfs" ];
   	kernelParams = [
@@ -12,9 +12,9 @@
       #"intel_iommu=on"
       "pcie_port_pm=off"
       "fbcon=font:TER8x16" 
-      #"default_hugepagesz=2M" 
-      #"hugepagesz=1G" 
-      #"hugepages=4"
+      "default_hugepagesz=2M" 
+      "hugepagesz=1G" 
+      "hugepages=4"
     ];
     initrd.kernelModules = [ 
       "i915"
