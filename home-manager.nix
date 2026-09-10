@@ -236,7 +236,7 @@ systemd.user.services.polkit-gnome-authentication-agent-1 = {
     };
     home = { 
       packages = with pkgs; [
-        gcr #for gnomekeystring apparently 
+        #gcr #for gnomekeystring apparently 
 
       ];
       pointerCursor = {
