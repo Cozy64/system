@@ -56,14 +56,15 @@ systemd.user.services.polkit-gnome-authentication-agent-1 = {
 
         };
       };
-  git = {
-    enable = true;
-    settings = {
-      credential = {
-        helper = "libsecret";
+      git = {
+        enable = true;
+        settings = {
+          credential = {
+            helper = "libsecret";
+          };
+        };
       };
-    };
-  };
+  
 
     };
 		

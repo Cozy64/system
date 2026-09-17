@@ -17,6 +17,7 @@ in
       #(ciscoPacketTracer9.overrideAttrs (old: { src = /home/cozy/packettracer/CiscoPacketTracer_900_Ubuntu_64bit.deb; }))
       #(ciscoPacketTracer9.override { packetTracerSource = /home/cozy/packettracer/CiscoPacketTracer_900_Ubuntu_64bit.deb; })
       #aseprite
+      vscode-fhs
       xxd
       expect
       solana-cli
@@ -108,7 +109,7 @@ in
       php
       blender
       prismlauncher
-      mysql-workbench
+      #mysql-workbench
       #go
       #zed-editor
       google-chrome
@@ -196,8 +197,8 @@ in
     ];
 		variables = {
 		BEMENU_OPTS="-b -p '>' --fn 16 --bdr '#FFFFFF' --ab '#000000' --af '#666666' --nb '#000000' --nf '#666666' --tb '#000000' --tf '#FFFFFF' --fb '#000000' --ff '#FFFFFF' --hb '#000000dd' --hf '#FFFFFF'";
-		ANDROID_HOME="/home/cozy/Android/Sdk";
-		PATH="/home/cozy/.cargo/bin:/home/cozy/.local/bin:/home/cozy/.deno/bin:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$PATH";
+		ANDROID_HOME="$HOME/Android/Sdk";
+		PATH="$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.deno/bin:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$HOME/.pub-cache/bin:$HOME/.npm-global/bin:$PATH";
     #GSETTINGS_SCHEMA_DIR="${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}/glib-2.0/schemas";
 	  #LD_LIBRARY_PATH = lib.mkForce"$NIX_LD_LIBRARY_PATH:$LD_LIBRARY_PATH";	
 		XDG_RUNTIME_DIR = "/run/user/$UID";
