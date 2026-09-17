@@ -92,7 +92,7 @@ PanelWindow {
             "?apikey=" + encodeURIComponent(root.apiKey) +
             "&language=en" +
             "&removeduplicate=1" +
-            "&coin=btc,sol,eth" +
+            "&coin=btc,sol,eth,xmr" +
             "&prioritydomain=top" 
         ]
 
