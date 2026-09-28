@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import Quickshell.Io
+import Quickshell.Wayland
 
 PanelWindow {
     id: root
@@ -11,13 +12,14 @@ PanelWindow {
         { title: "Loading financial news...", link: "" }
     ]
     readonly property string newsCachePath: "/tmp/quickshell-news.txt"
-
     anchors.top: true
     anchors.left: true
     anchors.right: true
-
+    WlrLayershell.margins.top: 34
+    WlrLayershell.layer: WlrLayer.Top
+    WlrLayershell.aboveWindows: true
     implicitHeight: 32
-    exclusiveZone: implicitHeight
+    WlrLayershell.exclusionMode: ExclusionMode.Ignore
     color: "transparent"
 
     function cacheNews() {
