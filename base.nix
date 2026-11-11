@@ -17,17 +17,18 @@ in
       #(ciscoPacketTracer9.overrideAttrs (old: { src = /home/cozy/packettracer/CiscoPacketTracer_900_Ubuntu_64bit.deb; }))
       #(ciscoPacketTracer9.override { packetTracerSource = /home/cozy/packettracer/CiscoPacketTracer_900_Ubuntu_64bit.deb; })
       #aseprite
+      upower-notify
       firefox-bin
-      vscode-fhs
+      #vscode-fhs
       xxd
       expect
-      solana-cli
-      openssl_4_0
+      #solana-cli
       firebase-tools
       trash-cli
       jq
       cliphist
       polkit_gnome
+      protontricks
       gitkraken
       libsecret
       claude-code
@@ -89,8 +90,6 @@ in
       ngrok
       kdePackages.filelight
       awww
-      pywal
-      matugen
       pcmanfm
       waybar
       #bottles
@@ -105,7 +104,7 @@ in
       wf-recorder
       hyprpaper
       selectdefaultapplication
-      tradingview
+      #tradingview
       gitkraken
       php
       blender

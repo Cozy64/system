@@ -6,7 +6,7 @@
     
 		tlp = {
       pd.enable = true;
-      #pd.package = lpkgs.tlp-pd;
+      #pd.package = pkgs.tlp-pd;
       #package = pkgs.tlp.override { enableRDW = config.networking.networkmanager.enable; };
 			enable = true;
 			settings = {
@@ -80,10 +80,10 @@
 				CPU_HWP_DYN_BOOST_ON_SAV=0; 
 				CPU_MIN_PERF_ON_AC=0; 
 				CPU_MAX_PERF_ON_AC=100; 
-				CPU_MIN_PERF_ON_BAT=0; 
-				CPU_MAX_PERF_ON_BAT=20; 
-				CPU_MIN_PERF_ON_SAV=0; 
-				CPU_MAX_PERF_ON_SAV=20; 
+				#CPU_MIN_PERF_ON_BAT=0; 
+				#CPU_MAX_PERF_ON_BAT=20; 
+				#CPU_MIN_PERF_ON_SAV=0; 
+				#CPU_MAX_PERF_ON_SAV=20; 
 
 			};
 		};

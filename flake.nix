@@ -66,7 +66,7 @@ description = "Cozy's System";
           ./base.nix
           ./home-manager.nix
           ./modules/flatpak.nix
-          ./modules/ollama.nix
+          #./modules/ollama.nix
           ./modules/intel/boot.nix
           ./modules/intel/cpu.nix
           ./modules/hypridle.nix

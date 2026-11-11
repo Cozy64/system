@@ -7,15 +7,24 @@ PanelWindow {
     id: root
 
     property string apiKey: ""
-    property string newsText: "Loading financial news..."
+    property string endpoint: "crypto"
+    property string apiQuery: "&coin=xmr,btc,sol&language=en&removeduplicate=1&prioritydomain=top"
+    property string additionalEndpoint: "latest"
+    property string additionalApiQuery: "&country=my&language=en&removeduplicate=1&prioritydomain=top"
+    property string initialMessage: "Loading financial news..."
+    property string newsText: initialMessage
     property var newsItems: [
-        { title: "Loading financial news...", link: "" }
+        { title: initialMessage, link: "" }
     ]
-    readonly property string newsCachePath: "/tmp/quickshell-news.txt"
+    property string newsCachePath: "/tmp/quickshell-news.txt"
+    property int pendingRequests: 0
+    property var fetchedItems: []
+    property var requestErrors: []
+    property int topMargin: 34
     anchors.top: true
     anchors.left: true
     anchors.right: true
-    WlrLayershell.margins.top: 34
+    WlrLayershell.margins.top: root.topMargin
     WlrLayershell.layer: WlrLayer.Top
     WlrLayershell.aboveWindows: true
     implicitHeight: 32
@@ -84,27 +93,92 @@ PanelWindow {
             return
         }
 
-        fetchProcess.output = ""
-        fetchProcess.errorOutput = ""
+        if (fetchProcess.running || additionalFetchProcess.running)
+            return
 
-        fetchProcess.command = [
-            "curl",
-            "-s",
-            "https://newsdata.io/api/1/crypto" +
-            "?apikey=" + encodeURIComponent(root.apiKey) +
-            "&language=en" +
-            "&removeduplicate=1" +
-            "&coin=btc,sol,eth,xmr" +
-            "&prioritydomain=top" 
-        ]
-
-        fetchProcess.running = true
+        root.pendingRequests = 2
+        root.fetchedItems = []
+        root.requestErrors = []
+        root.startRequest(fetchProcess, root.endpoint, root.apiQuery)
+        root.startRequest(additionalFetchProcess, root.additionalEndpoint, root.additionalApiQuery)
     }
 
-    // Update every 10 minutes
+    function startRequest(process, requestEndpoint, requestQuery) {
+        process.output = ""
+        process.errorOutput = ""
+        process.command = [
+            "curl",
+            "-s",
+            "https://newsdata.io/api/1/" + requestEndpoint +
+            "?apikey=" + encodeURIComponent(root.apiKey) +
+            requestQuery
+        ]
+        process.running = true
+    }
+
+    function handleRequestResponse(output, errorOutput) {
+        var responseError = ""
+
+        if (output.length > 0) {
+            try {
+                var json = JSON.parse(output)
+
+                if (json.results && json.results.length > 0) {
+                    for (var i = 0; i < json.results.length; i++) {
+                        var title = json.results[i].title || "Untitled article"
+                        var link = json.results[i].link || ""
+                        var duplicate = false
+
+                        for (var j = 0; j < root.fetchedItems.length; j++) {
+                            var existing = root.fetchedItems[j]
+                            if ((link.length > 0 && existing.link === link) || existing.title === title) {
+                                duplicate = true
+                                break
+                            }
+                        }
+
+                        if (!duplicate)
+                            root.fetchedItems.push({ title: "◆  " + title, link: link })
+                    }
+                } else if (json.status === "error" || json.message) {
+                    responseError = json.message || "Unknown NewsData error"
+                }
+            } catch (e) {
+                responseError = "Invalid NewsData response: " + e
+            }
+        } else if (errorOutput.trim().length > 0) {
+            responseError = errorOutput.trim()
+        }
+
+        if (responseError.length > 0)
+            root.requestErrors.push(responseError)
+
+        root.pendingRequests--
+        if (root.pendingRequests === 0) {
+            if (root.fetchedItems.length > 0) {
+                root.setNewsItems(root.fetchedItems)
+            } else if (root.requestErrors.length > 0) {
+                console.log("NewsData API errors:", root.requestErrors.join("; "))
+                root.setNewsMessage("News API error: " + root.requestErrors[0])
+            } else {
+                root.setNewsMessage("No news at the moment")
+            }
+        }
+    }
+
+    // Update every 20 minutes
     Timer {
-        interval: 10 * 60 * 1000
+        interval: 20 * 60 * 1000
         running: true
+        repeat: true
+        triggeredOnStart: false
+
+        onTriggered: root.fetchNews()
+    }
+
+    Timer {
+        interval: 60 * 1000
+        running: root.newsText === "No news at the moment"
         repeat: true
         triggeredOnStart: false
 
@@ -132,44 +206,39 @@ PanelWindow {
         }
 
         onRunningChanged: {
-            if (!running && output.length > 0) {
-                try {
-                    var json = JSON.parse(output)
-
-                    if (json.results && json.results.length > 0) {
-                        var items = []
-
-                        for (var i = 0; i < json.results.length; i++) {
-                            var title = json.results[i].title || "Untitled article"
-                            var link = json.results[i].link || ""
-                            var displayTitle = "◆  " + title
-                            items.push({ title: displayTitle, link: link })
-                        }
-
-                        root.setNewsItems(items)
-
-                    } else if (json.status === "error" || json.message) {
-                        var apiError = json.message || "Unknown NewsData error"
-                        console.log("NewsData API error:", apiError)
-                        root.setNewsMessage("News API error: " + apiError)
-                    } else {
-                        console.log("NewsData returned no articles")
-                        root.setNewsMessage("No news at the moment")
-                    }
-
-                } catch (e) {
-                    console.log("NewsData JSON error:", e)
-                    root.setNewsMessage("News response error: " + e)
-                }
-
+            if (!running) {
+                root.handleRequestResponse(output, errorOutput)
                 output = ""
-            } else if (!running) {
-                var curlError = errorOutput.trim()
-                root.setNewsMessage(
-                    curlError.length > 0
-                        ? "News request error: " + curlError
-                        : "No news at the moment"
-                )
+                errorOutput = ""
+            }
+        }
+    }
+
+    Process {
+        id: additionalFetchProcess
+
+        property string output: ""
+        property string errorOutput: ""
+
+        command: ["true"]
+
+        stdout: SplitParser {
+            onRead: data => {
+                additionalFetchProcess.output += data
+            }
+        }
+
+        stderr: SplitParser {
+            onRead: data => {
+                additionalFetchProcess.errorOutput += data
+            }
+        }
+
+        onRunningChanged: {
+            if (!running) {
+                root.handleRequestResponse(output, errorOutput)
+                output = ""
+                errorOutput = ""
             }
         }
     }
@@ -266,7 +335,7 @@ PanelWindow {
                     from: 0
                     to: -tickerContent.width
 
-                    duration: tickerContent.width * 18
+                    duration: tickerContent.width * 14
 
                     easing.type: Easing.Linear
                 }
